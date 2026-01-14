@@ -43,7 +43,9 @@ const UI01Footer = () => {
                     </div>
                 </div>
                 <div className="pt-8 border-t border-slate-800 text-xs text-center md:text-left flex flex-col md:flex-row justify-between items-center">
-                    <p>&copy; {currentYear} MintFlow. All rights reserved.</p>
+                    <div className="flex flex-col md:flex-row gap-2">
+                        <p>&copy; {currentYear} CORE3. Designed by Kaustubh Ghadshi - 8451851439</p>
+                    </div>
                     <div className="mt-4 md:mt-0 flex space-x-4">
                         <a href="#" className="hover:text-white transition-colors">Twitter</a>
                         <a href="#" className="hover:text-white transition-colors">LinkedIn</a>

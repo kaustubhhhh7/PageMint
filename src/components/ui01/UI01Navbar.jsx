@@ -24,7 +24,7 @@ const UI01Navbar = () => {
     ];
 
     return (
-        <nav className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-white'}`}>
+        <nav className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-white shadow-md'}`}>
             <Container>
                 <div className="flex justify-between items-center h-20">
                     {/* Logo */}

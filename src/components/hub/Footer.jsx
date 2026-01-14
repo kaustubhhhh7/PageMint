@@ -15,7 +15,7 @@ const Footer = () => {
                         </p>
                     </div>
                     <div className="text-gray-400 text-sm">
-                        &copy; {new Date().getFullYear()} PageMint. Built with React + Tailwind.
+                        &copy; {new Date().getFullYear()} CORE3. Designed by Kaustubh Ghadshi - 8451851439
                     </div>
                 </div>
             </Container>

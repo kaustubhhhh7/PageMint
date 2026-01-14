@@ -14,7 +14,7 @@ const Home = () => {
             <main className="pt-24 pb-16 lg:pt-32 lg:pb-24">
                 <Container>
                     <div className="text-center max-w-4xl mx-auto">
-                        <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase mb-4">
+                        <p className="text-xl font-bold tracking-[0.25em] text-slate-400 uppercase mb-4">
                             CORE3
                         </p>
                         <h1 className="text-5xl font-extrabold tracking-tight text-gray-900 sm:text-6xl mb-6">
