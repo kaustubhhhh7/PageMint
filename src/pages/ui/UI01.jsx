@@ -7,6 +7,7 @@ import UI01Testimonials from '../../components/ui01/UI01Testimonials';
 import UI01FAQ from '../../components/ui01/UI01FAQ';
 import UI01Contact from '../../components/ui01/UI01Contact';
 import UI01Footer from '../../components/ui01/UI01Footer';
+import BackToHub from '../../components/common/BackToHub';
 
 const UI01 = () => {
     return (
@@ -21,6 +22,7 @@ const UI01 = () => {
                 <UI01Contact />
             </div>
             <UI01Footer />
+            <BackToHub />
         </div>
     );
 };

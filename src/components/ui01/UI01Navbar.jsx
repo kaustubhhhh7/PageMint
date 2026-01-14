@@ -45,14 +45,6 @@ const UI01Navbar = () => {
                                 {link.name}
                             </a>
                         ))}
-                        <div className="flex items-center space-x-4 pl-4 border-l border-slate-200">
-                            <Link to="/" className="text-sm font-medium text-slate-500 hover:text-indigo-600">
-                                Back to Hub
-                            </Link>
-                            <Button variant="primary" className="py-2 px-4 shadow-indigo-200 shadow-lg hover:shadow-indigo-300">
-                                Get Started
-                            </Button>
-                        </div>
                     </div>
 
                     {/* Mobile Menu Button */}
