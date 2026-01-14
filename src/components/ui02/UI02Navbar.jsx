@@ -46,8 +46,8 @@ const UI02Navbar = () => {
     return (
         <nav
             className={`sticky top-0 z-50 transition-all duration-300 ease-in-out border-b ${scrolled
-                    ? 'bg-stone-50/95 backdrop-blur-md shadow-md border-stone-200 py-2'
-                    : 'bg-transparent border-transparent py-5'
+                ? 'bg-stone-50/95 backdrop-blur-md shadow-md border-stone-200 py-2'
+                : 'bg-transparent border-transparent py-5'
                 }`}
         >
             <Container>
@@ -120,8 +120,8 @@ const UI02Navbar = () => {
                                 href={link.href}
                                 onClick={() => setIsOpen(false)}
                                 className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${activeSection === link.href.substring(1)
-                                        ? 'text-orange-600 bg-orange-50'
-                                        : 'text-stone-700 hover:text-orange-600 hover:bg-stone-100'
+                                    ? 'text-orange-600 bg-orange-50'
+                                    : 'text-stone-700 hover:text-orange-600 hover:bg-stone-100'
                                     }`}
                             >
                                 {link.name}

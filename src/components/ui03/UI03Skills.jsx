@@ -1,76 +1,90 @@
 import React, { useState } from 'react';
 
 const UI03Skills = () => {
-    const [activeSkill, setActiveSkill] = useState(null);
+    const [hoveredCategory, setHoveredCategory] = useState(null);
 
-    const skillChips = [
-        { name: 'React', desc: 'Building complex single-page applications.' },
-        { name: 'Tailwind CSS', desc: 'Rapidly styling responsive interfaces.' },
-        { name: 'Node.js', desc: 'Backend logic and API development.' },
-        { name: 'SQL', desc: 'Database management and complex queries.' },
-        { name: 'Git', desc: 'Version control and team collaboration.' },
-        { name: 'JavaScript', desc: 'Core logic and dynamic interactions.' },
-        { name: 'TypeScript', desc: 'Type-safe code for scalable apps.' },
-        { name: 'Figma', desc: 'UI/UX prototyping and design systems.' }
-    ];
-
-    const skillCards = [
-        { name: 'Frontend Development', percentage: 90, color: 'bg-indigo-500' },
-        { name: 'UI/UX Design', percentage: 80, color: 'bg-purple-500' },
-        { name: 'Backend Logic', percentage: 70, color: 'bg-blue-500' },
-        { name: 'Database Architecture', percentage: 75, color: 'bg-green-500' },
-        { name: 'DevOps Basics', percentage: 40, color: 'bg-orange-500' },
-        { name: 'Problem Solving', percentage: 95, color: 'bg-pink-500' },
+    const skillCategories = [
+        {
+            id: 'frontend',
+            title: 'Frontend Mastery',
+            description: 'Crafting pixel-perfect, responsive, and accessible user interfaces.',
+            skills: ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion', 'TypeScript', 'Redux', 'HTML5/CSS3'],
+            color: 'from-indigo-500 to-purple-600',
+            bg: 'bg-indigo-50'
+        },
+        {
+            id: 'backend',
+            title: 'Backend & API',
+            description: 'Building robust, scalable server-side logic and database architectures.',
+            skills: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'GraphQL', 'Firebase', 'REST'],
+            color: 'from-blue-500 to-cyan-500',
+            bg: 'bg-blue-50'
+        },
+        {
+            id: 'design',
+            title: 'UI/UX Design',
+            description: 'Translating user needs into intuitive and beautiful visual experiences.',
+            skills: ['Figma', 'Adobe XD', 'Prototyping', 'User Research', 'Wireframing', 'Design Systems'],
+            color: 'from-pink-500 to-rose-500',
+            bg: 'bg-pink-50'
+        },
+        {
+            id: 'tools',
+            title: 'DevOps & Tools',
+            description: 'Streamlining development workflows and deployment pipelines.',
+            skills: ['Git', 'Docker', 'AWS', 'CI/CD', 'Jest', 'Webpack', 'Vercel'],
+            color: 'from-emerald-500 to-teal-500',
+            bg: 'bg-emerald-50'
+        }
     ];
 
     return (
-        <section id="skills" className="py-24 bg-slate-50">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <h2 className="text-sm font-bold text-indigo-600 uppercase tracking-widest mb-3">Expertise</h2>
-                    <h3 className="text-3xl lg:text-4xl font-bold text-slate-900">
-                        Tools & Technologies
-                    </h3>
+        <section id="skills" className="py-32 bg-slate-50 relative overflow-hidden">
+            {/* Ambient Background */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-100/40 rounded-full blur-[120px] pointer-events-none"></div>
+
+            <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+                <div className="flex flex-col md:flex-row items-end justify-between mb-20">
+                    <div className="max-w-2xl">
+                        <h2 className="text-sm font-bold text-indigo-600 uppercase tracking-widest mb-3 pl-1">Expertise</h2>
+                        <h3 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-6">
+                            A versatile toolset for <br className="hidden md:block" />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">modern problems.</span>
+                        </h3>
+                        <p className="text-lg text-slate-500 leading-relaxed">
+                            I specialize in the JavaScript ecosystem, but I'm constantly exploring new technologies to build faster, reliable, and more engaging applications.
+                        </p>
+                    </div>
                 </div>
 
-                {/* Skill Chips */}
-                <div className="flex flex-wrap justify-center gap-3 mb-12 max-w-4xl mx-auto">
-                    {skillChips.map((skill) => (
-                        <button
-                            key={skill.name}
-                            onClick={() => setActiveSkill(skill.name === activeSkill ? null : skill.name)}
-                            className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 border ${activeSkill === skill.name
-                                    ? 'bg-indigo-600 text-white border-indigo-600 shadow-lg shadow-indigo-200'
-                                    : 'bg-white text-slate-600 border-slate-200 hover:border-indigo-300 hover:text-indigo-600 hover:shadow-md'
-                                }`}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                    {skillCategories.map((category) => (
+                        <div
+                            key={category.id}
+                            onMouseEnter={() => setHoveredCategory(category.id)}
+                            onMouseLeave={() => setHoveredCategory(null)}
+                            className={`group relative bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden ${hoveredCategory === category.id ? '-translate-y-1' : ''}`}
                         >
-                            {skill.name}
-                        </button>
-                    ))}
-                </div>
+                            {/* Decorative Gradient Blob */}
+                            <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${category.color} opacity-5 rounded-full blur-[60px] transform translate-x-1/2 -translate-y-1/2 transition-opacity duration-500 group-hover:opacity-10`}></div>
 
-                {/* Dynamic Description Area */}
-                <div className={`text-center mb-20 transition-all duration-500 overflow-hidden ${activeSkill ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'}`}>
-                    <p className="text-lg text-slate-700 font-medium inline-block bg-white px-8 py-3 rounded-xl shadow-sm border border-slate-100">
-                        <span className="text-indigo-600 font-bold mr-2">{activeSkill}:</span>
-                        {skillChips.find(s => s.name === activeSkill)?.desc}
-                    </p>
-                </div>
+                            <div className="relative z-10">
+                                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-2xl mb-6 ${category.bg}`}>
+                                    <div className={`w-3 h-3 rounded-full bg-gradient-to-br ${category.color}`}></div>
+                                </div>
 
-                {/* Progress Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {skillCards.map((card, index) => (
-                        <div key={index} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition-shadow duration-300 group">
-                            <div className="flex justify-between items-end mb-4">
-                                <h4 className="font-bold text-slate-800 text-lg">{card.name}</h4>
-                                <span className="text-sm font-semibold text-slate-400 group-hover:text-slate-900 transition-colors">{card.percentage}%</span>
-                            </div>
-                            <div className="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
-                                <div
-                                    className={`h-2.5 rounded-full ${card.color} w-[0%] group-hover:w-[${card.percentage}%] transition-all duration-1000 ease-out`}
-                                    style={{ width: `${card.percentage}%` }}
-                                >
-                                    <div className={`w-full h-full animate-pulse opacity-50`}></div>
+                                <h4 className="text-2xl font-bold text-slate-900 mb-3">{category.title}</h4>
+                                <p className="text-slate-500 mb-8 leading-relaxed h-12">{category.description}</p>
+
+                                <div className="flex flex-wrap gap-2">
+                                    {category.skills.map((skill) => (
+                                        <span
+                                            key={skill}
+                                            className="px-4 py-2 bg-slate-50 border border-slate-100 rounded-xl text-sm font-medium text-slate-600 group-hover:border-indigo-100 group-hover:bg-white group-hover:text-indigo-600 transition-all duration-300 shadow-sm"
+                                        >
+                                            {skill}
+                                        </span>
+                                    ))}
                                 </div>
                             </div>
                         </div>

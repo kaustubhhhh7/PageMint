@@ -1,83 +1,79 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 
 const UI03Experience = () => {
-    const timelineRef = useRef(null);
-
     const timelineData = [
         {
-            year: '2024 - Present',
-            title: 'UI & System Design',
+            year: 'Now',
+            title: 'UI & System Designer',
+            company: 'Freelance / Open Source',
             desc: 'Focusing on building scalable design systems and polished user interfaces. contributing to open source projects.',
             active: true,
+            color: 'bg-indigo-500'
         },
         {
             year: '2023',
-            title: 'Hackathons & Competitions',
+            title: 'Frontend Developer',
+            company: 'Tech Solutions Inc.',
             desc: 'Participated in multiple hackathons, building rapid prototypes and learning to work under pressure.',
             active: false,
+            color: 'bg-blue-500'
         },
         {
             year: '2022',
-            title: 'Building Projects',
+            title: 'Junior Developer',
+            company: 'Startup Hub',
             desc: 'Started building full-stack applications using the MERN stack. Created my first significant personal projects.',
             active: false,
+            color: 'bg-emerald-500'
         },
         {
             year: '2021',
-            title: 'Started Web Dev',
+            title: 'The Beginning',
+            company: 'Self-Taught',
             desc: 'Wrote my first line of HTML. Fell in love with the ability to create things from nothing.',
             active: false,
+            color: 'bg-amber-500'
         },
     ];
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('opacity-100', 'translate-x-0');
-                        entry.target.classList.remove('opacity-0', '-translate-x-10');
-                    }
-                });
-            },
-            { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-        );
-
-        const items = document.querySelectorAll('.timeline-item');
-        items.forEach((item) => observer.observe(item));
-
-        return () => items.forEach((item) => observer.unobserve(item));
-    }, []);
-
     return (
-        <section id="experience" className="py-24 bg-slate-50 overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <h2 className="text-sm font-bold text-indigo-600 uppercase tracking-widest mb-3">Journey</h2>
-                    <h3 className="text-3xl lg:text-4xl font-bold text-slate-900">My Path So Far</h3>
+        <section id="experience" className="py-24 bg-white relative overflow-hidden">
+            {/* Background Blob */}
+            <div className="absolute top-[20%] right-[-10%] w-[600px] h-[600px] bg-slate-50 rounded-full blur-[100px] pointer-events-none"></div>
+
+            <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+                <div className="flex flex-col md:flex-row justify-between items-end mb-16">
+                    <div>
+                        <h2 className="text-sm font-bold text-indigo-600 uppercase tracking-widest mb-3 pl-1">Journey</h2>
+                        <h3 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">My Path So Far</h3>
+                    </div>
                 </div>
 
-                <div className="relative max-w-3xl mx-auto" ref={timelineRef}>
-                    {/* Vertical Line */}
-                    <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-slate-200 md:left-1/2 md:-ml-0.5"></div>
-
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
                     {timelineData.map((item, index) => (
                         <div
                             key={index}
-                            className={`timeline-item flex flex-col md:flex-row gap-8 mb-12 relative opacity-0 -translate-x-10 transition-all duration-700 ease-out`}
-                            style={{ transitionDelay: `${index * 200}ms` }}
+                            className={`group md:even:translate-y-16 transition-all duration-500`}
                         >
-                            {/* Dot */}
-                            <div className={`absolute left-8 -ml-3 md:left-1/2 md:-ml-3 w-6 h-6 rounded-full border-4 border-white ${item.active ? 'bg-indigo-600 shadow-[0_0_0_4px_rgba(79,70,229,0.2)]' : 'bg-slate-300'}`}></div>
-
-                            {/* Content - Alternating sides on desktop */}
-                            <div className={`pl-20 md:pl-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:translate-x-full md:pl-12'}`}>
-                                <div className={`bg-white p-6 rounded-2xl shadow-sm border border-slate-100 transition-all hover:shadow-md ${item.active ? 'border-indigo-100 ring-1 ring-indigo-50' : ''}`}>
-                                    <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold mb-3 ${item.active ? 'bg-indigo-100 text-indigo-700' : 'bg-slate-100 text-slate-500'}`}>
+                            <div className="relative bg-white p-8 rounded-[2rem] border border-slate-100 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-5px_rgba(0,0,0,0.1)] hover:-translate-y-2 transition-all duration-300">
+                                <div className="flex justify-between items-start mb-6">
+                                    <div className={`px-4 py-1.5 rounded-full text-xs font-bold text-white uppercase tracking-wider ${item.color} shadow-lg shadow-indigo-100`}>
                                         {item.year}
-                                    </span>
-                                    <h4 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h4>
-                                    <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+                                    </div>
+                                    {item.active && (
+                                        <span className="flex h-3 w-3 relative">
+                                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                            <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                                        </span>
+                                    )}
+                                </div>
+
+                                <h4 className="text-2xl font-bold text-slate-900 mb-1">{item.title}</h4>
+                                <h5 className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-4">{item.company}</h5>
+                                <p className="text-slate-600 leading-relaxed font-light">{item.desc}</p>
+
+                                <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-x-4 group-hover:translate-x-0">
+                                    <svg className="w-6 h-6 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                                 </div>
                             </div>
                         </div>

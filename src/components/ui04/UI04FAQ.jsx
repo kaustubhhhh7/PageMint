@@ -1,0 +1,50 @@
+import React, { useState } from 'react';
+
+const UI04FAQ = () => {
+    const [openIndex, setOpenIndex] = useState(0);
+
+    const faqs = [
+        { q: "Is there a free trial?", a: "Yes! We offer a 7-day free trial with full access to all programs and features. No commitment required." },
+        { q: "Can beginners join?", a: "Absolutely. Our 'Beginner Bootcamp' and 'Foundation' tracks are specifically designed to build your confidence and technique from scratch." },
+        { q: "Do you provide diet plans?", a: "Yes. Every subscription includes access to our nutrition database and general meal guides tailored to your goal (Fat Loss or Muscle Gain)." },
+        { q: "Can I cancel anytime?", a: "We believe in earning your loyalty, not locking you in. You can cancel your subscription instantly from your dashboard settings." },
+        { q: "Are the trainers certified?", a: "Every coach on IronPulse holds elite-level certifications (CSCS, NASM, etc.) and has verified experience training clients." }
+    ];
+
+    return (
+        <section id="faq" className="py-24 bg-white">
+            <div className="max-w-3xl mx-auto px-6 lg:px-8">
+                <h2 className="text-4xl font-black text-slate-900 italic tracking-tighter mb-12 text-center">
+                    GOT <span className="text-orange-600 decoration-black underline decoration-4 underline-offset-4">QUESTIONS?</span>
+                </h2>
+
+                <div className="space-y-4">
+                    {faqs.map((faq, index) => (
+                        <div
+                            key={index}
+                            className={`border-2 rounded-2xl overflow-hidden transition-all duration-300 ${openIndex === index ? 'border-orange-500 bg-orange-50/30' : 'border-slate-100 bg-white hover:border-slate-200'}`}
+                        >
+                            <button
+                                onClick={() => setOpenIndex(index === openIndex ? null : index)}
+                                className="w-full flex items-center justify-between p-6 text-left"
+                            >
+                                <span className="font-bold text-lg text-slate-900">{faq.q}</span>
+                                <span className={`w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center transition-transform duration-300 ${openIndex === index ? 'rotate-45 bg-orange-100 text-orange-600' : ''}`}>
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4"></path></svg>
+                                </span>
+                            </button>
+
+                            <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
+                                <div className="p-6 pt-0 text-slate-600 leading-relaxed font-medium">
+                                    {faq.a}
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default UI04FAQ;
