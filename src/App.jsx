@@ -12,10 +12,12 @@ import UI07 from './pages/ui/UI07';
 import UI08 from './pages/ui/UI08';
 import UI09 from './pages/ui/UI09';
 import UI10 from './pages/ui/UI10';
+import ScrollToTop from './components/common/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ui/01" element={<UI01 />} />

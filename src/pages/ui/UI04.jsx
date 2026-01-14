@@ -7,10 +7,11 @@ import UI04Plans from '../../components/ui04/UI04Plans';
 import UI04Transformations from '../../components/ui04/UI04Transformations';
 import UI04FAQ from '../../components/ui04/UI04FAQ';
 import UI04Footer from '../../components/ui04/UI04Footer';
+import BackToHub from '../../components/common/BackToHub';
 
 const UI04 = () => {
     return (
-        <div className="bg-black min-h-screen font-sans text-slate-200 selection:bg-orange-500 selection:text-white">
+        <div className="bg-slate-950 min-h-screen font-sans text-slate-200 selection:bg-orange-500 selection:text-white">
             <UI04Navbar />
             <main>
                 <div id="ui04-hero">
@@ -23,6 +24,7 @@ const UI04 = () => {
                 <UI04FAQ />
             </main>
             <UI04Footer />
+            <BackToHub />
         </div>
     );
 };

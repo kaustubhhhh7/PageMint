@@ -2,7 +2,7 @@ import React from 'react';
 
 const UI04Footer = () => {
     return (
-        <footer className="bg-black text-white pt-24 pb-12 border-t border-white/10 relative">
+        <footer className="bg-slate-950 text-white pt-24 pb-12 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-500 via-red-600 to-orange-500"></div>
 
             <div className="max-w-7xl mx-auto px-6 lg:px-8">

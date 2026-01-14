@@ -54,9 +54,9 @@ const UI04Navbar = () => {
 
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${scrolled
-                    ? 'bg-black/80 backdrop-blur-md border-white/10 py-3 shadow-lg shadow-orange-500/5'
-                    : 'bg-gradient-to-b from-black/80 to-transparent backdrop-blur-[2px] border-transparent py-5'
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
+                ? 'bg-slate-950/60 backdrop-blur-xl border-b border-white/5 py-4 shadow-xl shadow-black/20 supports-[backdrop-filter]:bg-slate-950/40'
+                : 'bg-transparent backdrop-blur-[2px] py-6'
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -92,9 +92,6 @@ const UI04Navbar = () => {
 
                     {/* Right CTA */}
                     <div className="hidden md:flex items-center gap-4">
-                        <Link to="/" className="text-xs font-bold uppercase text-slate-500 hover:text-white transition-colors">
-                            Back to Hub
-                        </Link>
                         <button className="px-6 py-2.5 bg-white text-black text-sm font-bold uppercase tracking-wider skew-x-[-10deg] hover:bg-orange-500 hover:text-white hover:shadow-[0_0_20px_rgba(249,115,22,0.5)] transition-all duration-300 group">
                             <span className="inline-block skew-x-[10deg]">Join Now</span>
                         </button>
@@ -115,7 +112,7 @@ const UI04Navbar = () => {
             </div>
 
             {/* Mobile Menu */}
-            <div className={`md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-md border-b border-white/10 shadow-2xl transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+            <div className={`md:hidden absolute top-full left-0 w-full bg-slate-950/90 backdrop-blur-xl border-b border-white/10 shadow-2xl transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
                 <div className="px-6 py-6 flex flex-col space-y-4">
                     {navLinks.map((link) => (
                         <a

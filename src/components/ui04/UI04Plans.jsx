@@ -28,7 +28,7 @@ const UI04Plans = () => {
     ];
 
     return (
-        <section id="plans" className="py-24 bg-black relative border-t border-white/5">
+        <section id="plans" className="py-24 bg-slate-950 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
                 {/* Header & Toggle */}

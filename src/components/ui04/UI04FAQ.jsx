@@ -12,7 +12,10 @@ const UI04FAQ = () => {
     ];
 
     return (
-        <section id="faq" className="py-24 bg-black border-t border-white/5">
+        <section id="faq" className="py-24 bg-slate-950 relative overflow-hidden">
+            {/* Blend Glow */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-px bg-gradient-to-r from-transparent via-slate-500/10 to-transparent"></div>
+            <div className="absolute top-[-100px] right-[-100px] w-[400px] h-[400px] bg-slate-800/10 blur-[100px] rounded-full pointer-events-none"></div>
             <div className="max-w-3xl mx-auto px-6 lg:px-8">
                 <h2 className="text-4xl font-black text-white italic tracking-tighter mb-12 text-center">
                     GOT <span className="text-orange-500 decoration-slate-800 underline decoration-4 underline-offset-4">QUESTIONS?</span>
@@ -22,7 +25,7 @@ const UI04FAQ = () => {
                     {faqs.map((faq, index) => (
                         <div
                             key={index}
-                            className={`border transition-all duration-300 rounded-2xl overflow-hidden ${openIndex === index ? 'border-orange-500 bg-slate-900' : 'border-white/10 bg-black hover:border-white/20'}`}
+                            className={`border transition-all duration-300 rounded-2xl overflow-hidden ${openIndex === index ? 'border-orange-500 bg-slate-800' : 'border-white/10 bg-white/5 hover:border-white/20'}`}
                         >
                             <button
                                 onClick={() => setOpenIndex(index === openIndex ? null : index)}

@@ -13,7 +13,10 @@ const UI04Programs = () => {
     ];
 
     return (
-        <section id="programs" className="py-24 bg-black relative border-t border-white/5">
+        <section id="programs" className="py-24 bg-slate-950 relative overflow-hidden">
+            {/* Blend Glow between Hero and Programs */}
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-orange-500/20 to-transparent"></div>
+            <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-orange-600/5 blur-[120px] rounded-full pointer-events-none"></div>
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-black text-white italic tracking-tighter mb-4">
@@ -29,18 +32,18 @@ const UI04Programs = () => {
                         <div
                             key={program.id}
                             onClick={() => setSelectedProgram(selectedProgram === program.id ? null : program.id)}
-                            className={`group relative p-8 bg-slate-900/50 backdrop-blur-sm border-2 rounded-3xl cursor-pointer transition-all duration-300 hover:-translate-y-2
+                            className={`group relative p-8 bg-white/5 backdrop-blur-sm border-2 rounded-3xl cursor-pointer transition-all duration-300 hover:-translate-y-2
                             ${selectedProgram === program.id
-                                    ? 'border-orange-500 shadow-[0_0_30px_rgba(249,115,22,0.15)] bg-slate-900'
+                                    ? 'border-orange-500 shadow-[0_0_30px_rgba(249,115,22,0.1)] bg-white/10'
                                     : 'border-white/5 hover:border-white/20 hover:shadow-lg hover:shadow-orange-500/5'}`}
                         >
                             <div className="flex justify-between items-start mb-6">
-                                <span className="text-4xl bg-black w-16 h-16 flex items-center justify-center rounded-2xl shadow-inner border border-white/10 group-hover:scale-110 transition-transform duration-300 group-hover:border-orange-500/50">
+                                <span className="text-4xl bg-slate-800 w-16 h-16 flex items-center justify-center rounded-2xl shadow-inner border border-white/10 group-hover:scale-110 transition-transform duration-300 group-hover:border-orange-500/50">
                                     {program.icon}
                                 </span>
                                 <span className={`px-3 py-1 text-xs font-bold uppercase rounded-full ${program.level === 'Advanced' ? 'bg-red-500/10 text-red-500 border border-red-500/20' :
-                                        program.level === 'Intermediate' ? 'bg-orange-500/10 text-orange-500 border border-orange-500/20' :
-                                            'bg-green-500/10 text-green-500 border border-green-500/20'
+                                    program.level === 'Intermediate' ? 'bg-orange-500/10 text-orange-500 border border-orange-500/20' :
+                                        'bg-green-500/10 text-green-500 border border-green-500/20'
                                     }`}>
                                     {program.level}
                                 </span>

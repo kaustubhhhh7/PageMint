@@ -78,7 +78,7 @@ const UI04Trainers = () => {
     ];
 
     return (
-        <section id="trainers" className="py-24 bg-slate-950 border-t border-white/5 relative overflow-hidden">
+        <section id="trainers" className="py-24 bg-slate-950 relative overflow-hidden">
             {/* Background glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-600/10 blur-[100px] rounded-full pointer-events-none"></div>
 

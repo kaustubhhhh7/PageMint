@@ -12,14 +12,18 @@ const UI04Hero = () => {
     };
 
     return (
-        <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-black text-white">
-            {/* Animated Background Streaks */}
+        <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-slate-950 text-white">
+            {/* Animated Background Streaks & Glows */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[800px] bg-orange-600/20 -skew-x-[20deg] blur-[120px] rounded-3xl animate-pulse"></div>
-                <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-blue-900/20 -skew-x-[20deg] blur-[100px] rounded-full"></div>
-                {/* Moving stripes */}
-                <div className="absolute top-0 right-[20%] w-0.5 h-full bg-white/5 -skew-x-[20deg]"></div>
-                <div className="absolute top-0 right-[15%] w-24 h-full bg-white/1 -skew-x-[20deg]"></div>
+                <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[800px] bg-orange-600/10 -skew-x-[20deg] blur-[140px] rounded-3xl animate-pulse"></div>
+                <div className="absolute bottom-[-10%] left-[-10%] w-[700px] h-[700px] bg-slate-800/20 -skew-x-[20deg] blur-[120px] rounded-full"></div>
+
+                {/* Centre Glow to reduce "flatness" */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-950/20 blur-[150px] rounded-full"></div>
+
+                {/* Moving stripes with less contrast */}
+                <div className="absolute top-0 right-[20%] w-[1px] h-full bg-white/5 -skew-x-[20deg]"></div>
+                <div className="absolute top-0 right-[15%] w-32 h-full bg-white/[0.02] -skew-x-[20deg]"></div>
             </div>
 
             <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

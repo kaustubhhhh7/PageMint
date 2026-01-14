@@ -29,7 +29,7 @@ const UI04Transformations = () => {
     return (
         <section
             id="results"
-            className="py-24 bg-slate-950 relative border-t border-white/5"
+            className="py-24 bg-slate-950 relative overflow-hidden"
             onMouseUp={handleMouseUp}
             onTouchEnd={handleMouseUp}
             onMouseLeave={handleMouseUp}
