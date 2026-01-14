@@ -8,10 +8,12 @@ const UI02ChefStory = () => {
                 <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-24">
                     {/* Left - Image Placeholder */}
                     <div className="w-full md:w-1/2 relative">
-                        <div className="aspect-[3/4] rounded-t-full rounded-b-[2rem] bg-stone-200 shadow-2xl relative overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-stone-400 to-stone-200 flex items-center justify-center">
-                                <span className="font-serif italic text-3xl text-stone-500">Chef's Portrait</span>
-                            </div>
+                        <div className="aspect-[3/4] rounded-t-full rounded-b-[2rem] bg-stone-200 shadow-2xl relative overflow-hidden group">
+                            <img
+                                src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&w=800&q=80"
+                                alt="Chef Antoine"
+                                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+                            />
                         </div>
                         {/* Decorative element */}
                         <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-full h-full border-2 border-orange-100 rounded-t-full rounded-b-[2rem] -z-10 scale-110"></div>

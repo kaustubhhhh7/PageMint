@@ -56,9 +56,13 @@ const UI02Hero = () => {
                     <div className="w-full lg:w-1/2 relative">
                         <div className="relative aspect-[4/5] md:aspect-square lg:aspect-[4/5] w-full max-w-md mx-auto rounded-[2rem] bg-stone-200 overflow-hidden shadow-2xl shadow-orange-100 group">
                             {/* Placeholder for Main Image */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-stone-200 to-stone-300 flex items-center justify-center text-stone-400">
-                                <span className="font-serif italic text-2xl">Delicious Moments</span>
-                            </div>
+                            {/* Main Image */}
+                            <img
+                                src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                alt="Delicious gourmet food"
+                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
 
                             {/* Floating Mini Card 1 */}
                             <div className="absolute top-8 right-8 bg-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-lg transform rotate-3 transition-transform group-hover:rotate-6">
