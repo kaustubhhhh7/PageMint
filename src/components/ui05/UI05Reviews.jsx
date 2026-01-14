@@ -1,102 +1,109 @@
-import React, { useRef, useState } from 'react';
-
-const reviews = [
-    { name: "Sarah J.", role: "Audiophile", rating: 5, text: "I've tried every flagship earbud on the market. These blow them all away. The soundstage is incredibly wide." },
-    { name: "Mike T.", role: "Tech Reviewer", rating: 5, text: "The noise cancellation is witchcraft. I can't hear my mechanical keyboard when I'm typing. 10/10." },
-    { name: "Jessica L.", role: "Musician", rating: 5, text: "Finally, earbuds that respect the mix. No boosted bass mud, just pure, clean audio fidelity." },
-    { name: "David R.", role: "Commuter", rating: 4, text: "Battery life is insane. I charge the case once a week and I use them 4 hours a day." },
-    { name: "Alex K.", role: "Gamer", rating: 5, text: "The low latency mode is a game changer for mobile FPS. Footsteps are distinct and directional." },
-];
+import React, { useRef } from 'react';
+import { Star, ArrowLeft, ArrowRight, ShieldCheck } from 'lucide-react';
 
 const UI05Reviews = () => {
     const scrollRef = useRef(null);
-    const [isDragging, setIsDragging] = useState(false);
-    const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
 
-    const handleMouseDown = (e) => {
-        setIsDragging(true);
-        setStartX(e.pageX - scrollRef.current.offsetLeft);
-        setScrollLeft(scrollRef.current.scrollLeft);
-    };
-
-    const handleMouseLeave = () => {
-        setIsDragging(false);
-    };
-
-    const handleMouseUp = () => {
-        setIsDragging(false);
-    };
-
-    const handleMouseMove = (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        const x = e.pageX - scrollRef.current.offsetLeft;
-        const walk = (x - startX) * 2; // scroll-fast
-        scrollRef.current.scrollLeft = scrollLeft - walk;
-    };
+    const reviews = [
+        {
+            id: 1,
+            name: "Sarah Jenkins",
+            role: "Music Producer",
+            text: "The soundstage is impossibly wide for earbuds this size. I can hear layers in my own mixes I missed before.",
+            stars: 5,
+        },
+        {
+            id: 2,
+            name: "David Chen",
+            role: "Tech Reviewer",
+            text: "Battery life that actually matches the claims. The transparency mode is the most natural I've ever heard.",
+            stars: 5,
+        },
+        {
+            id: 3,
+            name: "Elena Rodriguez",
+            role: "Commuter",
+            text: "ANC is a game changer for the subway. I put them on and the world just disappears. Worth every penny.",
+            stars: 5,
+        },
+        {
+            id: 4,
+            name: "Marcus Johnson",
+            role: "Casual Gamer",
+            text: "Latency mode works perfectly for mobile gaming. No sync issues at all, and the spatial audio is wild.",
+            stars: 4,
+        },
+        {
+            id: 5,
+            name: "Priya Patel",
+            role: "Audiophile",
+            text: "Finally, wireless buds that respect the bass without drowning out the mids. A balanced masterpiece.",
+            stars: 5,
+        }
+    ];
 
     const scroll = (direction) => {
         if (scrollRef.current) {
             const { current } = scrollRef;
-            const amount = 400;
-            current.scrollBy({ left: direction === 'left' ? -amount : amount, behavior: 'smooth' });
+            const scrollAmount = direction === 'left' ? -400 : 400;
+            current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         }
     };
 
     return (
-        <section id="reviews" className="py-24 bg-white overflow-hidden">
+        <section id="reviews" className="py-24 bg-slate-50 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 mb-12 flex justify-between items-end">
                 <div>
-                    <h2 className="text-4xl font-black text-slate-900 mb-2">Verified Vibes.</h2>
-                    <p className="text-slate-500">See what the world is hearing.</p>
+                    <h2 className="text-4xl font-bold text-slate-900 mb-2">Loved by thousands.</h2>
+                    <p className="text-slate-500">See what the pros are saying about AURA.</p>
                 </div>
                 <div className="flex gap-4">
-                    <button onClick={() => scroll('left')} className="p-4 rounded-full border border-slate-200 hover:bg-slate-50 transition-colors">
-                        ←
+                    <button
+                        onClick={() => scroll('left')}
+                        className="p-3 rounded-full border border-slate-200 hover:bg-white hover:shadow-md transition-all text-slate-600"
+                    >
+                        <ArrowLeft size={20} />
                     </button>
-                    <button onClick={() => scroll('right')} className="p-4 rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-colors">
-                        →
+                    <button
+                        onClick={() => scroll('right')}
+                        className="p-3 rounded-full border border-slate-200 hover:bg-white hover:shadow-md transition-all text-slate-600"
+                    >
+                        <ArrowRight size={20} />
                     </button>
                 </div>
             </div>
 
+            {/* Horizontal Scroll Container */}
             <div
                 ref={scrollRef}
-                className="flex gap-8 overflow-x-auto pb-12 px-6 no-scrollbar cursor-grab active:cursor-grabbing select-none"
+                className="flex gap-6 overflow-x-auto px-6 pb-12 snap-x snap-mandatory scrollbar-hide"
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-                onMouseDown={handleMouseDown}
-                onMouseLeave={handleMouseLeave}
-                onMouseUp={handleMouseUp}
-                onMouseMove={handleMouseMove}
             >
-                {reviews.map((review, i) => (
+                {reviews.map((review) => (
                     <div
-                        key={i}
-                        className="min-w-[300px] md:min-w-[400px] bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-xl hover:-translate-y-2 hover:rotate-1 transition-all duration-300 ease-out"
+                        key={review.id}
+                        className="min-w-[350px] md:min-w-[400px] bg-white p-8 rounded-[2rem] shadow-sm snap-center border border-slate-100 hover:border-indigo-100 hover:shadow-2xl hover:shadow-indigo-500/10 transition-all duration-300 group hover:-rotate-1"
                     >
-                        <div className="flex gap-1 mb-4">
-                            {[...Array(5)].map((_, stars) => (
-                                <span key={stars} className={`text-xl ${stars < review.rating ? 'text-orange-500' : 'text-slate-300'}`}>★</span>
-                            ))}
+                        <div className="flex gap-1 mb-4 text-yellow-400">
+                            {[...Array(review.stars)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
                         </div>
-                        <p className="text-lg text-slate-700 font-medium mb-8 leading-relaxed">"{review.text}"</p>
-                        <div className="flex items-center gap-4">
-                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white font-bold">
-                                {review.name[0]}
-                            </div>
+
+                        <p className="text-lg text-slate-700 font-medium leading-relaxed mb-8">
+                            "{review.text}"
+                        </p>
+
+                        <div className="flex items-center justify-between border-t border-slate-50 pt-6">
                             <div>
-                                <p className="font-bold text-slate-900">{review.name}</p>
-                                <div className="flex items-center gap-2">
-                                    <span className="text-xs text-slate-500 uppercase tracking-wider">{review.role}</span>
-                                    <span className="px-2 py-0.5 bg-green-100 text-green-700 text-[10px] font-bold rounded-full uppercase">Verified User</span>
-                                </div>
+                                <h4 className="font-bold text-slate-900">{review.name}</h4>
+                                <span className="text-sm text-slate-500">{review.role}</span>
+                            </div>
+                            <div className="flex items-center gap-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full">
+                                <ShieldCheck size={14} />
+                                Verified
                             </div>
                         </div>
                     </div>
                 ))}
-                {/* Spacer */}
-                <div className="min-w-[50px]"></div>
             </div>
         </section>
     );

@@ -8,16 +8,19 @@ import UI05Reviews from '../../components/ui05/UI05Reviews';
 import UI05FAQ from '../../components/ui05/UI05FAQ';
 import UI05BuyNow from '../../components/ui05/UI05BuyNow';
 import UI05Footer from '../../components/ui05/UI05Footer';
-import BackToHub from '../../components/common/BackToHub';
+import { ArrowUp } from 'lucide-react';
 
 const UI05 = () => {
-    const [showScrollTop, setShowScrollTop] = useState(false);
+    const [showTopBtn, setShowTopBtn] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            setShowScrollTop(window.scrollY > 800);
+            if (window.scrollY > 800) {
+                setShowTopBtn(true);
+            } else {
+                setShowTopBtn(false);
+            }
         };
-
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
@@ -27,57 +30,41 @@ const UI05 = () => {
     };
 
     return (
-        <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-blue-100 selection:text-blue-900 relative overflow-x-hidden">
-            {/* Subtle Background Grain Overlay */}
-            <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.015]"
-                style={{
-                    backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px)`,
-                    backgroundSize: '4px 4px'
-                }}
-            ></div>
+        <div className="font-sans antialiased text-slate-900 bg-white selection:bg-indigo-100 selection:text-indigo-900">
+            <UI05Navbar />
 
-            <div className="relative z-10">
-                <UI05Navbar />
+            <main>
                 <UI05Hero />
 
-                {/* Diagonal Separator */}
-                <div className="relative h-24 bg-gradient-to-b from-white to-slate-50">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 transform -skew-y-2"></div>
+                {/* Diagonal Divider Example */}
+                <div className="relative h-24 overflow-hidden -mt-[1px] z-10 pointer-events-none">
+                    <div className="absolute inset-0 bg-white transform -skew-y-3 origin-top-left translate-y-12"></div>
                 </div>
 
                 <UI05Highlights />
-
-                {/* Diagonal Separator */}
-                <div className="relative h-24 bg-gradient-to-b from-white to-slate-50">
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-pink-500/5 transform skew-y-2"></div>
-                </div>
-
                 <UI05StickyStory />
                 <UI05Specs />
                 <UI05Reviews />
-
-                {/* Diagonal Separator */}
-                <div className="relative h-16 bg-gradient-to-b from-white to-slate-50">
-                    <div className="absolute inset-0 bg-gradient-to-r from-slate-500/5 to-blue-500/5 transform -skew-y-1"></div>
-                </div>
-
                 <UI05FAQ />
                 <UI05BuyNow />
-                <UI05Footer />
-            </div>
+            </main>
 
-            {/* Scroll to Top Button */}
+            <UI05Footer />
+
+            {/* Floating Scroll to Top */}
             <button
                 onClick={scrollToTop}
-                className={`fixed bottom-24 right-8 z-40 p-4 bg-slate-900 text-white rounded-full shadow-xl hover:shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 ${showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}
-                aria-label="Scroll to top"
+                className={`fixed bottom-8 right-8 z-40 p-3 rounded-full bg-slate-900 text-white shadow-2xl transition-all duration-500 hover:scale-110 active:scale-90
+                    ${showTopBtn ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}
+                `}
             >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-                </svg>
+                <ArrowUp size={24} />
             </button>
 
-            <BackToHub />
+            {/* Global Grain Overlay */}
+            <div className="fixed inset-0 pointer-events-none z-[60] opacity-[0.03] mix-blend-overlay"
+                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}>
+            </div>
         </div>
     );
 };

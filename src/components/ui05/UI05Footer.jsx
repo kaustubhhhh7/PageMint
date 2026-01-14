@@ -1,77 +1,40 @@
 import React from 'react';
+import { ArrowUp } from 'lucide-react';
 
 const UI05Footer = () => {
-    const scrollTo = (id) => {
-        const el = document.getElementById(id);
-        if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
-        }
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     return (
-        <footer className="bg-slate-900 text-white py-16 relative overflow-hidden">
-            {/* Background Glow */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-blue-600/5 blur-[100px] rounded-full pointer-events-none"></div>
+        <footer className="bg-slate-900 text-slate-400 py-12 relative overflow-hidden">
+            {/* Background noise texture via CSS */}
+            <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-                    {/* Brand */}
-                    <div>
-                        <div className="flex items-center gap-2 mb-4">
-                            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold">
-                                A
-                            </div>
-                            <span className="font-bold text-2xl tracking-tight">AURA <span className="font-light text-slate-400">Pods</span></span>
-                        </div>
-                        <p className="text-slate-400 text-sm leading-relaxed">
-                            Premium wireless audio. <br />Engineered for perfection.
-                        </p>
-                    </div>
-
-                    {/* Quick Links */}
-                    <div>
-                        <h4 className="font-bold text-sm uppercase tracking-wider mb-4 text-slate-300">Quick Links</h4>
-                        <div className="flex flex-col gap-3">
-                            <button onClick={() => scrollTo('overview')} className="text-slate-400 hover:text-white transition-colors text-left text-sm">
-                                Overview
-                            </button>
-                            <button onClick={() => scrollTo('highlights')} className="text-slate-400 hover:text-white transition-colors text-left text-sm">
-                                Highlights
-                            </button>
-                            <button onClick={() => scrollTo('specs')} className="text-slate-400 hover:text-white transition-colors text-left text-sm">
-                                Tech Specs
-                            </button>
-                            <button onClick={() => scrollTo('buy')} className="text-slate-400 hover:text-white transition-colors text-left text-sm">
-                                Buy Now
-                            </button>
-                        </div>
-                    </div>
-
-                    {/* Newsletter (Dummy) */}
-                    <div>
-                        <h4 className="font-bold text-sm uppercase tracking-wider mb-4 text-slate-300">Stay Updated</h4>
-                        <div className="flex gap-2">
-                            <input
-                                type="email"
-                                placeholder="Enter your email"
-                                className="flex-1 px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm focus:outline-none focus:border-blue-500 transition-colors"
-                            />
-                            <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm font-bold transition-colors">
-                                Subscribe
-                            </button>
-                        </div>
-                    </div>
+            <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 relative z-10">
+                <div className="text-center md:text-left">
+                    <h2 className="text-2xl font-bold text-white tracking-widest mb-1">AURA</h2>
+                    <p className="text-xs text-slate-500">Designed in California. Assembled in Future.</p>
                 </div>
 
-                {/* Bottom Bar */}
-                <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-                    <p>© 2026 AURA Pods. All rights reserved.</p>
-                    <div className="flex gap-6">
-                        <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-                        <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-                        <a href="#" className="hover:text-white transition-colors">Support</a>
-                    </div>
+                <div className="flex gap-8 text-sm font-medium">
+                    <a href="#overview" className="hover:text-white transition-colors">Overview</a>
+                    <a href="#specs" className="hover:text-white transition-colors">Specs</a>
+                    <a href="#buy" className="hover:text-white transition-colors">Buy</a>
+                    <a href="#" className="hover:text-white transition-colors">Privacy</a>
                 </div>
+
+                <button
+                    onClick={scrollToTop}
+                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-all hover:-translate-y-1"
+                    aria-label="Scroll to top"
+                >
+                    <ArrowUp size={20} />
+                </button>
+            </div>
+
+            <div className="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-white/10 text-center text-xs text-slate-600">
+                © 2024 AURA Audio Inc. All rights reserved. Actual product may float in CSS but real gravity applies.
             </div>
         </footer>
     );
