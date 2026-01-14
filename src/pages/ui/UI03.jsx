@@ -29,12 +29,19 @@ const UI03 = () => {
                 }
             };
 
+            const handleMouseDown = () => cursor?.classList.add('cursor-click');
+            const handleMouseUp = () => cursor?.classList.remove('cursor-click');
+
             window.addEventListener('mousemove', moveCursor);
             document.addEventListener('mouseover', handleMouseOver);
+            window.addEventListener('mousedown', handleMouseDown);
+            window.addEventListener('mouseup', handleMouseUp);
 
             return () => {
                 window.removeEventListener('mousemove', moveCursor);
                 document.removeEventListener('mouseover', handleMouseOver);
+                window.removeEventListener('mousedown', handleMouseDown);
+                window.removeEventListener('mouseup', handleMouseUp);
             };
         }
     }, []);
@@ -45,7 +52,7 @@ const UI03 = () => {
             {/* Custom Cursor Element */}
             <div
                 id="custom-cursor"
-                className="fixed top-0 left-0 w-4 h-4 bg-indigo-600 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-transform duration-75 ease-out mix-blend-multiply hidden lg:block"
+                className="fixed top-0 left-0 w-4 h-4 bg-indigo-600 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-all duration-150 ease-out mix-blend-multiply hidden lg:block"
             >
                 <div className="w-full h-full rounded-full bg-indigo-600 opacity-50 blur-[2px]"></div>
             </div>
@@ -53,9 +60,14 @@ const UI03 = () => {
             <style>{`
                 .cursor-hover {
                     transform: scale(2.5) !important;
-                    background-color: transparent !important;
-                    border: 1px solid rgba(79, 70, 229, 0.5) !important;
-                    backdrop-filter: blur(2px);
+                    background-color: rgba(79, 70, 229, 0.1) !important;
+                    border: 1px solid rgba(79, 70, 229, 0.4) !important;
+                    backdrop-filter: none;
+                }
+                .cursor-click {
+                    transform: scale(0.8) !important;
+                    background-color: rgba(79, 70, 229, 0.9) !important;
+                    border: none !important;
                 }
                 /* Hide default cursor only on the page container, restored in inspection */
             `}</style>
