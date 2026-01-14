@@ -2,14 +2,16 @@ import React from 'react';
 
 const UI04Footer = () => {
     return (
-        <footer className="bg-slate-900 text-white pt-24 pb-12 border-t-4 border-orange-600">
+        <footer className="bg-black text-white pt-24 pb-12 border-t border-white/10 relative">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-500 via-red-600 to-orange-500"></div>
+
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                     {/* Brand */}
                     <div className="col-span-1 md:col-span-1">
                         <a href="#" className="flex items-center gap-2 mb-6 group">
-                            <div className="w-8 h-8 bg-white skew-x-[-10deg] flex items-center justify-center rounded-sm">
-                                <span className="text-slate-900 font-bold text-lg skew-x-[10deg]">I</span>
+                            <div className="w-8 h-8 bg-white skew-x-[-10deg] flex items-center justify-center rounded-sm hover:bg-orange-500 transition-colors">
+                                <span className="text-black font-bold text-lg skew-x-[10deg]">I</span>
                             </div>
                             <span className="text-2xl font-black italic tracking-tighter uppercase">
                                 Iron<span className="text-orange-500">Pulse</span>
@@ -22,38 +24,38 @@ const UI04Footer = () => {
 
                     {/* Links 1 */}
                     <div>
-                        <h4 className="text-lg font-bold uppercase tracking-wider mb-6">Explore</h4>
+                        <h4 className="text-lg font-bold uppercase tracking-wider mb-6 text-white">Explore</h4>
                         <ul className="space-y-3">
-                            <li><a href="#programs" className="text-slate-400 hover:text-white transition-colors">Programs</a></li>
-                            <li><a href="#trainers" className="text-slate-400 hover:text-white transition-colors">Trainers</a></li>
-                            <li><a href="#plans" className="text-slate-400 hover:text-white transition-colors">Membership</a></li>
-                            <li><a href="#results" className="text-slate-400 hover:text-white transition-colors">Success Stories</a></li>
+                            <li><a href="#programs" className="text-slate-400 hover:text-orange-500 transition-colors">Programs</a></li>
+                            <li><a href="#trainers" className="text-slate-400 hover:text-orange-500 transition-colors">Trainers</a></li>
+                            <li><a href="#plans" className="text-slate-400 hover:text-orange-500 transition-colors">Membership</a></li>
+                            <li><a href="#results" className="text-slate-400 hover:text-orange-500 transition-colors">Success Stories</a></li>
                         </ul>
                     </div>
 
                     {/* Links 2 */}
                     <div>
-                        <h4 className="text-lg font-bold uppercase tracking-wider mb-6">Support</h4>
+                        <h4 className="text-lg font-bold uppercase tracking-wider mb-6 text-white">Support</h4>
                         <ul className="space-y-3">
-                            <li><a href="#faq" className="text-slate-400 hover:text-white transition-colors">FAQ</a></li>
-                            <li><a href="#" className="text-slate-400 hover:text-white transition-colors">Contact Us</a></li>
-                            <li><a href="#" className="text-slate-400 hover:text-white transition-colors">Privacy Policy</a></li>
-                            <li><a href="#" className="text-slate-400 hover:text-white transition-colors">Terms of Service</a></li>
+                            <li><a href="#faq" className="text-slate-400 hover:text-orange-500 transition-colors">FAQ</a></li>
+                            <li><a href="#" className="text-slate-400 hover:text-orange-500 transition-colors">Contact Us</a></li>
+                            <li><a href="#" className="text-slate-400 hover:text-orange-500 transition-colors">Privacy Policy</a></li>
+                            <li><a href="#" className="text-slate-400 hover:text-orange-500 transition-colors">Terms of Service</a></li>
                         </ul>
                     </div>
 
                     {/* Newsletter */}
                     <div>
-                        <h4 className="text-lg font-bold uppercase tracking-wider mb-6">Stay Strong</h4>
+                        <h4 className="text-lg font-bold uppercase tracking-wider mb-6 text-white">Stay Strong</h4>
                         <p className="text-slate-400 text-sm mb-4">Get the latest workout tips and exclusive offers.</p>
                         <div className="flex">
-                            <input type="email" placeholder="ENTER EMAIL" className="w-full bg-slate-800 border-none rounded-l-lg px-4 py-3 text-sm focus:ring-1 focus:ring-orange-500 outline-none" />
-                            <button className="bg-orange-600 px-4 py-2 rounded-r-lg font-bold hover:bg-orange-700 transition-colors">GO</button>
+                            <input type="email" placeholder="ENTER EMAIL" className="w-full bg-white/10 border-none rounded-l-lg px-4 py-3 text-sm focus:ring-1 focus:ring-orange-500 outline-none text-white placeholder-slate-500" />
+                            <button className="bg-orange-600 px-4 py-2 rounded-r-lg font-bold hover:bg-orange-500 transition-colors text-white">GO</button>
                         </div>
                     </div>
                 </div>
 
-                <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center">
                     <p className="text-slate-500 text-sm font-medium">
                         © {new Date().getFullYear()} IronPulse Fitness. All rights reserved.
                     </p>

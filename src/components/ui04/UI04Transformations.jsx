@@ -29,7 +29,7 @@ const UI04Transformations = () => {
     return (
         <section
             id="results"
-            className="py-24 bg-slate-50 relative"
+            className="py-24 bg-slate-950 relative border-t border-white/5"
             onMouseUp={handleMouseUp}
             onTouchEnd={handleMouseUp}
             onMouseLeave={handleMouseUp}
@@ -37,11 +37,11 @@ const UI04Transformations = () => {
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row items-center justify-between mb-16 gap-8">
                     <div>
-                        <h2 className="text-4xl md:text-5xl font-black text-slate-900 italic tracking-tighter mb-4">
+                        <h2 className="text-4xl md:text-5xl font-black text-white italic tracking-tighter mb-4">
                             REAL PEOPLE. <br />
-                            <span className="text-orange-600">REAL RESULTS.</span>
+                            <span className="text-orange-500">REAL RESULTS.</span>
                         </h2>
-                        <p className="text-lg text-slate-600 max-w-md">
+                        <p className="text-lg text-slate-400 max-w-md">
                             Join thousands who have transformed their lives. No trends, just consistent effort and proven methods.
                         </p>
                     </div>
@@ -49,15 +49,15 @@ const UI04Transformations = () => {
                     {/* Stats */}
                     <div className="flex gap-8 md:gap-12">
                         <div>
-                            <p className="text-3xl md:text-4xl font-black text-slate-900">6kg</p>
+                            <p className="text-3xl md:text-4xl font-black text-white">6kg</p>
                             <p className="text-xs uppercase font-bold text-slate-500">Avg Fat Loss</p>
                         </div>
                         <div>
-                            <p className="text-3xl md:text-4xl font-black text-slate-900">+28%</p>
+                            <p className="text-3xl md:text-4xl font-black text-white">+28%</p>
                             <p className="text-xs uppercase font-bold text-slate-500">Strength Gain</p>
                         </div>
                         <div>
-                            <p className="text-3xl md:text-4xl font-black text-slate-900">90%</p>
+                            <p className="text-3xl md:text-4xl font-black text-white">90%</p>
                             <p className="text-xs uppercase font-bold text-slate-500">Consistency</p>
                         </div>
                     </div>
@@ -66,7 +66,7 @@ const UI04Transformations = () => {
                 {/* Slider Component */}
                 <div
                     ref={sliderRef}
-                    className="relative w-full max-w-4xl mx-auto h-[500px] md:h-[600px] rounded-3xl overflow-hidden shadow-2xl cursor-col-resize select-none border-4 border-white"
+                    className="relative w-full max-w-4xl mx-auto h-[500px] md:h-[600px] rounded-3xl overflow-hidden shadow-2xl cursor-col-resize select-none border-4 border-slate-900"
                     onMouseMove={handleMouseMove}
                     onTouchMove={handleTouchMove}
                     onMouseDown={handleMouseDown}
@@ -87,15 +87,15 @@ const UI04Transformations = () => {
 
                     {/* BEFORE Image (Foreground clipped) */}
                     <div
-                        className="absolute inset-0 bg-slate-200 overflow-hidden border-r-4 border-white"
+                        className="absolute inset-0 bg-slate-700 overflow-hidden border-r-4 border-white"
                         style={{ width: `${sliderValue}%` }}
                     >
                         {/* Mock Before Vis */}
-                        <div className="w-full h-full relative bg-slate-300">
+                        <div className="w-full h-full relative bg-slate-800">
                             <div className="absolute inset-0 w-[calc(100vw)] max-w-4xl mx-auto h-[600px]"> {/* Trick to keep content 'fixed' relative to container */}
                                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-full">
-                                    <span className="text-9xl opacity-20 transform -rotate-12 inline-block grayscale">😓</span>
-                                    <p className="text-slate-600 font-black text-4xl uppercase mt-4">Before</p>
+                                    <span className="text-9xl opacity-20 transform -rotate-12 inline-block grayscale brightness-50">😓</span>
+                                    <p className="text-slate-400 font-black text-4xl uppercase mt-4">Before</p>
                                     <p className="text-slate-500 font-bold">Tired. Unfocused.</p>
                                 </div>
                             </div>

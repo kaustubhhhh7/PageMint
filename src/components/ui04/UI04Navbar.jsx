@@ -48,8 +48,8 @@ const UI04Navbar = () => {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${scrolled
-                    ? 'bg-white/90 backdrop-blur-md border-slate-200 py-3 shadow-sm'
-                    : 'bg-white/50 backdrop-blur-sm border-transparent py-5'
+                ? 'bg-white/90 backdrop-blur-md border-slate-200 py-3 shadow-sm'
+                : 'bg-white/50 backdrop-blur-sm border-transparent py-5'
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -73,8 +73,8 @@ const UI04Navbar = () => {
                                 onClick={(e) => scrollToSection(e, link.href)}
                                 className={`text-sm font-bold uppercase tracking-wider transition-all duration-300 relative py-1
                                 ${activeSection === link.href.substring(1)
-                                        ? 'text-orange-600'
-                                        : 'text-slate-600 hover:text-slate-900'
+                                        ? 'text-orange-500'
+                                        : 'text-slate-300 hover:text-white'
                                     }`}
                             >
                                 {link.name}
@@ -85,23 +85,23 @@ const UI04Navbar = () => {
 
                     {/* Right CTA */}
                     <div className="hidden md:flex items-center gap-4">
-                        <Link to="/" className="text-xs font-bold uppercase text-slate-400 hover:text-slate-600 transition-colors">
+                        <Link to="/" className="text-xs font-bold uppercase text-slate-500 hover:text-white transition-colors">
                             Back to Hub
                         </Link>
-                        <button className="px-6 py-2.5 bg-black text-white text-sm font-bold uppercase tracking-wider skew-x-[-10deg] hover:bg-orange-600 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+                        <button className="px-6 py-2.5 bg-white text-black text-sm font-bold uppercase tracking-wider skew-x-[-10deg] hover:bg-orange-500 hover:text-white hover:shadow-[0_0_20px_rgba(249,115,22,0.5)] transition-all duration-300">
                             <span className="inline-block skew-x-[10deg]">Join Now</span>
                         </button>
                     </div>
 
                     {/* Mobile Toggle */}
                     <button
-                        className="md:hidden text-slate-900 p-2"
+                        className="md:hidden text-white p-2"
                         onClick={() => setIsOpen(!isOpen)}
                     >
                         <div className="w-6 h-5 relative flex flex-col justify-between">
-                            <span className={`w-full h-0.5 bg-black transform transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`} />
-                            <span className={`w-full h-0.5 bg-black transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`} />
-                            <span className={`w-full h-0.5 bg-black transform transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2.5' : ''}`} />
+                            <span className={`w-full h-0.5 bg-white transform transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`} />
+                            <span className={`w-full h-0.5 bg-white transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`} />
+                            <span className={`w-full h-0.5 bg-white transform transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2.5' : ''}`} />
                         </div>
                     </button>
                 </div>

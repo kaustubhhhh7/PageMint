@@ -12,30 +12,30 @@ const UI04FAQ = () => {
     ];
 
     return (
-        <section id="faq" className="py-24 bg-white">
+        <section id="faq" className="py-24 bg-black border-t border-white/5">
             <div className="max-w-3xl mx-auto px-6 lg:px-8">
-                <h2 className="text-4xl font-black text-slate-900 italic tracking-tighter mb-12 text-center">
-                    GOT <span className="text-orange-600 decoration-black underline decoration-4 underline-offset-4">QUESTIONS?</span>
+                <h2 className="text-4xl font-black text-white italic tracking-tighter mb-12 text-center">
+                    GOT <span className="text-orange-500 decoration-slate-800 underline decoration-4 underline-offset-4">QUESTIONS?</span>
                 </h2>
 
                 <div className="space-y-4">
                     {faqs.map((faq, index) => (
                         <div
                             key={index}
-                            className={`border-2 rounded-2xl overflow-hidden transition-all duration-300 ${openIndex === index ? 'border-orange-500 bg-orange-50/30' : 'border-slate-100 bg-white hover:border-slate-200'}`}
+                            className={`border transition-all duration-300 rounded-2xl overflow-hidden ${openIndex === index ? 'border-orange-500 bg-slate-900' : 'border-white/10 bg-black hover:border-white/20'}`}
                         >
                             <button
                                 onClick={() => setOpenIndex(index === openIndex ? null : index)}
-                                className="w-full flex items-center justify-between p-6 text-left"
+                                className="w-full flex items-center justify-between p-6 text-left group"
                             >
-                                <span className="font-bold text-lg text-slate-900">{faq.q}</span>
-                                <span className={`w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center transition-transform duration-300 ${openIndex === index ? 'rotate-45 bg-orange-100 text-orange-600' : ''}`}>
+                                <span className={`font-bold text-lg transition-colors ${openIndex === index ? 'text-white' : 'text-slate-300 group-hover:text-white'}`}>{faq.q}</span>
+                                <span className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openIndex === index ? 'rotate-45 bg-orange-500 text-white' : 'bg-white/10 text-slate-400'}`}>
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4"></path></svg>
                                 </span>
                             </button>
 
                             <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
-                                <div className="p-6 pt-0 text-slate-600 leading-relaxed font-medium">
+                                <div className="p-6 pt-0 text-slate-400 leading-relaxed font-medium">
                                     {faq.a}
                                 </div>
                             </div>

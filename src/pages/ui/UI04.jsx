@@ -10,7 +10,7 @@ import UI04Footer from '../../components/ui04/UI04Footer';
 
 const UI04 = () => {
     return (
-        <div className="bg-slate-50 min-h-screen font-sans">
+        <div className="bg-black min-h-screen font-sans text-slate-200 selection:bg-orange-500 selection:text-white">
             <UI04Navbar />
             <main>
                 <div id="ui04-hero">
