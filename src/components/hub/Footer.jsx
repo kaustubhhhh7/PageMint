@@ -8,7 +8,7 @@ const Footer = () => {
                 <div className="flex flex-col md:flex-row justify-between items-center">
                     <div className="mb-4 md:mb-0">
                         <span className="text-lg font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                            PageMint
+                            PageMint <span className="text-gray-400 font-normal text-sm ml-2">by CORE3</span>
                         </span>
                         <p className="text-gray-500 text-sm mt-1">
                             Building beautiful interfaces, one pixel at a time.
