@@ -12,7 +12,7 @@ const UI02Hero = () => {
                 <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                     {/* Left Content */}
                     <div className="w-full lg:w-1/2 text-center lg:text-left">
-                        <div className="inline-block px-4 py-1.5 rounded-full bg-orange-100 text-orange-700 text-xs font-bold tracking-widest uppercase mb-6">
+                        <div className="inline-block px-4 py-1.5 rounded-full bg-orange-100 text-orange-700 text-xs font-bold tracking-widest uppercase mb-6 animate-pulse">
                             Fresh • Seasonal • Crafted
                         </div>
                         <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-stone-800 leading-tight mb-6">
@@ -24,12 +24,12 @@ const UI02Hero = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                             <a href="#menu" className="w-full sm:w-auto">
-                                <button className="w-full bg-stone-800 text-white px-8 py-3.5 rounded-full font-medium hover:bg-black transition-all hover:scale-105 shadow-xl shadow-stone-200">
+                                <button className="w-full bg-stone-800 text-white px-8 py-3.5 rounded-full font-medium hover:bg-black transition-all duration-300 hover:-translate-y-1 shadow-xl shadow-stone-200 active:translate-y-0 active:scale-95 focus:ring-4 focus:ring-stone-200 outline-none">
                                     Explore Menu
                                 </button>
                             </a>
                             <a href="#reserve" className="w-full sm:w-auto">
-                                <button className="w-full bg-white text-stone-800 border border-stone-200 px-8 py-3.5 rounded-full font-medium hover:bg-stone-50 transition-colors">
+                                <button className="w-full bg-white text-stone-800 border border-stone-200 px-8 py-3.5 rounded-full font-medium hover:bg-stone-50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg active:translate-y-0 active:scale-95 focus:ring-4 focus:ring-stone-100 outline-none">
                                     Reserve Now
                                 </button>
                             </a>
