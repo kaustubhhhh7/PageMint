@@ -30,13 +30,16 @@ const UI05 = () => {
     };
 
     return (
-        <div className="font-sans antialiased text-slate-900 bg-white selection:bg-indigo-100 selection:text-indigo-900">
+        <div className="font-sans antialiased text-slate-900 bg-white selection:bg-indigo-100 selection:text-indigo-900 min-h-screen pt-20">
+            <div className="p-10 text-center">
+                <h1 className="text-4xl font-bold">UI05 Debug Mode</h1>
+                <p>Checking if route loads...</p>
+            </div>
+            {/* 
             <UI05Navbar />
-
+            
             <main>
                 <UI05Hero />
-
-                {/* Diagonal Divider Example */}
                 <div className="relative h-24 overflow-hidden -mt-[1px] z-10 pointer-events-none">
                     <div className="absolute inset-0 bg-white transform -skew-y-3 origin-top-left translate-y-12"></div>
                 </div>
@@ -51,7 +54,6 @@ const UI05 = () => {
 
             <UI05Footer />
 
-            {/* Floating Scroll to Top */}
             <button
                 onClick={scrollToTop}
                 className={`fixed bottom-8 right-8 z-40 p-3 rounded-full bg-slate-900 text-white shadow-2xl transition-all duration-500 hover:scale-110 active:scale-90
@@ -61,10 +63,10 @@ const UI05 = () => {
                 <ArrowUp size={24} />
             </button>
 
-            {/* Global Grain Overlay */}
             <div className="fixed inset-0 pointer-events-none z-[60] opacity-[0.03] mix-blend-overlay"
                 style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}>
             </div>
+            */}
         </div>
     );
 };
