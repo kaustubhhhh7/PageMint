@@ -49,9 +49,6 @@ const UI02Navbar = () => {
 
                     {/* CTA */}
                     <div className="hidden md:flex items-center gap-4">
-                        <Link to="/" className="text-sm font-medium text-stone-500 hover:text-orange-600 transition-colors">
-                            Back to Hub
-                        </Link>
                         <a href="#reserve">
                             <button className="bg-orange-600 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-orange-700 transition-colors shadow-lg shadow-orange-200">
                                 Book a Table
@@ -94,12 +91,6 @@ const UI02Navbar = () => {
                                 {link.name}
                             </a>
                         ))}
-                        <Link
-                            to="/"
-                            className="block px-3 py-2 text-base font-medium text-stone-700 hover:text-orange-600 hover:bg-stone-100 rounded-md"
-                        >
-                            Back to Hub
-                        </Link>
                         <div className="pt-4">
                             <a href="#reserve" onClick={() => setIsOpen(false)}>
                                 <button className="w-full bg-orange-600 text-white px-6 py-3 rounded-full text-base font-medium hover:bg-orange-700 transition-colors">
