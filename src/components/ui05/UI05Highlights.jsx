@@ -63,7 +63,7 @@ const HighlightCard = ({ number, title, desc, stat, icon: Icon, color, bgColor, 
                                 key={i}
                                 className="w-1.5 bg-slate-800 rounded-full animate-wave"
                                 style={{
-                                    height: `${Math.random() * 40 + 20}%`,
+                                    height: `${Math.random() * 30 + 10}%`,
                                     animationDelay: `${i * 0.1}s`,
                                     animationDuration: '1.2s'
                                 }}
@@ -136,7 +136,7 @@ const UI05Highlights = () => {
             <style>{`
         @keyframes wave {
             0%, 100% { transform: scaleY(0.5); }
-            50% { transform: scaleY(1.2); }
+            50% { transform: scaleY(1.0); }
         }
         .animate-wave { animation: wave infinite ease-in-out; }
       `}</style>
