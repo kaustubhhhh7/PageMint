@@ -23,15 +23,19 @@ const UI09Navbar = () => {
         setIsDropdownOpen(false);
     }, [location]);
 
+    // Check if current page has a hero section (Home or Tour Details)
+    const isHeroPage = location.pathname === '/ui/09' || /^\/ui\/09\/tours\/\d+$/.test(location.pathname);
+    const useScrolledStyle = isScrolled || !isHeroPage;
+
     const navLinkClasses = ({ isActive }) =>
         `text-sm font-semibold tracking-wide transition-colors ${isActive
-            ? (isScrolled ? 'text-sky-600' : 'text-sky-400')
-            : (isScrolled ? 'text-slate-600 hover:text-sky-500' : 'text-white/90 hover:text-white')
+            ? (useScrolledStyle ? 'text-sky-600' : 'text-sky-400')
+            : (useScrolledStyle ? 'text-slate-600 hover:text-sky-500' : 'text-white/90 hover:text-white')
         }`;
 
     return (
         <header
-            className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'
+            className={`fixed top-0 w-full z-50 transition-all duration-300 ${useScrolledStyle ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -42,8 +46,8 @@ const UI09Navbar = () => {
                         <MapPin size={20} fill="currentColor" />
                     </div>
                     <div>
-                        <span className={`block text-xl font-bold leading-none transition-colors ${isScrolled ? 'text-slate-900' : 'text-white'}`}>VoyageVista</span>
-                        <span className={`block text-[10px] font-bold uppercase tracking-widest transition-colors ${isScrolled ? 'text-sky-500' : 'text-sky-200'}`}>Travel Co.</span>
+                        <span className={`block text-xl font-bold leading-none transition-colors ${useScrolledStyle ? 'text-slate-900' : 'text-white'}`}>VoyageVista</span>
+                        <span className={`block text-[10px] font-bold uppercase tracking-widest transition-colors ${useScrolledStyle ? 'text-sky-500' : 'text-sky-200'}`}>Travel Co.</span>
                     </div>
                 </Link>
 
@@ -58,7 +62,7 @@ const UI09Navbar = () => {
                         onMouseEnter={() => setIsDropdownOpen(true)}
                         onMouseLeave={() => setIsDropdownOpen(false)}
                     >
-                        <button className={`flex items-center gap-1 text-sm font-semibold py-2 transition-colors ${isScrolled ? 'text-slate-600 hover:text-sky-500' : 'text-white/90 hover:text-white'}`}>
+                        <button className={`flex items-center gap-1 text-sm font-semibold py-2 transition-colors ${useScrolledStyle ? 'text-slate-600 hover:text-sky-500' : 'text-white/90 hover:text-white'}`}>
                             Tours <ChevronDown size={14} className={`transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
                         </button>
 
@@ -79,7 +83,7 @@ const UI09Navbar = () => {
 
                 {/* Desktop Actions */}
                 <div className="hidden lg:flex items-center gap-6">
-                    <div className={`flex items-center gap-2 text-sm font-medium transition-colors ${isScrolled ? 'text-slate-500' : 'text-white/80'}`}>
+                    <div className={`flex items-center gap-2 text-sm font-medium transition-colors ${useScrolledStyle ? 'text-slate-500' : 'text-white/80'}`}>
                         <Phone size={16} />
                         <span>+1 800 123 4567</span>
                     </div>
@@ -89,7 +93,7 @@ const UI09Navbar = () => {
                 </div>
 
                 {/* Mobile Toggle */}
-                <button className={`lg:hidden transition-colors ${isScrolled ? 'text-slate-700' : 'text-white'}`} onClick={() => setIsMobileMenuOpen(true)}>
+                <button className={`lg:hidden transition-colors ${useScrolledStyle ? 'text-slate-700' : 'text-white'}`} onClick={() => setIsMobileMenuOpen(true)}>
                     <Menu size={28} />
                 </button>
             </div>
