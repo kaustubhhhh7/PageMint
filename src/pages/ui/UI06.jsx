@@ -1,56 +1,67 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { ArrowUp } from 'lucide-react';
+
+import UI06Navbar from '../../components/ui06/UI06Navbar';
+import UI06Hero from '../../components/ui06/UI06Hero';
+import UI06StatsStrip from '../../components/ui06/UI06StatsStrip';
+import UI06Speakers from '../../components/ui06/UI06Speakers';
+import UI06Schedule from '../../components/ui06/UI06Schedule';
+import UI06Tickets from '../../components/ui06/UI06Tickets';
+import UI06Venue from '../../components/ui06/UI06Venue';
+import UI06Sponsors from '../../components/ui06/UI06Sponsors';
+import UI06FAQ from '../../components/ui06/UI06FAQ';
+import UI06Footer from '../../components/ui06/UI06Footer';
 
 const UI06 = () => {
-    const sections = ['Speakers', 'Schedule', 'Tickets', 'Venue'];
-    const accentText = 'text-purple-600';
-    const hoverText = 'hover:text-purple-600';
+    const [showTopBtn, setShowTopBtn] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 800) {
+                setShowTopBtn(true);
+            } else {
+                setShowTopBtn(false);
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     return (
-        <div className="min-h-screen bg-white font-sans">
-            <nav className="bg-white/90 backdrop-blur border-b border-gray-100 sticky top-0 z-40">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between h-20 items-center">
-                        <div className="flex items-center">
-                            <span className={`text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent`}>
-                                InnovateConf
-                            </span>
-                        </div>
-                        <div className="hidden md:flex space-x-8">
-                            {sections.map((item) => (
-                                <a key={item} href={`#${item.toLowerCase()}`} className={`text-gray-600 ${hoverText} font-semibold`}>
-                                    {item}
-                                </a>
-                            ))}
-                        </div>
-                        <div>
-                            <Link to="/" className="text-sm font-medium text-gray-500 hover:text-gray-900 border border-gray-200 px-4 py-2 rounded-full hover:bg-gray-50 transition-colors">
-                                Back to Hub
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+        <div className="font-sans antialiased text-slate-900 bg-slate-50 selection:bg-indigo-100 selection:text-indigo-900">
+            <UI06Navbar />
 
-            <header className="bg-gradient-to-r from-purple-50 to-pink-50">
-                <div className="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8 text-center">
-                    <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
-                        Future of Tech
-                    </h1>
-                    <p className="mt-5 max-w-xl mx-auto text-xl text-gray-600">
-                        UI-06 / Event Conference Landing Page Placeholder
-                    </p>
+            <main>
+                <UI06Hero />
+                <UI06StatsStrip />
+                <UI06Speakers />
+                {/* Diagonal Divider */}
+                <div className="h-24 bg-white -mb-[1px] relative overflow-hidden">
+                    <div className="absolute inset-0 bg-slate-900 transform -skew-y-2 origin-bottom-right translate-y-12"></div>
                 </div>
-            </header>
+                {/* Schedule & Tickets need background contrast */}
+                <div className="relative z-10">
+                    <UI06Schedule />
+                </div>
+                <UI06Tickets />
+                <UI06Venue />
+                <UI06Sponsors />
+                <UI06FAQ />
+            </main>
 
-            {sections.map((section) => (
-                <section key={section} id={section.toLowerCase()} className="py-20 border-t border-gray-100 first:border-t-0">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                        <h2 className="text-3xl font-bold text-gray-900">{section}</h2>
-                        <p className="mt-4 text-lg text-gray-500">Content for {section} goes here.</p>
-                    </div>
-                </section>
-            ))}
+            <UI06Footer />
+
+            {/* Floating Back To Top */}
+            <button
+                onClick={scrollToTop}
+                className={`fixed bottom-8 right-8 z-40 p-3 rounded-full bg-indigo-600 text-white shadow-2xl transition-all duration-500 hover:scale-110 active:scale-90 hover:shadow-indigo-500/50 ${showTopBtn ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}
+            >
+                <ArrowUp size={24} />
+            </button>
         </div>
     );
 };
