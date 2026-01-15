@@ -13,40 +13,40 @@ const UI03Hero = () => {
     };
 
     return (
-        <section id="ui03-hero" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-50">
+        <section id="ui03-hero" className="relative min-h-[auto] lg:min-h-screen flex items-center pt-24 pb-12 sm:pt-32 sm:pb-20 lg:pt-20 overflow-hidden bg-slate-50">
             {/* Background Decorations */}
-            <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-indigo-200/20 rounded-full blur-[100px] animate-ui03-pulse-slow"></div>
-            <div className="absolute bottom-[10%] left-[-10%] w-[400px] h-[400px] bg-blue-200/20 rounded-full blur-[80px] animate-ui03-pulse-slow delay-700"></div>
+            <div className="absolute top-[-10%] right-[-5%] w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-indigo-200/20 rounded-full blur-[80px] sm:blur-[100px] animate-ui03-pulse-slow"></div>
+            <div className="absolute bottom-[10%] left-[-10%] w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] bg-blue-200/20 rounded-full blur-[60px] sm:blur-[80px] animate-ui03-pulse-slow delay-700"></div>
 
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-8 items-center">
 
                 {/* Left Content */}
-                <div className={`transition-all duration-1000 ease-out transform ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                    <div className="inline-flex items-center space-x-2 bg-white border border-slate-200 rounded-full px-3 py-1 mb-8 shadow-sm hover:shadow-md transition-shadow cursor-default">
+                <div className={`transition-all duration-1000 ease-out transform ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} text-center lg:text-left`}>
+                    <div className="inline-flex items-center space-x-2 bg-white border border-slate-200 rounded-full px-3 py-1 mb-6 sm:mb-8 shadow-sm hover:shadow-md transition-shadow cursor-default">
                         <span className="relative flex h-2 w-2">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                         </span>
-                        <span className="text-xs font-semibold text-slate-600 tracking-wide uppercase">Available for Internships</span>
+                        <span className="text-[10px] sm:text-xs font-semibold text-slate-600 tracking-wide uppercase">Available for Internships</span>
                     </div>
 
-                    <h1 className="text-5xl lg:text-7xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-6">
-                        Designing clean <br className="hidden lg:block" />
+                    <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-5 sm:mb-6">
+                        Designing clean <br className="hidden sm:block lg:block" />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">interfaces.</span> <br />
-                        Building real <br className="hidden lg:block" />
+                        Building real <br className="hidden sm:block lg:block" />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">products.</span>
                     </h1>
 
-                    <p className="text-lg text-slate-600 mb-8 max-w-lg leading-relaxed">
+                    <p className="text-base sm:text-lg text-slate-600 mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
                         I'm Kaustubh, a developer focused on creating fluid digital experiences with pixel-perfect precision.
                     </p>
 
-                    <div className="flex flex-wrap gap-4">
+                    <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4">
                         <button
                             onClick={() => scrollTo('projects')}
-                            className="relative overflow-hidden group bg-slate-900 text-white px-8 py-4 rounded-xl font-medium transition-all hover:shadow-lg hover:shadow-indigo-500/20"
+                            className="w-full sm:w-auto relative overflow-hidden group bg-slate-900 text-white px-8 py-3.5 sm:py-4 rounded-xl font-medium transition-all hover:shadow-lg hover:shadow-indigo-500/20"
                         >
-                            <span className="relative z-10 flex items-center">
+                            <span className="relative z-10 flex items-center justify-center">
                                 View Projects
                                 <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                             </span>
@@ -54,7 +54,7 @@ const UI03Hero = () => {
                         </button>
                         <button
                             onClick={() => scrollTo('contact')}
-                            className="px-8 py-4 rounded-xl font-medium text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 hover:border-slate-300 transition-all hover:shadow-sm"
+                            className="w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-xl font-medium text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 hover:border-slate-300 transition-all hover:shadow-sm"
                         >
                             Contact Me
                         </button>

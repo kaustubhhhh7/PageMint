@@ -12,14 +12,14 @@ const UI04Hero = () => {
     };
 
     return (
-        <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-slate-950 text-white">
+        <section className="relative min-h-[auto] lg:min-h-screen flex items-center pt-24 pb-16 sm:pt-32 sm:pb-24 lg:pt-20 overflow-hidden bg-slate-950 text-white">
             {/* Animated Background Streaks & Glows */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[800px] bg-orange-600/10 -skew-x-[20deg] blur-[140px] rounded-3xl animate-pulse"></div>
-                <div className="absolute bottom-[-10%] left-[-10%] w-[700px] h-[700px] bg-slate-800/20 -skew-x-[20deg] blur-[120px] rounded-full"></div>
+                <div className="absolute top-[-10%] right-[-5%] w-[300px] h-[400px] sm:w-[600px] sm:h-[800px] bg-orange-600/10 -skew-x-[20deg] blur-[80px] sm:blur-[140px] rounded-3xl animate-pulse"></div>
+                <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] sm:w-[700px] sm:h-[700px] bg-slate-800/20 -skew-x-[20deg] blur-[100px] sm:blur-[120px] rounded-full"></div>
 
                 {/* Centre Glow to reduce "flatness" */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-950/20 blur-[150px] rounded-full"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] sm:w-[800px] sm:h-[800px] bg-indigo-950/20 blur-[100px] sm:blur-[150px] rounded-full"></div>
 
                 {/* Moving stripes with less contrast */}
                 <div className="absolute top-0 right-[20%] w-[1px] h-full bg-white/5 -skew-x-[20deg]"></div>
@@ -29,51 +29,50 @@ const UI04Hero = () => {
             <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
                 {/* Left Content */}
-                <div className={`transition-all duration-1000 transform ${mounted ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
+                <div className={`transition-all duration-1000 transform ${mounted ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'} text-center lg:text-left`}>
                     <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-900/30 border border-orange-500/30 rounded-full mb-6 backdrop-blur-sm">
                         <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse shadow-[0_0_10px_orange]"></span>
-                        <span className="text-xs font-bold text-orange-400 uppercase tracking-wider">New Year • New You</span>
+                        <span className="text-[10px] sm:text-xs font-bold text-orange-400 uppercase tracking-wider">New Year • New You</span>
                     </div>
 
-                    <h1 className="text-5xl lg:text-7xl font-black text-white italic tracking-tighter leading-[0.9] mb-6 drop-shadow-2xl">
+                    <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white italic tracking-tighter leading-[0.9] mb-5 sm:mb-6 drop-shadow-2xl">
                         TRAIN HARD.<br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-200">STAY STRONG.</span><br />
-                        <span className="text-white decoration-orange-500 underline decoration-4 underline-offset-4 decoration-skip-ink-none">TRANSFORM.</span>
+                        <span className="text-white decoration-orange-500 underline decoration-2 sm:decoration-4 underline-offset-4 decoration-skip-ink-none">TRANSFORM.</span>
                     </h1>
 
-                    <p className="text-xl text-slate-400 mb-8 max-w-lg font-medium">
+                    <p className="text-lg sm:text-xl text-slate-400 mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0 font-medium">
                         World-class coaching, data-driven programs, and a community that refuses to quit. Your journey starts here.
                     </p>
 
-                    <div className="flex flex-wrap gap-4 mb-12">
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-12">
                         <button
                             onClick={() => scrollTo('plans')}
-                            className="group relative px-8 py-4 bg-orange-600 text-white font-bold uppercase tracking-wider skew-x-[-10deg] overflow-hidden hover:bg-orange-500 transition-colors duration-300 hover:shadow-[0_0_30px_rgba(234,88,12,0.4)]"
+                            className="w-full sm:w-auto group relative px-8 py-3.5 sm:py-4 bg-orange-600 text-white font-bold uppercase tracking-wider skew-x-[-10deg] overflow-hidden hover:bg-orange-500 transition-colors duration-300 hover:shadow-[0_0_30px_rgba(234,88,12,0.4)]"
                         >
                             <span className="relative z-10 inline-block skew-x-[10deg]">Start Free Trial</span>
-                            {/* Pulse Glow Effect */}
                             <span className="absolute top-0 left-0 w-full h-full bg-white/20 -translate-x-full group-hover:animate-shimmer skew-x-[20deg]"></span>
                         </button>
                         <button
                             onClick={() => scrollTo('programs')}
-                            className="px-8 py-4 bg-transparent text-white border-2 border-white/20 font-bold uppercase tracking-wider skew-x-[-10deg] hover:border-orange-500 hover:text-orange-500 transition-all duration-300"
+                            className="w-full sm:w-auto px-8 py-3.5 sm:py-4 bg-transparent text-white border-2 border-white/20 font-bold uppercase tracking-wider skew-x-[-10deg] hover:border-orange-500 hover:text-orange-500 transition-all duration-300"
                         >
                             <span className="inline-block skew-x-[10deg]">View Programs</span>
                         </button>
                     </div>
 
-                    <div className="flex items-center gap-8 border-t border-white/10 pt-8">
+                    <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 sm:gap-10 border-t border-white/10 pt-6 sm:pt-8">
                         <div>
-                            <p className="text-2xl font-black text-white">500+</p>
-                            <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Members</p>
+                            <p className="text-xl sm:text-2xl font-black text-white">500+</p>
+                            <p className="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider">Members</p>
                         </div>
                         <div>
-                            <p className="text-2xl font-black text-white">12</p>
-                            <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Expert Trainers</p>
+                            <p className="text-xl sm:text-2xl font-black text-white">12</p>
+                            <p className="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider">Expert Trainers</p>
                         </div>
                         <div>
-                            <p className="text-2xl font-black text-white">4.9★</p>
-                            <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Average Rating</p>
+                            <p className="text-xl sm:text-2xl font-black text-white">4.9★</p>
+                            <p className="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider">Average Rating</p>
                         </div>
                     </div>
                 </div>

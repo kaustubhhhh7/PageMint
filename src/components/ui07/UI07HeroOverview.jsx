@@ -3,76 +3,76 @@ import { ArrowRight, ShieldCheck, Activity, CreditCard, Lock } from 'lucide-reac
 
 const UI07HeroOverview = () => {
     return (
-        <section id="overview" className="bg-slate-50 pt-16 pb-24 overflow-hidden relative">
-            <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+        <section id="overview" className="bg-slate-50 pt-12 pb-16 sm:pt-16 sm:pb-24 overflow-hidden relative">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
 
                 {/* Left Content */}
-                <div className="relative z-10 space-y-8">
+                <div className="relative z-10 space-y-5 sm:space-y-8">
                     <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-slate-200 rounded-full shadow-sm">
                         <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-                        <span className="text-xs font-bold text-slate-600 uppercase tracking-widest">Enterprise-Ready • 99.99% Uptime</span>
+                        <span className="text-[10px] sm:text-xs font-bold text-slate-600 uppercase tracking-widest">Enterprise-Ready • 99.99% Uptime</span>
                     </div>
 
-                    <h1 className="text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight">
+                    <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight">
                         Business banking that <span className="text-emerald-600">earns trust.</span>
                     </h1>
 
-                    <p className="text-lg text-slate-500 leading-relaxed max-w-lg">
+                    <p className="text-base sm:text-lg text-slate-500 leading-relaxed max-w-lg">
                         The secure, compliant, and scalable financial operating system for modern enterprises. Control spend, automate compliance, and scale globally.
                     </p>
 
-                    <div className="flex flex-wrap gap-4">
-                        <button className="bg-slate-900 text-white px-8 py-3.5 rounded-lg font-bold hover:bg-slate-800 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-slate-900/20">
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                        <button className="w-full sm:w-auto bg-slate-900 text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-bold hover:bg-slate-800 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-slate-900/20">
                             Request a Demo
                         </button>
                         <button
                             onClick={() => document.getElementById('security')?.scrollIntoView({ behavior: 'smooth' })}
-                            className="bg-white text-slate-600 border border-slate-200 px-8 py-3.5 rounded-lg font-bold hover:bg-slate-50 hover:text-slate-900 transition-all hover:border-slate-300"
+                            className="w-full sm:w-auto bg-white text-slate-600 border border-slate-200 px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-bold hover:bg-slate-50 hover:text-slate-900 transition-all hover:border-slate-300"
                         >
                             View Security
                         </button>
                     </div>
 
-                    <div className="pt-8 flex flex-wrap gap-3">
+                    <div className="pt-6 sm:pt-8 flex flex-wrap gap-2 sm:gap-3">
                         {["PCI-DSS Ready", "SOC 2 Type II", "256-bit Encryption", "ISO 27001"].map((badge, idx) => (
-                            <div key={idx} className="flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 rounded hover:border-emerald-200 transition-colors cursor-default">
-                                <ShieldCheck size={14} className="text-emerald-500" />
-                                <span className="text-xs font-bold text-slate-600">{badge}</span>
+                            <div key={idx} className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 bg-white border border-slate-200 rounded hover:border-emerald-200 transition-colors cursor-default">
+                                <ShieldCheck size={12} className="sm:w-3.5 sm:h-3.5 text-emerald-500" />
+                                <span className="text-[10px] sm:text-xs font-bold text-slate-600">{badge}</span>
                             </div>
                         ))}
                     </div>
                 </div>
 
                 {/* Right Content: Dashboard Mock */}
-                <div className="relative perspective-1000">
+                <div className="relative perspective-1000 mt-8 lg:mt-0">
                     <div className="absolute top-0 -right-20 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
 
                     {/* Dashboard Card Container */}
-                    <div className="relative bg-white border border-slate-200 rounded-xl shadow-2xl shadow-slate-200/50 p-6 transform rotate-y-[-5deg] rotate-x-[5deg] hover:rotate-0 transition-transform duration-700 ease-out z-10">
+                    <div className="relative bg-white border border-slate-200 rounded-lg sm:rounded-xl shadow-2xl shadow-slate-200/50 p-4 sm:p-6 transform rotate-y-[-5deg] rotate-x-[5deg] hover:rotate-0 transition-transform duration-700 ease-out z-10">
 
                         {/* Header Mock */}
-                        <div className="flex items-center justify-between mb-8 border-b border-slate-100 pb-4">
-                            <div className="flex gap-4">
-                                <div className="w-32 h-4 bg-slate-100 rounded animate-pulse" />
-                                <div className="w-20 h-4 bg-slate-50 rounded" />
+                        <div className="flex items-center justify-between mb-6 sm:mb-8 border-b border-slate-100 pb-3 sm:pb-4">
+                            <div className="flex gap-2 sm:gap-4">
+                                <div className="w-20 sm:w-32 h-3 sm:h-4 bg-slate-100 rounded animate-pulse" />
+                                <div className="w-12 sm:w-20 h-3 sm:h-4 bg-slate-50 rounded" />
                             </div>
-                            <div className="w-8 h-8 bg-slate-100 rounded-full" />
+                            <div className="w-6 h-6 sm:w-8 sm:h-8 bg-slate-100 rounded-full" />
                         </div>
 
                         {/* Balance Row */}
-                        <div className="grid grid-cols-3 gap-6 mb-8">
-                            <div className="col-span-2 bg-slate-50 border border-slate-100 rounded-lg p-5 relative overflow-hidden group">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
+                            <div className="sm:col-span-2 bg-slate-50 border border-slate-100 rounded-lg p-4 sm:p-5 relative overflow-hidden group">
                                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                                <div className="text-xs font-bold text-slate-400 uppercase mb-2">Total Balance</div>
-                                <div className="text-3xl font-black text-slate-900 mb-2">$1,248,820.50</div>
-                                <div className="inline-flex items-center gap-1 text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
+                                <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase mb-2">Total Balance</div>
+                                <div className="text-2xl sm:text-3xl font-black text-slate-900 mb-2">$1,248,820.50</div>
+                                <div className="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
                                     <Activity size={12} /> +2.4% this week
                                 </div>
                             </div>
-                            <div className="col-span-1 bg-slate-900 rounded-lg p-5 text-white flex flex-col justify-between relative overflow-hidden">
-                                <div className="absolute top-0 right-0 p-4 opacity-10"><CreditCard size={40} /></div>
-                                <div className="text-xs font-bold opacity-60 uppercase">Active Cards</div>
-                                <div className="text-2xl font-bold">142</div>
+                            <div className="sm:col-span-1 bg-slate-900 rounded-lg p-4 sm:p-5 text-white flex flex-col justify-between relative overflow-hidden">
+                                <div className="absolute top-0 right-0 p-3 sm:p-4 opacity-10"><CreditCard size={32} className="sm:w-10 sm:h-10" /></div>
+                                <div className="text-[10px] sm:text-xs font-bold opacity-60 uppercase">Active Cards</div>
+                                <div className="text-xl sm:text-2xl font-bold">142</div>
                                 <div className="w-full bg-slate-800 h-1 rounded-full mt-2 overflow-hidden">
                                     <div className="bg-emerald-400 w-3/4 h-full rounded-full" />
                                 </div>

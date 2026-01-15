@@ -27,8 +27,18 @@ const UiSwitcher = () => {
     const location = useLocation(); // Get current location
     const overlayRef = useRef(null);
 
-    // Dragging State
-    const [position, setPosition] = useState({ x: 16, y: 16 });
+    // Dragging State - Responsive initial position
+    const getInitialPosition = () => {
+        const isMobile = window.innerWidth < 768;
+        if (isMobile) {
+            // Bottom-right on mobile
+            return { x: window.innerWidth - 60, y: window.innerHeight - 80 };
+        }
+        // Top-left on desktop
+        return { x: 16, y: 16 };
+    };
+
+    const [position, setPosition] = useState(getInitialPosition());
     const [isDragging, setIsDragging] = useState(false);
     const dragStartRef = useRef({ x: 0, y: 0 });
     const initialPosRef = useRef({ x: 0, y: 0 });
@@ -89,6 +99,18 @@ const UiSwitcher = () => {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, []);
 
+    // Handle window resize to reposition button
+    useEffect(() => {
+        const handleResize = () => {
+            if (!isDragging) {
+                setPosition(getInitialPosition());
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [isDragging]);
+
     const handleSelect = (path) => {
         navigate(path);
         setIsOpen(false);
@@ -126,11 +148,11 @@ const UiSwitcher = () => {
                     zIndex: 999999,
                     cursor: isDragging ? 'grabbing' : 'grab'
                 }}
-                className="p-3 bg-white/90 backdrop-blur-md border border-slate-300 rounded-full shadow-2xl hover:scale-105 hover:border-teal-400 active:scale-95 hover:rotate-180 transition-transform duration-500 group flex items-center justify-center select-none touch-none"
+                className="p-2 sm:p-3 bg-white/90 backdrop-blur-md border border-slate-300 rounded-full shadow-2xl hover:scale-105 hover:border-teal-400 active:scale-95 hover:rotate-180 transition-transform duration-500 group flex items-center justify-center select-none touch-none"
                 aria-label="Switch UI"
             >
                 <div className="relative flex items-center justify-center pointer-events-none">
-                    <RefreshCw size={20} className="text-slate-600 group-hover:text-teal-600 transition-colors" />
+                    <RefreshCw size={18} className="sm:w-5 sm:h-5 text-slate-600 group-hover:text-teal-600 transition-colors" />
                 </div>
             </button>
 
@@ -139,19 +161,19 @@ const UiSwitcher = () => {
                 <div
                     ref={overlayRef}
                     onClick={handleOverlayClick}
-                    className="fixed inset-0 z-[10000] bg-slate-900/10 backdrop-blur-sm flex items-start justify-center pt-[15vh] px-4 animate-fade-in"
+                    className="fixed inset-0 z-[10000] bg-slate-900/10 backdrop-blur-sm flex items-start justify-center pt-[10vh] sm:pt-[15vh] px-3 sm:px-4 animate-fade-in"
                 >
                     {/* Command Palette Panel */}
-                    <div className="w-full max-w-xl bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden animate-pop-in flex flex-col max-h-[70vh]">
+                    <div className="w-full max-w-xl bg-white rounded-xl sm:rounded-2xl shadow-2xl border border-slate-200 overflow-hidden animate-pop-in flex flex-col max-h-[80vh] sm:max-h-[70vh]">
 
                         {/* Header */}
-                        <div className="p-4 border-b border-slate-100 bg-slate-50/50">
+                        <div className="p-3 sm:p-4 border-b border-slate-100 bg-slate-50/50">
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-2">
                                     <span className="p-1 bg-teal-100 rounded text-teal-700">
                                         <Command size={14} />
                                     </span>
-                                    <h2 className="text-sm font-bold text-slate-700 uppercase tracking-wider">Switch UI</h2>
+                                    <h2 className="text-xs sm:text-sm font-bold text-slate-700 uppercase tracking-wider">Switch UI</h2>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <span className="hidden sm:inline-block text-xs text-slate-400 font-medium bg-white px-2 py-1 rounded border border-slate-100">ESC to close</span>

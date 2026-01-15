@@ -11,18 +11,18 @@ const UI02Hero = () => {
             <Container>
                 <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                     {/* Left Content */}
-                    <div className="w-full lg:w-1/2 text-center lg:text-left">
-                        <div className="inline-block px-4 py-1.5 rounded-full bg-orange-100 text-orange-700 text-xs font-bold tracking-widest uppercase mb-6 animate-pulse">
+                    <div className="w-full lg:w-1/2 text-center lg:text-left px-4 sm:px-0">
+                        <div className="inline-block px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-orange-100 text-orange-700 text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-4 sm:mb-6 animate-pulse">
                             Fresh • Seasonal • Crafted
                         </div>
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-stone-800 leading-tight mb-6">
-                            A cozy place for <br />
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-stone-800 leading-tight mb-4 sm:mb-6">
+                            A cozy place for <br className="hidden sm:block" />
                             <span className="text-orange-600">comfort & cuisine.</span>
                         </h1>
-                        <p className="text-lg md:text-xl text-stone-600 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                        <p className="text-base sm:text-lg md:text-xl text-stone-600 mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
                             Experience the warmth of handcrafted meals, artisanal coffee, and a space designed for slow living.
                         </p>
-                        <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4">
                             <a href="#menu" className="w-full sm:w-auto">
                                 <button className="w-full bg-stone-800 text-white px-8 py-3.5 rounded-full font-medium hover:bg-black transition-all duration-300 hover:-translate-y-1 shadow-xl shadow-stone-200 active:translate-y-0 active:scale-95 focus:ring-4 focus:ring-stone-200 outline-none">
                                     Explore Menu
@@ -36,18 +36,18 @@ const UI02Hero = () => {
                         </div>
 
                         {/* Stats Strip */}
-                        <div className="mt-12 pt-8 border-t border-stone-200 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-stone-200 grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-4 text-center lg:text-left">
                             <div>
-                                <h4 className="font-bold text-stone-800 text-xl">20+</h4>
-                                <p className="text-xs text-stone-500 uppercase tracking-wide mt-1">Signature Dishes</p>
+                                <h4 className="font-bold text-stone-800 text-lg sm:text-xl">20+</h4>
+                                <p className="text-[10px] text-stone-500 uppercase tracking-wide mt-1">Signature Dishes</p>
                             </div>
                             <div>
-                                <h4 className="font-bold text-stone-800 text-xl">5⭐</h4>
-                                <p className="text-xs text-stone-500 uppercase tracking-wide mt-1">Customer Love</p>
+                                <h4 className="font-bold text-stone-800 text-lg sm:text-xl">5⭐</h4>
+                                <p className="text-[10px] text-stone-500 uppercase tracking-wide mt-1">Customer Love</p>
                             </div>
-                            <div>
-                                <h4 className="font-bold text-stone-800 text-xl">Daily</h4>
-                                <p className="text-xs text-stone-500 uppercase tracking-wide mt-1">9AM – 11PM</p>
+                            <div className="col-span-2 sm:col-span-1">
+                                <h4 className="font-bold text-stone-800 text-lg sm:text-xl">Daily</h4>
+                                <p className="text-[10px] text-stone-500 uppercase tracking-wide mt-1">9AM – 11PM</p>
                             </div>
                         </div>
                     </div>

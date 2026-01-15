@@ -12,11 +12,11 @@ const UI07TopBar = ({ setIsMobileOpen }) => {
                     <Menu size={24} />
                 </button>
 
-                {/* Breadcrumbs */}
+                {/* Breadcrumbs - simplified on mobile */}
                 <div className="flex items-center gap-2 text-sm font-medium">
                     <span className="text-slate-400">VaultPay</span>
-                    <span className="text-slate-300">/</span>
-                    <span className="text-slate-900">Business Banking</span>
+                    <span className="hidden sm:inline text-slate-300">/</span>
+                    <span className="hidden sm:inline text-slate-900">Business Banking</span>
                 </div>
             </div>
 

@@ -10,15 +10,15 @@ const UI10Hero = () => {
     }, []);
 
     return (
-        <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-stone-100">
+        <div className="relative min-h-[auto] lg:min-h-screen flex items-center justify-center pt-24 pb-16 sm:pt-32 sm:pb-20 lg:pt-0 overflow-hidden bg-stone-100">
             {/* Dynamic Background Pattern */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-stone-50/20"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-stone-50/50 via-transparent to-stone-100/80"></div>
 
                 {/* Animated Gradient Orbs */}
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-100/40 rounded-full blur-3xl filter mix-blend-multiply animate-blob"></div>
-                <div className="absolute -bottom-32 -left-32 w-[600px] h-[600px] bg-stone-200/40 rounded-full blur-3xl filter mix-blend-multiply animate-blob animation-delay-2000"></div>
+                <div className="absolute top-0 right-0 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-amber-100/40 rounded-full blur-3xl filter mix-blend-multiply animate-blob"></div>
+                <div className="absolute -bottom-32 -left-32 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] bg-stone-200/40 rounded-full blur-3xl filter mix-blend-multiply animate-blob animation-delay-2000"></div>
             </div>
 
             <div className="max-w-7xl mx-auto px-6 relative z-10 pt-20 text-center">
@@ -28,7 +28,7 @@ const UI10Hero = () => {
                         The World's Finest Real Estate
                     </h2>
 
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-stone-900 leading-tight mb-8">
+                    <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif text-stone-900 leading-tight mb-6 sm:mb-8">
                         Discover <span className="italic font-light">Luxury</span><br />
                         Living Redefined.
                     </h1>
@@ -38,12 +38,12 @@ const UI10Hero = () => {
                         Experience an exclusive collection of homes that match your extraordinary lifestyle.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
                         <Link
                             to="/ui/10/properties"
-                            className="group relative px-8 py-4 bg-stone-900 text-white min-w-[200px] overflow-hidden"
+                            className="w-full sm:w-auto group relative px-8 py-3.5 sm:py-4 bg-stone-900 text-white min-w-[200px] overflow-hidden"
                         >
-                            <span className="relative z-10 font-bold tracking-widest uppercase text-sm group-hover:text-stone-900 transition-colors duration-300">
+                            <span className="relative z-10 font-bold tracking-widest uppercase text-[10px] sm:text-xs md:text-sm group-hover:text-stone-900 transition-colors duration-300">
                                 Explore Properties
                             </span>
                             <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left ease-out"></div>
@@ -51,9 +51,9 @@ const UI10Hero = () => {
 
                         <Link
                             to="/ui/10/agents"
-                            className="group flex items-center gap-2 px-8 py-4 border border-stone-300 min-w-[200px] justify-center hover:border-amber-600 transition-colors duration-300"
+                            className="w-full sm:w-auto group flex items-center gap-2 px-8 py-3.5 sm:py-4 border border-stone-300 min-w-[200px] justify-center hover:border-amber-600 transition-colors duration-300"
                         >
-                            <span className="font-bold tracking-widest uppercase text-sm text-stone-900">
+                            <span className="font-bold tracking-widest uppercase text-[10px] sm:text-xs md:text-sm text-stone-900">
                                 Meet Our Agents
                             </span>
                             <ArrowRight className="w-4 h-4 text-amber-600 transform group-hover:translate-x-1 transition-transform" />
