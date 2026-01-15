@@ -10,7 +10,7 @@ export const properties = [
         beds: 4,
         baths: 5,
         sqft: 6500,
-        image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2071&auto=format&fit=crop",
         featured: true,
         tag: "Signature",
         description: "Experience the pinnacle of luxury living in this triplex penthouse offering panoramic views of the Arabian Gulf. Features a private infinity pool, dedicated elevator, and interiors by world-renowned designers.",
@@ -27,7 +27,7 @@ export const properties = [
         beds: 6,
         baths: 7,
         sqft: 8200,
-        image: "https://images.unsplash.com/photo-1600596542815-e328701102b9?q=80&w=2069&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=2070&auto=format&fit=crop",
         featured: true,
         tag: "New Listing",
         description: "A masterclass in modern architecture, this estate blends indoor and outdoor living seamlessly. Surrounded by lush gardens, it offers total privacy and resort-style amenities.",
@@ -44,7 +44,7 @@ export const properties = [
         beds: 3,
         baths: 3,
         sqft: 2800,
-        image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2070&auto=format&fit=crop",
         featured: true,
         tag: "Historic",
         description: "An impeccably restored Grade II listed apartment in one of London's most prestigious squares. High ceilings, original stucco detailing, and access to private gardens.",
@@ -61,7 +61,7 @@ export const properties = [
         beds: 5,
         baths: 6,
         sqft: 5500,
-        image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2071&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
         featured: false,
         tag: "Ocean View",
         description: "A cantilevered masterpiece suspended above the Pacific Ocean. Floor-to-ceiling glass walls disappear to create a true open-air living experience.",
@@ -78,7 +78,7 @@ export const properties = [
         beds: 3,
         baths: 4,
         sqft: 3400,
-        image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2070&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop",
         featured: false,
         tag: "Loft",
         description: "Authentic industrial loft with cast-iron columns and exposed brick, reimagined for ultra-modern luxury. Features a private rooftop terrace with Empire State Building views.",
@@ -95,7 +95,7 @@ export const properties = [
         beds: 7,
         baths: 8,
         sqft: 9000,
-        image: "https://images.unsplash.com/photo-1513584685908-95c9e1158530?q=80&w=2070&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?q=80&w=2070&auto=format&fit=crop",
         featured: true,
         tag: "Winter Retreat",
         description: "The ultimate ski-in/ski-out chalet. Traditional craftsmanship meets contemporary luxury, featuring a private spa, indoor pool, and expansive entertainment areas.",
@@ -138,9 +138,9 @@ export const agents = [
 ];
 
 export const neighborhoods = [
-    { id: 1, name: "Dubai Marina", image: "https://images.unsplash.com/photo-1582657233895-0f37a3f150c0?q=80&w=2071&auto=format&fit=crop", count: 42 },
-    { id: 2, name: "South Mumbai", image: "https://images.unsplash.com/photo-1566552881560-0be862a7c445?q=80&w=2070&auto=format&fit=crop", count: 18 },
-    { id: 3, name: "Beverly Hills", image: "https://images.unsplash.com/photo-1596205762886-f404d5c9c4c9?q=80&w=2070&auto=format&fit=crop", count: 25 },
+    { id: 1, name: "Dubai Marina", image: "https://images.unsplash.com/photo-1512453979798-5ea904ac66de?q=80&w=2071&auto=format&fit=crop", count: 42 },
+    { id: 2, name: "South Mumbai", image: "https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?q=80&w=2070&auto=format&fit=crop", count: 18 },
+    { id: 3, name: "Beverly Hills", image: "https://images.unsplash.com/photo-1582201942988-13e60e45561a?q=80&w=2070&auto=format&fit=crop", count: 25 },
     { id: 4, name: "Mayfair, Lon", image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2070&auto=format&fit=crop", count: 14 }
 ];
 

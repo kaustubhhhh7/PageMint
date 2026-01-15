@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { properties } from '../../components/ui10/ui10Data';
+import { properties, agents } from '../../components/ui10/ui10Data';
 import { MapPin, Bed, Bath, Maximize, Share2, Heart, ArrowLeft, CheckCircle } from 'lucide-react';
 
 const UI10PropertyDetails = () => {
     const { id } = useParams();
     // In a real app, fetch by ID. Here we find in array or default to first if mock id logic simplest
     const property = properties.find(p => p.id === parseInt(id)) || properties[0];
+    const agent = agents.find(a => a.id === property.agent) || agents[0];
 
     // Mortgage Calc State
     const [downPayment, setDownPayment] = useState(20); // %
@@ -132,11 +133,11 @@ const UI10PropertyDetails = () => {
                         <h3 className="text-sm font-bold uppercase tracking-widest text-stone-500 mb-6">Listing Agent</h3>
                         <div className="flex items-center gap-4 mb-6">
                             <div className="w-16 h-16 rounded-full bg-stone-200 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop" alt="Agent" className="w-full h-full object-cover" />
+                                <img src={agent.image} alt={agent.name} className="w-full h-full object-cover" />
                             </div>
                             <div>
-                                <h4 className="font-serif text-lg">Alexandra Vautier</h4>
-                                <span className="text-xs text-amber-600 font-bold uppercase">Senior Partner</span>
+                                <h4 className="font-serif text-lg">{agent.name}</h4>
+                                <span className="text-xs text-amber-600 font-bold uppercase">{agent.role}</span>
                             </div>
                         </div>
                         <button className="w-full bg-stone-900 text-white font-bold uppercase tracking-widest text-xs py-4 mb-3 hover:bg-stone-800 transition-colors">
