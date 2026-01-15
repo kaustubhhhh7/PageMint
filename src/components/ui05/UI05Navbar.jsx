@@ -55,8 +55,9 @@ const UI05Navbar = () => {
                 <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
                     {/* Logo */}
                     <div className="flex items-center gap-4">
-                        <Link to="/" className="text-slate-500 hover:text-slate-900 transition-colors">
-                            <ArrowLeft size={20} />
+                        <Link to="/" className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 transition-all text-sm font-medium mr-4 group">
+                            <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
+                            <span className="hidden lg:inline">Back to Hub</span>
                         </Link>
                         <span
                             className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 cursor-pointer"
