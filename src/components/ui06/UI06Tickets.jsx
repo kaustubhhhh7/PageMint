@@ -16,7 +16,7 @@ const tickets = [
         name: 'Pro Pass',
         price: 399,
         desc: 'The complete conference experience.',
-        color: 'border-cyan-500 bg-cyan-50/10',
+        color: 'border-orange-500 bg-orange-50/10',
         badge: 'Most Popular',
         features: ['All Keynotes & Panels', 'Access to Expo Hall', 'Lunch & Refreshments', 'Workshop Priority', 'After-Party Entry']
     },
@@ -25,7 +25,7 @@ const tickets = [
         name: 'VIP All-Access',
         price: 899,
         desc: 'Exclusive access for industry leaders.',
-        color: 'border-teal-500 bg-teal-50/10',
+        color: 'border-amber-500 bg-amber-50/10',
         badge: 'Limited Availability',
         features: ['All Pro Benefits', 'Private Speaker Lounge', 'VIP Gala Dinner', 'Dedicated Concierge', 'Reserved Front Row Seating']
     }
@@ -41,7 +41,7 @@ const UI06Tickets = () => {
     return (
         <section id="tickets" className="py-24 bg-slate-900 text-white relative overflow-hidden">
             {/* Background Gradients */}
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/40 via-slate-900 to-slate-900 pointer-events-none" />
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-900/40 via-slate-900 to-slate-900 pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
@@ -64,10 +64,10 @@ const UI06Tickets = () => {
                             <div
                                 key={ticket.id}
                                 onClick={() => setSelectedTicket(ticket.id)}
-                                className={`relative rounded-3xl p-6 border-2 cursor-pointer transition-all duration-300 flex flex-col h-full ${selectedTicket === ticket.id ? `${ticket.color} shadow-2xl shadow-cyan-500/20 scale-[1.02]` : 'border-slate-800 bg-slate-800/50 hover:bg-slate-800'}`}
+                                className={`relative rounded-3xl p-6 border-2 cursor-pointer transition-all duration-300 flex flex-col h-full ${selectedTicket === ticket.id ? `${ticket.color} shadow-2xl shadow-orange-500/20 scale-[1.02]` : 'border-slate-800 bg-slate-800/50 hover:bg-slate-800'}`}
                             >
                                 {ticket.badge && (
-                                    <div className={`absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-wider shadow-lg ${ticket.id === 'pro' ? 'bg-gradient-to-r from-cyan-500 to-lime-400 text-slate-900' : 'bg-teal-500 text-white'}`}>
+                                    <div className={`absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-wider shadow-lg ${ticket.id === 'pro' ? 'bg-gradient-to-r from-orange-500 to-lime-400 text-slate-900' : 'bg-amber-500 text-white'}`}>
                                         {ticket.badge}
                                     </div>
                                 )}
@@ -95,7 +95,7 @@ const UI06Tickets = () => {
                     </div>
 
                     {/* Checkout Summary Panel */}
-                    <div className="bg-white rounded-3xl p-8 text-slate-900 shadow-2xl sticky top-28 border-2 border-cyan-200">
+                    <div className="bg-white rounded-3xl p-8 text-slate-900 shadow-2xl sticky top-28 border-2 border-orange-200">
                         <h3 className="text-xl font-black mb-6">Checkout Summary</h3>
 
                         <div className="space-y-6 mb-8 border-b border-slate-100 pb-8">
@@ -110,19 +110,19 @@ const UI06Tickets = () => {
                             <div className="flex justify-between items-center">
                                 <div className="font-bold text-sm text-slate-600">Quantity</div>
                                 <div className="flex items-center gap-3 bg-slate-100 rounded-lg p-1">
-                                    <button onClick={() => setQty(Math.max(1, qty - 1))} className="w-8 h-8 flex items-center justify-center bg-white rounded shadow-sm font-bold hover:text-cyan-600 transition-colors">-</button>
+                                    <button onClick={() => setQty(Math.max(1, qty - 1))} className="w-8 h-8 flex items-center justify-center bg-white rounded shadow-sm font-bold hover:text-orange-600 transition-colors">-</button>
                                     <span className="font-bold w-4 text-center">{qty}</span>
-                                    <button onClick={() => setQty(qty + 1)} className="w-8 h-8 flex items-center justify-center bg-white rounded shadow-sm font-bold hover:text-cyan-600 transition-colors">+</button>
+                                    <button onClick={() => setQty(qty + 1)} className="w-8 h-8 flex items-center justify-center bg-white rounded shadow-sm font-bold hover:text-orange-600 transition-colors">+</button>
                                 </div>
                             </div>
                         </div>
 
                         <div className="flex justify-between items-center mb-8">
                             <div className="font-bold text-slate-500">Total</div>
-                            <div className="text-4xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-teal-600">${total}</div>
+                            <div className="text-4xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-600">${total}</div>
                         </div>
 
-                        <button className="w-full bg-gradient-to-r from-cyan-500 to-lime-400 text-slate-900 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:shadow-xl hover:shadow-cyan-300/50 transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2">
+                        <button className="w-full bg-gradient-to-r from-orange-500 to-lime-400 text-slate-900 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:shadow-xl hover:shadow-orange-300/50 transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2">
                             Proceed to Checkout <ShoppingCart size={18} />
                         </button>
 

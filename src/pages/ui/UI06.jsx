@@ -58,7 +58,7 @@ const UI06 = () => {
             {/* Floating Back To Top */}
             <button
                 onClick={scrollToTop}
-                className={`fixed bottom-8 right-8 z-40 p-3 rounded-full bg-gradient-to-r from-cyan-500 to-lime-400 text-slate-900 shadow-2xl transition-all duration-500 hover:scale-110 hover:shadow-cyan-500/50 active:scale-90 ${showTopBtn ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}
+                className={`fixed bottom-8 right-8 z-40 p-3 rounded-full bg-gradient-to-r from-orange-500 to-lime-400 text-slate-900 shadow-2xl transition-all duration-500 hover:scale-110 hover:shadow-orange-500/50 active:scale-90 ${showTopBtn ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}
             >
                 <ArrowUp size={24} />
             </button>

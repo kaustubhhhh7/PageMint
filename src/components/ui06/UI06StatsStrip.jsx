@@ -36,10 +36,10 @@ const StatCounter = ({ label, value, suffix = "+" }) => {
 
     return (
         <div ref={elementRef} className="text-center group cursor-default">
-            <div className="text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-slate-900 to-cyan-600 mb-2 group-hover:scale-110 transition-transform duration-300">
+            <div className="text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-slate-900 to-orange-600 mb-2 group-hover:scale-110 transition-transform duration-300">
                 {count}{suffix}
             </div>
-            <div className="text-sm font-bold uppercase tracking-widest text-cyan-600 group-hover:text-cyan-700 transition-colors">
+            <div className="text-sm font-bold uppercase tracking-widest text-orange-600 group-hover:text-orange-700 transition-colors">
                 {label}
             </div>
             {/* Hover confetti dots (CSS) */}
