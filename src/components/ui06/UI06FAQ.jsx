@@ -29,7 +29,7 @@ const UI06FAQ = () => {
                             placeholder="Search questions..."
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
-                            className="w-full pl-12 pr-4 py-3 rounded-full border border-slate-200 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition-all"
+                            className="w-full pl-12 pr-4 py-3 rounded-full border border-slate-200 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100 outline-none transition-all"
                         />
                     </div>
                 </div>
@@ -40,13 +40,13 @@ const UI06FAQ = () => {
                     ) : filtered.map((item, idx) => (
                         <div
                             key={idx}
-                            className="bg-white rounded-2xl border border-slate-200 overflow-hidden cursor-help hover:border-indigo-300 transition-colors"
+                            className="bg-white rounded-2xl border border-slate-200 overflow-hidden cursor-help hover:border-cyan-300 transition-colors"
                             onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                         >
                             <div className="p-6 flex items-center justify-between">
                                 <h3 className="font-bold text-slate-800 text-lg pr-8">{item.q}</h3>
                                 <ChevronDown
-                                    className={`text-indigo-500 shrink-0 transition-transform duration-300 ${openIndex === idx ? 'rotate-180' : ''}`}
+                                    className={`text-cyan-500 shrink-0 transition-transform duration-300 ${openIndex === idx ? 'rotate-180' : ''}`}
                                     size={24}
                                 />
                             </div>

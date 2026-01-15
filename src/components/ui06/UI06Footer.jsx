@@ -7,8 +7,8 @@ const UI06Footer = () => {
             <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
                 <div className="col-span-1 md:col-span-2">
                     <div className="flex items-center gap-2 mb-6 text-white">
-                        <div className="w-8 h-8 bg-indigo-600 rounded flex items-center justify-center font-black">N</div>
-                        <span className="font-black text-xl tracking-tighter">NEXA <span className="text-indigo-500">SUMMIT</span></span>
+                        <div className="w-8 h-8 bg-gradient-to-br from-cyan-500 to-teal-600 rounded flex items-center justify-center font-black shadow-lg shadow-cyan-200">N</div>
+                        <span className="font-black text-xl tracking-tighter">NEXA <span className="text-cyan-400">SUMMIT</span></span>
                     </div>
                     <p className="max-w-sm mb-8 leading-relaxed">
                         Connecting the world's brightest minds to shape the future of technology. Join us in Mumbai for the event of the year.
@@ -24,10 +24,10 @@ const UI06Footer = () => {
                 <div>
                     <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm">Quick Links</h4>
                     <ul className="space-y-4">
-                        <li><a href="#speakers" className="hover:text-indigo-400 transition-colors">Speakers</a></li>
-                        <li><a href="#schedule" className="hover:text-indigo-400 transition-colors">Schedule</a></li>
-                        <li><a href="#tickets" className="hover:text-indigo-400 transition-colors">Get Tickets</a></li>
-                        <li><a href="#venue" className="hover:text-indigo-400 transition-colors">Venue Info</a></li>
+                        <li><a href="#speakers" className="hover:text-cyan-400 transition-colors">Speakers</a></li>
+                        <li><a href="#schedule" className="hover:text-cyan-400 transition-colors">Schedule</a></li>
+                        <li><a href="#tickets" className="hover:text-cyan-400 transition-colors">Get Tickets</a></li>
+                        <li><a href="#venue" className="hover:text-cyan-400 transition-colors">Venue Info</a></li>
                     </ul>
                 </div>
 

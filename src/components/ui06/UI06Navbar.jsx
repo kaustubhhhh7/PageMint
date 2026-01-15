@@ -58,16 +58,16 @@ const UI06Navbar = () => {
 
     return (
         <>
-            <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md py-3 border-b border-indigo-100 shadow-sm' : 'bg-transparent py-5'}`}>
+            <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md py-3 border-b border-cyan-100 shadow-sm' : 'bg-transparent py-5'}`}>
                 <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
                     {/* Brand */}
                     <div className="flex items-center gap-1 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                        <div className="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-black text-xl rotate-3 group-hover:rotate-6 transition-transform">
+                        <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-teal-600 rounded-lg flex items-center justify-center text-white font-black text-xl rotate-3 group-hover:rotate-6 transition-transform shadow-lg shadow-cyan-200">
                             N
                         </div>
                         <div className="flex flex-col leading-none ml-2">
                             <span className="text-xl font-black text-slate-900 tracking-tighter">NEXA</span>
-                            <span className="text-xs font-bold text-indigo-600 tracking-widest uppercase">SUMMIT 2026</span>
+                            <span className="text-xs font-bold text-cyan-600 tracking-widest uppercase">SUMMIT 2026</span>
                         </div>
                     </div>
 
@@ -77,10 +77,10 @@ const UI06Navbar = () => {
                             <button
                                 key={link.id}
                                 onClick={() => scrollTo(link.id)}
-                                className={`relative text-sm font-bold uppercase tracking-wide transition-colors duration-300 ${activeSection === link.id ? 'text-indigo-600' : 'text-slate-500 hover:text-slate-900'}`}
+                                className={`relative text-sm font-bold uppercase tracking-wide transition-colors duration-300 ${activeSection === link.id ? 'text-cyan-600' : 'text-slate-500 hover:text-slate-900'}`}
                             >
                                 {link.label}
-                                <span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transform transition-transform duration-300 ${activeSection === link.id ? 'scale-x-100' : 'scale-x-0'}`} />
+                                <span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-500 to-teal-500 transform transition-transform duration-300 ${activeSection === link.id ? 'scale-x-100' : 'scale-x-0'}`} />
                             </button>
                         ))}
                     </div>
@@ -92,8 +92,7 @@ const UI06Navbar = () => {
                         </Link>
                         <button
                             onClick={() => scrollTo('tickets')}
-                            className="bg-slate-900 text-white px-6 py-2.5 rounded-r-2xl rounded-bl-2xl font-bold uppercase text-sm tracking-wider hover:bg-indigo-600 transition-all duration-300 shadow-lg shadow-indigo-200 hover:shadow-indigo-500/30 active:scale-95 flex items-center gap-2 group"
-                            style={{ clipPath: 'polygon(10% 0, 100% 0, 100% 100%, 0% 100%, 0% 100%, 0% 15%)' }} // Subtle angled effect if desired, or standard rounded
+                            className="bg-gradient-to-r from-cyan-500 to-lime-400 text-slate-900 px-6 py-2.5 rounded-r-2xl rounded-bl-2xl font-bold uppercase text-sm tracking-wider hover:shadow-xl hover:shadow-cyan-300/50 transition-all duration-300 shadow-lg active:scale-95 flex items-center gap-2 group"
                         >
                             Get Tickets
                             <Ticket size={16} className="group-hover:rotate-12 transition-transform" />
@@ -108,9 +107,9 @@ const UI06Navbar = () => {
             </nav>
 
             {/* Mobile Menu Overlay */}
-            <div className={`fixed inset-0 z-[60] bg-indigo-900 transform transition-transform duration-500 ease-in-out ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+            <div className={`fixed inset-0 z-[60] bg-slate-900/95 backdrop-blur-xl transform transition-transform duration-500 ease-in-out ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
                 <div className="p-8 flex items-center justify-between">
-                    <span className="text-2xl font-black text-white tracking-tighter">NEXA <span className="text-indigo-400">SUMMIT</span></span>
+                    <span className="text-2xl font-black text-white tracking-tighter">NEXA <span className="text-cyan-400">SUMMIT</span></span>
                     <button onClick={() => setMobileMenuOpen(false)} className="text-white/50 hover:text-white transition-colors">
                         <X size={32} />
                     </button>
@@ -120,14 +119,14 @@ const UI06Navbar = () => {
                         <button
                             key={link.id}
                             onClick={() => scrollTo(link.id)}
-                            className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-indigo-200 hover:to-white text-left uppercase tracking-tight flex items-center justify-between group"
+                            className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-cyan-200 hover:to-white text-left uppercase tracking-tight flex items-center justify-between group"
                         >
                             {link.label}
-                            <ChevronRight size={24} className="text-indigo-500 opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all" />
+                            <ChevronRight size={24} className="text-cyan-400 opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all" />
                         </button>
                     ))}
                     <div className="mt-8 border-t border-white/10 pt-8 flex flex-col gap-4">
-                        <button onClick={() => scrollTo('tickets')} className="w-full bg-white text-indigo-900 py-4 font-black uppercase tracking-widest rounded text-center">
+                        <button onClick={() => scrollTo('tickets')} className="w-full bg-gradient-to-r from-cyan-500 to-lime-400 text-slate-900 py-4 font-black uppercase tracking-widest rounded text-center shadow-lg shadow-cyan-300/50">
                             Get Tickets
                         </button>
                         <Link to="/" className="w-full text-center text-white/40 font-bold uppercase tracking-widest text-sm hover:text-white transition-colors">

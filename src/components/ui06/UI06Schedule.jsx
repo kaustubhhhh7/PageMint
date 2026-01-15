@@ -16,6 +16,23 @@ const scheduleData = {
     ]
 };
 
+const trackColors = {
+    'AI': 'bg-cyan-50 text-cyan-700 border-cyan-200',
+    'Cloud': 'bg-teal-50 text-teal-700 border-teal-200',
+    'Design': 'bg-lime-50 text-lime-700 border-lime-200',
+    'Security': 'bg-slate-100 text-slate-700 border-slate-300',
+    'Startups': 'bg-cyan-50 text-cyan-700 border-cyan-200',
+    'Innovation': 'bg-teal-50 text-teal-700 border-teal-200',
+    'General': 'bg-slate-100 text-slate-700 border-slate-300'
+};
+
+const hallColors = {
+    'Main Hall A': 'bg-cyan-500 text-white',
+    'Hall B': 'bg-lime-500 text-slate-900',
+    'Hall C': 'bg-teal-500 text-white',
+    'Workshop Room 1': 'bg-slate-500 text-white'
+};
+
 const UI06Schedule = () => {
     const [activeDay, setActiveDay] = useState('day1');
     const [expandedSession, setExpandedSession] = useState(null);
@@ -44,16 +61,27 @@ const UI06Schedule = () => {
                 <div className="lg:col-span-2">
                     <div className="mb-12">
                         <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">Event Schedule</h2>
+
+                        {/* Session Tracks Legend */}
+                        <div className="mb-6 flex flex-wrap gap-2">
+                            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mr-2">Tracks:</span>
+                            {Object.keys(trackColors).map(track => (
+                                <span key={track} className={`px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider border ${trackColors[track]}`}>
+                                    {track}
+                                </span>
+                            ))}
+                        </div>
+
                         <div className="flex gap-4">
                             <button
                                 onClick={() => setActiveDay('day1')}
-                                className={`px-8 py-3 rounded-xl font-bold text-lg transition-all ${activeDay === 'day1' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-300 transform scale-105' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'}`}
+                                className={`px-8 py-3 rounded-xl font-bold text-lg transition-all ${activeDay === 'day1' ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-300 transform scale-105' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'}`}
                             >
                                 Day 01 <span className="block text-xs font-normal opacity-80">March 15</span>
                             </button>
                             <button
                                 onClick={() => setActiveDay('day2')}
-                                className={`px-8 py-3 rounded-xl font-bold text-lg transition-all ${activeDay === 'day2' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-300 transform scale-105' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'}`}
+                                className={`px-8 py-3 rounded-xl font-bold text-lg transition-all ${activeDay === 'day2' ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-300 transform scale-105' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'}`}
                             >
                                 Day 02 <span className="block text-xs font-normal opacity-80">March 16</span>
                             </button>
@@ -64,7 +92,7 @@ const UI06Schedule = () => {
                         {currentSchedule.map((session) => (
                             <div
                                 key={session.id}
-                                className={`rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden hover:shadow-lg ${expandedSession === session.id ? 'bg-slate-50 border-indigo-200 shadow-md' : 'bg-white border-slate-200 hover:border-indigo-100'}`}
+                                className={`rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden hover:shadow-lg ${expandedSession === session.id ? 'bg-slate-50 border-cyan-200 shadow-md' : 'bg-white border-slate-200 hover:border-cyan-100'}`}
                                 onClick={() => toggleExpand(session.id)}
                             >
                                 <div className="p-6 flex flex-col md:flex-row gap-6 items-start md:items-center">
@@ -73,15 +101,11 @@ const UI06Schedule = () => {
                                     </div>
                                     <div className="grow">
                                         <div className="flex items-center gap-3 mb-1">
-                                            <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider border ${session.track === 'AI' ? 'bg-indigo-50 text-indigo-700 border-indigo-100' :
-                                                session.track === 'Cloud' ? 'bg-blue-50 text-blue-700 border-blue-100' :
-                                                    session.track === 'Design' ? 'bg-pink-50 text-pink-700 border-pink-100' :
-                                                        'bg-slate-100 text-slate-600 border-slate-200'
-                                                }`}>
+                                            <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider border ${trackColors[session.track] || trackColors['General']}`}>
                                                 {session.track}
                                             </span>
                                             {myAgenda.includes(session.id) && (
-                                                <span className="flex items-center gap-1 text-[10px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-full">
+                                                <span className="flex items-center gap-1 text-[10px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-full border border-green-200">
                                                     <Check size={10} /> Added
                                                 </span>
                                             )}
@@ -92,7 +116,7 @@ const UI06Schedule = () => {
                                     <div className="shrink-0 flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
                                         <button
                                             onClick={(e) => toggleAgenda(session.id, e)}
-                                            className={`p-2 rounded-full transition-colors ${myAgenda.includes(session.id) ? 'bg-green-100 text-green-700 hover:bg-green-200' : 'bg-slate-100 text-slate-400 hover:bg-indigo-50 hover:text-indigo-600'}`}
+                                            className={`p-2 rounded-full transition-colors ${myAgenda.includes(session.id) ? 'bg-green-100 text-green-700 hover:bg-green-200' : 'bg-cyan-50 text-cyan-600 hover:bg-cyan-100 border border-cyan-200'}`}
                                             title={myAgenda.includes(session.id) ? "Remove from Agenda" : "Add to Agenda"}
                                         >
                                             {myAgenda.includes(session.id) ? <Check size={20} /> : <Plus size={20} />}
@@ -107,8 +131,10 @@ const UI06Schedule = () => {
                                 <div className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSession === session.id ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}>
                                     <div className="px-6 pb-6 pl-6 md:pl-36 text-slate-600">
                                         <p className="mb-4 leading-relaxed">{session.description}</p>
-                                        <div className="flex items-center gap-2 text-sm font-bold text-slate-500">
-                                            <MapPin size={16} /> {session.location}
+                                        <div className="flex items-center gap-2">
+                                            <span className={`px-3 py-1 rounded-lg text-xs font-bold ${hallColors[session.location] || 'bg-slate-500 text-white'}`}>
+                                                {session.location}
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -119,34 +145,37 @@ const UI06Schedule = () => {
 
                 {/* Sidebar: My Agenda Widget */}
                 <div className="lg:col-span-1">
-                    <div className="sticky top-28 bg-white border border-slate-200 rounded-3xl p-6 shadow-xl shadow-slate-200/50">
-                        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
-                            <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white">
+                    <div className="sticky top-28 bg-white border-2 border-cyan-200 rounded-3xl p-6 shadow-xl shadow-cyan-200/50">
+                        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-cyan-100">
+                            <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-teal-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-cyan-200">
                                 <Calendar size={20} />
                             </div>
                             <div>
                                 <h3 className="font-bold text-slate-900">My Agenda</h3>
-                                <p className="text-xs text-slate-500">{myAgenda.length} sessions selected</p>
+                                <p className="text-xs text-slate-500 flex items-center gap-1">
+                                    <span className="w-2 h-2 rounded-full bg-lime-500 animate-pulse" />
+                                    {myAgenda.length} sessions selected
+                                </p>
                             </div>
                         </div>
 
                         {myAgenda.length === 0 ? (
                             <div className="text-center py-8 text-slate-400">
                                 <p className="text-sm">No sessions added yet.</p>
-                                <p className="text-xs mt-2">Click the <Plus size={12} className="inline bg-slate-100 rounded p-0.5" /> button to build your schedule.</p>
+                                <p className="text-xs mt-2">Click the <Plus size={12} className="inline bg-cyan-50 rounded p-0.5 text-cyan-600" /> button to build your schedule.</p>
                             </div>
                         ) : (
                             <div className="space-y-3 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
                                 {[...scheduleData.day1, ...scheduleData.day2]
                                     .filter(s => myAgenda.includes(s.id))
-                                    .sort((a, b) => a.id - b.id) // simple logic, ideally sort by time
+                                    .sort((a, b) => a.id - b.id)
                                     .map(s => (
-                                        <div key={s.id} className="p-3 bg-slate-50 rounded-xl border border-slate-100 flex gap-3 group relative">
+                                        <div key={s.id} className="p-3 bg-cyan-50 rounded-xl border border-cyan-100 flex gap-3 group relative hover:bg-cyan-100 transition-colors">
                                             <div className="shrink-0 mt-1">
-                                                <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                                                <div className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
                                             </div>
                                             <div>
-                                                <div className="text-xs font-bold text-slate-400 mb-0.5">{s.time} • {s.id < 200 ? 'Day 1' : 'Day 2'}</div>
+                                                <div className="text-xs font-bold text-cyan-600 mb-0.5">{s.time} • {s.id < 200 ? 'Day 1' : 'Day 2'}</div>
                                                 <div className="text-sm font-bold text-slate-900 leading-tight">{s.title}</div>
                                                 <button
                                                     onClick={(e) => toggleAgenda(s.id, e)}
@@ -161,7 +190,7 @@ const UI06Schedule = () => {
                             </div>
                         )}
 
-                        <button className="w-full mt-6 bg-slate-900 text-white py-3 rounded-xl font-bold text-sm tracking-wide hover:bg-indigo-600 transition-colors shadow-lg">
+                        <button className="w-full mt-6 bg-gradient-to-r from-cyan-500 to-teal-600 text-white py-3 rounded-xl font-bold text-sm tracking-wide hover:shadow-lg hover:shadow-cyan-300/50 transition-all shadow-md">
                             Download PDF
                         </button>
                     </div>

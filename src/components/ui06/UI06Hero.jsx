@@ -28,8 +28,8 @@ const UI06Hero = () => {
     return (
         <section id="hero" className="relative pt-32 pb-0 overflow-hidden bg-slate-50">
             {/* Background Spotlights */}
-            <div className="absolute top-0 -left-1/4 w-1/2 h-1/2 bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none animate-pulse-slow" />
-            <div className="absolute bottom-0 -right-1/4 w-1/2 h-1/2 bg-purple-500/10 rounded-full blur-[120px] pointer-events-none animate-pulse-slow delay-1000" />
+            <div className="absolute top-0 -left-1/4 w-1/2 h-1/2 bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none animate-pulse-slow" />
+            <div className="absolute bottom-0 -right-1/4 w-1/2 h-1/2 bg-teal-500/10 rounded-full blur-[120px] pointer-events-none animate-pulse-slow delay-1000" />
 
             <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10 mb-20">
 
@@ -37,15 +37,15 @@ const UI06Hero = () => {
                 <div className="space-y-8">
                     <div className="inline-flex items-center gap-3 px-4 py-2 bg-white border border-slate-200 rounded-full shadow-sm animate-fade-in-up">
                         <span className="relative flex h-3 w-3">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-3 w-3 bg-indigo-500"></span>
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-3 w-3 bg-lime-500"></span>
                         </span>
                         <span className="text-xs font-bold uppercase tracking-wider text-slate-600">Global Tech Conference</span>
                     </div>
 
                     <h1 className="text-6xl lg:text-8xl font-black text-slate-900 leading-[0.9] tracking-tighter animate-fade-in-up delay-100">
                         NEXA <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">SUMMIT</span> <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-teal-600">SUMMIT</span> <br />
                         <span className="text-stroke-3 text-transparent bg-clip-text bg-none" style={{ WebkitTextStroke: '2px #cbd5e1' }}>2026</span>
                     </h1>
 
@@ -55,10 +55,10 @@ const UI06Hero = () => {
                     </p>
 
                     <div className="flex flex-wrap gap-4 animate-fade-in-up delay-300">
-                        <div className="flex items-center gap-2 px-4 py-2 bg-indigo-50 text-indigo-700 rounded-lg font-bold text-sm">
+                        <div className="flex items-center gap-2 px-4 py-2 bg-cyan-50 text-cyan-700 rounded-lg font-bold text-sm border border-cyan-200">
                             <Calendar size={18} /> March 15-16, 2026
                         </div>
-                        <div className="flex items-center gap-2 px-4 py-2 bg-purple-50 text-purple-700 rounded-lg font-bold text-sm">
+                        <div className="flex items-center gap-2 px-4 py-2 bg-teal-50 text-teal-700 rounded-lg font-bold text-sm border border-teal-200">
                             <MapPin size={18} /> Mint Convention Center, Mumbai
                         </div>
                     </div>
@@ -66,13 +66,13 @@ const UI06Hero = () => {
                     <div className="flex items-center gap-6 animate-fade-in-up delay-400">
                         <button
                             onClick={() => document.getElementById('tickets')?.scrollIntoView({ behavior: 'smooth' })}
-                            className="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold uppercase tracking-wider shadow-xl shadow-slate-900/20 hover:scale-105 active:scale-95 transition-all flex items-center gap-3 group"
+                            className="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold uppercase tracking-wider shadow-xl shadow-slate-900/20 hover:bg-cyan-600 hover:shadow-cyan-500/30 hover:scale-105 active:scale-95 transition-all flex items-center gap-3 group"
                         >
                             Book Pass <ArrowRight className="group-hover:translate-x-1 transition-transform" />
                         </button>
                         <button
                             onClick={() => document.getElementById('schedule')?.scrollIntoView({ behavior: 'smooth' })}
-                            className="text-slate-900 font-bold uppercase tracking-wider hover:text-indigo-600 transition-colors border-b-2 border-slate-200 hover:border-indigo-600 pb-1"
+                            className="text-slate-900 font-bold uppercase tracking-wider hover:text-cyan-600 transition-colors border-b-2 border-slate-200 hover:border-cyan-600 pb-1"
                         >
                             View Schedule
                         </button>
@@ -83,7 +83,7 @@ const UI06Hero = () => {
                 <div className="relative perspective-1000 animate-fade-in-up delay-500">
                     <div className="relative w-full max-w-md mx-auto transform rotate-3 hover:rotate-0 transition-all duration-500 ">
                         {/* Upper Part */}
-                        <div className="bg-gradient-to-br from-indigo-600 to-purple-700 text-white p-8 rounded-t-3xl relative overflow-hidden">
+                        <div className="bg-gradient-to-br from-cyan-600 to-teal-700 text-white p-8 rounded-t-3xl relative overflow-hidden shadow-lg shadow-cyan-500/20">
                             <div className="absolute top-0 right-0 p-8 opacity-20">
                                 <QrCode size={120} />
                             </div>
@@ -113,7 +113,7 @@ const UI06Hero = () => {
                         </div>
 
                         {/* Lower Part (Countdown) */}
-                        <div className="bg-white p-8 rounded-b-3xl shadow-2xl relative border-x border-b border-slate-200">
+                        <div className="bg-white p-8 rounded-b-3xl shadow-2xl relative border-x-2 border-b-2 border-cyan-200">
                             {/* Notch cutout visual trick could go here but minimal is fine */}
                             <div className="flex justify-between items-center bg-slate-50 rounded-2xl p-4 border border-slate-100">
                                 <div className="text-center">
@@ -137,8 +137,8 @@ const UI06Hero = () => {
                                 </div>
                             </div>
                             <div className="mt-6 text-center">
-                                <div className="inline-block bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full animate-pulse">
-                                    Early Bird Ending Soon
+                                <div className="inline-block bg-lime-100 text-lime-700 text-xs font-bold px-3 py-1 rounded-full animate-pulse border border-lime-300">
+                                    Limited Seats • Early Bird Ending Soon
                                 </div>
                             </div>
                         </div>
@@ -147,11 +147,11 @@ const UI06Hero = () => {
             </div>
 
             {/* Marquee Strip */}
-            <div className="w-full bg-slate-900 py-6 overflow-hidden rotate-1 scale-105 border-y-4 border-indigo-500">
+            <div className="w-full bg-slate-900 py-6 overflow-hidden rotate-1 scale-105 border-y-4 border-cyan-500">
                 <div className="flex gap-12 animate-marquee whitespace-nowrap">
                     {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, idx) => (
                         <div key={idx} className="flex items-center gap-4 text-white/90 text-2xl font-black uppercase tracking-widest">
-                            {item} <span className="text-indigo-500">•</span>
+                            {item} <span className="text-cyan-400">•</span>
                         </div>
                     ))}
                 </div>
