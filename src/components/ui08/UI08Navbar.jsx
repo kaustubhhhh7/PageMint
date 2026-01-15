@@ -77,7 +77,7 @@ const UI08Navbar = () => {
                         </button>
                     </div>
                     <div className="p-6 space-y-2">
-                        {['overview', 'curriculum', 'mentors', 'outcomes', 'projects', 'pricing'].map((id) => (
+                        {['overview', 'curriculum', 'mentors', 'projects'].map((id) => (
                             <button
                                 key={id}
                                 onClick={() => scrollTo(id)}

@@ -74,8 +74,8 @@ const UI08Curriculum = () => {
                                 key={idx}
                                 onClick={() => setActiveModule(idx)}
                                 className={`flex px-6 py-5 rounded-xl text-left transition-all min-w-[200px] border ${activeModule === idx
-                                        ? 'bg-indigo-600 border-indigo-500 shadow-lg shadow-indigo-500/20 scale-100 lg:scale-105 z-10'
-                                        : 'bg-transparent border-transparent hover:bg-opacity-50 hover:bg-white text-slate-500'
+                                    ? 'bg-indigo-600 border-indigo-500 shadow-lg shadow-indigo-500/20 scale-100 lg:scale-105 z-10'
+                                    : 'bg-transparent border-transparent hover:bg-opacity-50 hover:bg-white text-slate-500'
                                     }`}
                             >
                                 <div>
@@ -189,6 +189,7 @@ const UI08Curriculum = () => {
                         )}
                     </div>
                 </div>
+            </div>
         </section>
     );
 };

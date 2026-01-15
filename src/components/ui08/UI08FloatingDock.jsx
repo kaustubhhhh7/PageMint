@@ -38,16 +38,6 @@ const UI08FloatingDock = () => {
                     <span className="text-[10px] font-bold">Ask</span>
                 </button>
 
-                <div className="w-px h-8 bg-slate-700 hidden md:block" />
-
-                <button
-                    onClick={() => scrollTo('pricing')}
-                    className="group flex flex-col items-center gap-1 p-3 rounded-xl hover:bg-slate-700 text-slate-400 hover:text-white transition-all w-16 md:w-20"
-                >
-                    <DollarSign size={20} className="group-hover:-translate-y-1 transition-transform" />
-                    <span className="text-[10px] font-bold">Pricing</span>
-                </button>
-
                 <button
                     onClick={() => scrollTo('pricing')}
                     className="ml-2 bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-400 hover:to-indigo-500 text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-indigo-500/30 flex items-center gap-2 group transition-all hover:scale-105 active:scale-95"

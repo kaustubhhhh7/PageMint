@@ -15,7 +15,7 @@ const UI08ScrollProgressPills = () => {
             { threshold: 0.3, rootMargin: "-100px 0px -50% 0px" }
         );
 
-        const sections = ['overview', 'curriculum', 'mentors', 'outcomes', 'projects', 'pricing', 'faq'];
+        const sections = ['overview', 'curriculum', 'mentors', 'projects', 'faq'];
         sections.forEach(id => {
             const el = document.getElementById(id);
             if (el) observer.observe(el);
@@ -28,9 +28,7 @@ const UI08ScrollProgressPills = () => {
         { id: 'overview', label: 'Overview' },
         { id: 'curriculum', label: 'Curriculum' },
         { id: 'mentors', label: 'Mentors' },
-        { id: 'outcomes', label: 'Outcomes' },
         { id: 'projects', label: 'Projects' },
-        { id: 'pricing', label: 'Pricing' },
     ];
 
     const scrollTo = (id) => {
