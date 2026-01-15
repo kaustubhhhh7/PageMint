@@ -74,7 +74,7 @@ export const tours = [
         duration: "5 Days",
         price: 95000,
         rating: 4.9,
-        image: getUnsplashUrl("1565099824634-1fd3703dc15e"), // Romantic Paris Street
+        image: getUnsplashUrl("1499856871940-5296287f9d0c"), // Paris Eiffel
         desc: "A specially curated romantic itinerary featuring sunset cruises and private wine tastings.",
         itinerary: [
             { day: 1, title: "Seine Dinner Cruise", desc: "Welcome to Paris with a view." },
@@ -91,7 +91,7 @@ export const tours = [
         duration: "8 Days",
         price: 150000,
         rating: 5.0,
-        image: getUnsplashUrl("1622319340638-348545806655"), // Swiss Train/Winter
+        image: getUnsplashUrl("1534067783741-514fd69db430"), // Swiss Mountains
         desc: "Snow, skiing, and chocolate trains. The perfect winter holiday for the whole family.",
         itinerary: [
             { day: 1, title: "Zurich Arrival", desc: "Train to Interlaken." },
@@ -108,7 +108,7 @@ export const tours = [
         duration: "6 Days",
         price: 28000,
         rating: 4.7,
-        image: getUnsplashUrl("1593693396865-6084d9490e8b"), // Kerala Houseboat
+        image: getUnsplashUrl("1514282401047-d7c94569f6e2"), // Kerala Nature
         desc: "Houseboat stays in Alleppey coupled with the tea gardens of Munnar.",
         itinerary: [
             { day: 1, title: "Cochin to Munnar", desc: "Scenic drive through tea plantations." },
