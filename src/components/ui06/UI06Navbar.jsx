@@ -87,12 +87,10 @@ const UI06Navbar = () => {
 
                     {/* Right Actions */}
                     <div className="hidden lg:flex items-center gap-4">
-                        <Link to="/" className="text-xs font-bold text-slate-400 hover:text-slate-600 transition-colors uppercase tracking-wider flex items-center gap-1">
-                            <ArrowLeft size={14} /> Back to Hub
-                        </Link>
+
                         <button
                             onClick={() => scrollTo('tickets')}
-                            className="bg-gradient-to-r from-orange-500 to-lime-400 text-slate-900 px-6 py-2.5 rounded-r-2xl rounded-bl-2xl font-bold uppercase text-sm tracking-wider hover:shadow-xl hover:shadow-orange-300/50 transition-all duration-300 shadow-lg active:scale-95 flex items-center gap-2 group"
+                            className="bg-gradient-to-r from-orange-500 to-amber-400 text-slate-900 px-6 py-2.5 rounded-r-2xl rounded-bl-2xl font-bold uppercase text-sm tracking-wider hover:shadow-xl hover:shadow-orange-300/50 transition-all duration-300 shadow-lg active:scale-95 flex items-center gap-2 group"
                         >
                             Get Tickets
                             <Ticket size={16} className="group-hover:rotate-12 transition-transform" />
@@ -126,12 +124,10 @@ const UI06Navbar = () => {
                         </button>
                     ))}
                     <div className="mt-8 border-t border-white/10 pt-8 flex flex-col gap-4">
-                        <button onClick={() => scrollTo('tickets')} className="w-full bg-gradient-to-r from-orange-500 to-lime-400 text-slate-900 py-4 font-black uppercase tracking-widest rounded text-center shadow-lg shadow-orange-300/50">
+                        <button onClick={() => scrollTo('tickets')} className="w-full bg-gradient-to-r from-orange-500 to-amber-400 text-slate-900 py-4 font-black uppercase tracking-widest rounded text-center shadow-lg shadow-orange-300/50">
                             Get Tickets
                         </button>
-                        <Link to="/" className="w-full text-center text-white/40 font-bold uppercase tracking-widest text-sm hover:text-white transition-colors">
-                            Back to Hub
-                        </Link>
+
                     </div>
                 </div>
             </div>

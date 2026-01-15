@@ -28,8 +28,8 @@ function App() {
         <Route path="/ui/06" element={<UI06 />} />
         <Route path="/ui/07" element={<UI07 />} />
         <Route path="/ui/08" element={<UI08 />} />
-        <Route path="/ui/09" element={<UI09 />} />
-        <Route path="/ui/10" element={<UI10 />} />
+        <Route path="/ui/09/*" element={<UI09 />} />
+        <Route path="/ui/10/*" element={<UI10 />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

@@ -19,7 +19,7 @@ const scheduleData = {
 const trackColors = {
     'AI': 'bg-orange-50 text-orange-700 border-orange-200',
     'Cloud': 'bg-amber-50 text-amber-700 border-amber-200',
-    'Design': 'bg-lime-50 text-lime-700 border-lime-200',
+    'Design': 'bg-cyan-50 text-cyan-700 border-cyan-200',
     'Security': 'bg-slate-100 text-slate-700 border-slate-300',
     'Startups': 'bg-orange-50 text-orange-700 border-orange-200',
     'Innovation': 'bg-amber-50 text-amber-700 border-amber-200',
@@ -28,7 +28,7 @@ const trackColors = {
 
 const hallColors = {
     'Main Hall A': 'bg-orange-500 text-white',
-    'Hall B': 'bg-lime-500 text-slate-900',
+    'Hall B': 'bg-cyan-500 text-white',
     'Hall C': 'bg-amber-500 text-white',
     'Workshop Room 1': 'bg-slate-500 text-white'
 };
@@ -153,7 +153,7 @@ const UI06Schedule = () => {
                             <div>
                                 <h3 className="font-bold text-slate-900">My Agenda</h3>
                                 <p className="text-xs text-slate-500 flex items-center gap-1">
-                                    <span className="w-2 h-2 rounded-full bg-lime-500 animate-pulse" />
+                                    <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
                                     {myAgenda.length} sessions selected
                                 </p>
                             </div>

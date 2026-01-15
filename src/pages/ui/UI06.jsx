@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowUp, ArrowLeft } from 'lucide-react';
 
 import UI06Navbar from '../../components/ui06/UI06Navbar';
 import UI06Hero from '../../components/ui06/UI06Hero';
@@ -56,12 +57,24 @@ const UI06 = () => {
             <UI06Footer />
 
             {/* Floating Back To Top */}
+            {/* Floating Back To Top */}
             <button
                 onClick={scrollToTop}
-                className={`fixed bottom-8 right-8 z-40 p-3 rounded-full bg-gradient-to-r from-orange-500 to-lime-400 text-slate-900 shadow-2xl transition-all duration-500 hover:scale-110 hover:shadow-orange-500/50 active:scale-90 ${showTopBtn ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}
+                className={`fixed bottom-24 right-8 z-40 p-3 rounded-full bg-slate-900 text-white shadow-xl border border-slate-800 transition-all duration-500 hover:scale-110 active:scale-90 ${showTopBtn ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0 pointer-events-none'}`}
             >
-                <ArrowUp size={24} />
+                <ArrowUp size={20} />
             </button>
+
+            {/* Floating Back to Hub */}
+            <Link
+                to="/"
+                className="fixed bottom-8 right-8 z-50 flex items-center gap-3 pl-2 pr-6 py-2 bg-white rounded-full shadow-[0_0_40px_-10px_rgba(0,0,0,0.2)] hover:shadow-[0_0_50px_-10px_rgba(0,0,0,0.3)] transition-all duration-300 hover:scale-105 group border border-slate-100"
+            >
+                <div className="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300">
+                    <ArrowLeft size={20} />
+                </div>
+                <span className="font-bold text-slate-800 tracking-tight group-hover:text-slate-900">Back to Hub</span>
+            </Link>
         </div>
     );
 };

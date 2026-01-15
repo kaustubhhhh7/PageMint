@@ -27,7 +27,7 @@ const speakersData = [
         topic: "Design",
         bio: "Sarah has redefined user experience standards for enterprise software. Her philosophy of 'Invisible Design' has influenced thousands of products. She'll be conducting a live design audit session.",
         initials: "SJ",
-        color: "bg-lime-100 text-lime-700"
+        color: "bg-cyan-100 text-cyan-700"
     },
     {
         id: 4,
@@ -63,7 +63,7 @@ const speakersData = [
         topic: "Design",
         bio: "Anita specializes in accessible interfaces for emerging markets. Her work ensures technology empowers the next billion users effectively.",
         initials: "AR",
-        color: "bg-lime-100 text-lime-700"
+        color: "bg-cyan-100 text-cyan-700"
     },
     {
         id: 8,

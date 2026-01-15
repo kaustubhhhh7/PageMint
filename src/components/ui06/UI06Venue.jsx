@@ -35,7 +35,7 @@ const UI06Venue = () => {
                                 className="p-2 bg-orange-50 rounded-lg hover:bg-orange-100 transition-colors text-orange-600 border border-orange-200"
                                 title="Copy Address"
                             >
-                                {copied ? <Check size={20} className="text-green-600" /> : <Copy size={20} />}
+                                {copied ? <Check size={20} className="text-orange-600" /> : <Copy size={20} />}
                             </button>
                         </div>
                         <div className="flex flex-wrap gap-4 pt-4 border-t border-slate-100">

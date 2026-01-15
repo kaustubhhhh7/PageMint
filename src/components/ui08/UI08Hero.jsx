@@ -1,105 +1,76 @@
-import React, { useEffect, useState } from 'react';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import React from 'react';
+import { ArrowDown } from 'lucide-react';
 
 const UI08Hero = () => {
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        setIsVisible(true);
-    }, []);
-
-    const scrollTo = (id) => {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    }
-
     return (
-        <section id="overview" className="bg-white pt-24 pb-20 border-b border-zinc-100">
-            <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-start">
+        <section className="bg-white min-h-[90vh] flex flex-col border-b border-black">
 
-                {/* Left: Editorial Content */}
-                <div className={`transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-                    <div className="inline-block px-2 py-1 bg-zinc-100 border border-zinc-200 rounded text-[10px] uppercase font-bold tracking-widest text-zinc-600 mb-6">
-                        Online Cohort • 8 Weeks
-                    </div>
+            {/* Top Content Area */}
+            <div className="flex-1 grid lg:grid-cols-2">
 
-                    <h1 className="text-5xl md:text-6xl font-black text-zinc-900 leading-[1.1] mb-6 tracking-tight">
-                        Full-Stack <br />
-                        <span className="bg-amber-300 px-2">Web Development</span>
+                {/* Left: Typography */}
+                <div className="p-12 lg:p-24 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-black relative">
+                    <h1 className="text-6xl md:text-8xl font-black uppercase leading-[0.85] tracking-tighter mb-12">
+                        Master<br />
+                        The<br />
+                        Web.
                     </h1>
 
-                    <p className="text-xl md:text-2xl text-zinc-600 leading-relaxed mb-10 max-w-lg font-light">
-                        A calm, structured path from fundamentals to shipping real apps. No fluff, just code.
-                    </p>
+                    <div className="max-w-md">
+                        <p className="text-lg md:text-xl font-medium leading-relaxed mb-8">
+                            An intensive, project-based curriculum designed for those who demand excellence. Stop consuming content. Start building systems.
+                        </p>
 
-                    {/* Meta Row (Notion-style) */}
-                    <div className="flex flex-wrap gap-8 mb-10 text-sm border-t border-b border-zinc-100 py-6">
-                        <div>
-                            <span className="block text-zinc-400 text-xs font-bold uppercase tracking-wider mb-1">Start Date</span>
-                            <span className="font-medium text-zinc-900">August 15, 2026</span>
-                        </div>
-                        <div>
-                            <span className="block text-zinc-400 text-xs font-bold uppercase tracking-wider mb-1">Duration</span>
-                            <span className="font-medium text-zinc-900">8 Weeks (Part-time)</span>
-                        </div>
-                        <div>
-                            <span className="block text-zinc-400 text-xs font-bold uppercase tracking-wider mb-1">Level</span>
-                            <span className="font-medium text-zinc-900">Intermediate</span>
-                        </div>
-                        <div>
-                            <span className="block text-zinc-400 text-xs font-bold uppercase tracking-wider mb-1">Mode</span>
-                            <span className="font-medium text-zinc-900">Live + Async</span>
-                        </div>
+                        <button
+                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="bg-black text-white px-10 py-4 font-bold uppercase tracking-widest text-xs hover:bg-zinc-800 transition-colors"
+                        >
+                            Apply for Intake
+                        </button>
                     </div>
 
-                    <div className="flex items-center gap-4">
-                        <button
-                            onClick={() => scrollTo('pricing')}
-                            className="bg-zinc-900 hover:bg-zinc-800 text-white px-8 py-4 rounded-lg font-bold text-sm transition-transform hover:-translate-y-1"
-                        >
-                            Enroll for Next Cohort
-                        </button>
-                        <button
-                            onClick={() => scrollTo('outline')}
-                            className="bg-zinc-100 hover:bg-zinc-200 text-zinc-900 px-8 py-4 rounded-lg font-bold text-sm transition-colors border border-zinc-200"
-                        >
-                            View Outline
-                        </button>
+                    <div className="hidden lg:block absolute bottom-12 right-12 animate-bounce">
+                        <ArrowDown size={32} />
                     </div>
                 </div>
 
-                {/* Right: Progress Card Card (Minimal) */}
-                <div className={`hidden lg:block bg-zinc-50 border border-zinc-200 rounded-xl p-8 transition-all duration-1000 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-                    <div className="flex justify-between items-end mb-6">
-                        <div>
-                            <h3 className="text-lg font-bold text-zinc-900">Your Learning Path</h3>
-                            <p className="text-sm text-zinc-500">From setup to deployment.</p>
-                        </div>
-                        <span className="text-3xl font-black text-zinc-200">01</span>
-                    </div>
-
-                    <div className="space-y-4 mb-8">
-                        {[
-                            "Master HTML5 & CSS Architecture",
-                            "Deep dive into JavaScript & React",
-                            "Build robust Backends with Node/Express",
-                            "Deploy to Vercel & AWS"
-                        ].map((item, i) => (
-                            <div key={i} className="flex items-center gap-3">
-                                <div className={`w-5 h-5 rounded border flex items-center justify-center ${i === 0 ? 'bg-zinc-900 border-zinc-900 text-white' : 'border-zinc-300 text-transparent'}`}>
-                                    <CheckCircle2 size={12} strokeWidth={4} />
-                                </div>
-                                <span className={`text-sm ${i === 0 ? 'text-zinc-900 font-bold' : 'text-zinc-500'}`}>{item}</span>
+                {/* Right: Abstract Imagery/Layout */}
+                <div className="bg-zinc-100 relative overflow-hidden flex items-center justify-center p-12 lg:p-0">
+                    {/* Placeholder for "Person working" - using a generated styled div for now to maintain pure code */}
+                    <div className="relative w-full max-w-lg aspect-[4/5] bg-white border border-black p-4 rotate-3 hover:rotate-0 transition-transform duration-700 ease-out shadow-[20px_20px_0px_0px_rgba(0,0,0,1)]">
+                        <div className="w-full h-full bg-zinc-200 border border-black flex items-center justify-center overflow-hidden grayscale contrast-125">
+                            {/* Abstract representational shapes if no image */}
+                            <div className="text-9xl font-black text-zinc-300 opacity-50 rotate-90 whitespace-nowrap">
+                                CODE / CREATE
                             </div>
-                        ))}
+                        </div>
+                        <div className="absolute top-8 right-8 bg-black text-white px-3 py-1 text-xs font-bold uppercase tracking-widest">
+                            New Cohort
+                        </div>
                     </div>
-
-                    <div className="h-1 w-full bg-zinc-200 rounded-full overflow-hidden">
-                        <div className="h-full w-1/4 bg-amber-400 rounded-full"></div>
-                    </div>
-                    <div className="mt-2 text-xs text-zinc-400 font-mono text-right">Step 1 of 4</div>
                 </div>
 
             </div>
+
+            {/* Bottom Ticker/Meta */}
+            <div className="border-t border-black bg-white grid grid-cols-2 md:grid-cols-4 divide-x divide-black">
+                <div className="p-6 text-center">
+                    <span className="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-1">Start Date</span>
+                    <span className="font-bold text-lg">August 15</span>
+                </div>
+                <div className="p-6 text-center">
+                    <span className="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-1">Duration</span>
+                    <span className="font-bold text-lg">12 Weeks</span>
+                </div>
+                <div className="p-6 text-center">
+                    <span className="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-1">Format</span>
+                    <span className="font-bold text-lg">Async + Live</span>
+                </div>
+                <div className="p-6 text-center bg-black text-white flex items-center justify-center">
+                    <span className="font-bold text-lg uppercase tracking-widest">Limited Spots</span>
+                </div>
+            </div>
+
         </section>
     );
 };

@@ -37,8 +37,8 @@ const UI06Hero = () => {
                 <div className="space-y-8">
                     <div className="inline-flex items-center gap-3 px-4 py-2 bg-white border border-slate-200 rounded-full shadow-sm animate-fade-in-up">
                         <span className="relative flex h-3 w-3">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-3 w-3 bg-lime-500"></span>
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
                         </span>
                         <span className="text-xs font-bold uppercase tracking-wider text-slate-600">Global Tech Conference</span>
                     </div>
@@ -137,7 +137,7 @@ const UI06Hero = () => {
                                 </div>
                             </div>
                             <div className="mt-6 text-center">
-                                <div className="inline-block bg-lime-100 text-lime-700 text-xs font-bold px-3 py-1 rounded-full animate-pulse border border-lime-300">
+                                <div className="inline-block bg-amber-100 text-amber-700 text-xs font-bold px-3 py-1 rounded-full animate-pulse border border-amber-300">
                                     Limited Seats • Early Bird Ending Soon
                                 </div>
                             </div>

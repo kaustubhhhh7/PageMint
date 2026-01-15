@@ -45,10 +45,10 @@ const UI06Tickets = () => {
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-lime-500/20 text-lime-400 text-xs font-bold uppercase tracking-wider mb-4">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-wider mb-4">
                         <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-lime-500"></span>
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
                         </span>
                         Selling Fast: Only 37 Seats Left
                     </div>
@@ -67,7 +67,7 @@ const UI06Tickets = () => {
                                 className={`relative rounded-3xl p-6 border-2 cursor-pointer transition-all duration-300 flex flex-col h-full ${selectedTicket === ticket.id ? `${ticket.color} shadow-2xl shadow-orange-500/20 scale-[1.02]` : 'border-slate-800 bg-slate-800/50 hover:bg-slate-800'}`}
                             >
                                 {ticket.badge && (
-                                    <div className={`absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-wider shadow-lg ${ticket.id === 'pro' ? 'bg-gradient-to-r from-orange-500 to-lime-400 text-slate-900' : 'bg-amber-500 text-white'}`}>
+                                    <div className={`absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-wider shadow-lg ${ticket.id === 'pro' ? 'bg-gradient-to-r from-orange-500 to-amber-400 text-slate-900' : 'bg-amber-500 text-white'}`}>
                                         {ticket.badge}
                                     </div>
                                 )}
@@ -81,7 +81,7 @@ const UI06Tickets = () => {
                                 <ul className="space-y-3 mb-8 flex-grow">
                                     {ticket.features.map((feat, i) => (
                                         <li key={i} className="flex items-start gap-2 text-xs text-slate-300">
-                                            <Check size={14} className={`${feat.includes('No') ? 'text-slate-600' : 'text-lime-400'} shrink-0 mt-0.5`} />
+                                            <Check size={14} className={`${feat.includes('No') ? 'text-slate-600' : 'text-amber-400'} shrink-0 mt-0.5`} />
                                             <span className={feat.includes('No') ? 'opacity-50' : ''}>{feat}</span>
                                         </li>
                                     ))}
@@ -122,7 +122,7 @@ const UI06Tickets = () => {
                             <div className="text-4xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-600">${total}</div>
                         </div>
 
-                        <button className="w-full bg-gradient-to-r from-orange-500 to-lime-400 text-slate-900 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:shadow-xl hover:shadow-orange-300/50 transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2">
+                        <button className="w-full bg-gradient-to-r from-orange-500 to-amber-400 text-slate-900 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:shadow-xl hover:shadow-orange-300/50 transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2">
                             Proceed to Checkout <ShoppingCart size={18} />
                         </button>
 

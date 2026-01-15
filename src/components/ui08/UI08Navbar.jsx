@@ -1,106 +1,77 @@
 import React, { useState } from 'react';
+import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Menu, X, ArrowRight } from 'lucide-react';
 
 const UI08Navbar = () => {
     const [isMobileOpen, setIsMobileOpen] = useState(false);
 
+    const navLinks = [
+        { label: 'Curriculum', href: '#curriculum' },
+        { label: 'Philosophy', href: '#philosophy' },
+        { label: 'Reviews', href: '#reviews' },
+        { label: 'Contact', href: '#contact' },
+    ];
+
     const scrollTo = (id) => {
         setIsMobileOpen(false);
-        const el = document.getElementById(id);
-        if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
+        const element = document.querySelector(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
         }
     };
 
-    const navLinks = [
-        { id: 'overview', label: 'Overview' },
-        { id: 'outline', label: 'Outline' },
-        { id: 'preview', label: 'Preview' },
-        { id: 'mentors', label: 'Mentors' },
-        { id: 'projects', label: 'Projects' },
-        { id: 'pricing', label: 'Pricing' },
-        { id: 'faq', label: 'FAQ' },
-    ];
-
     return (
-        <nav className="sticky top-0 w-full z-50 bg-white border-b border-zinc-200">
-            <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <nav className="bg-white border-b border-black py-4 sticky top-0 z-50">
+            <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
+
                 {/* Logo */}
-                <div
-                    className="flex items-center gap-2 cursor-pointer"
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                >
-                    <BookOpen size={20} className="text-zinc-900" />
-                    <span className="text-lg font-bold text-zinc-900 tracking-tight">MonoLearn</span>
+                <div className="flex flex-col" onClick={() => window.scrollTo(0, 0)}>
+                    <span className="font-black text-xl tracking-tighter cursor-pointer uppercase">SkillSprint.</span>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-500">Academy</span>
                 </div>
 
-                {/* Desktop Menu */}
-                <div className="hidden lg:flex items-center gap-8">
+                {/* Desktop Nav */}
+                <div className="hidden lg:flex items-center gap-12">
                     {navLinks.map((link) => (
                         <button
-                            key={link.id}
-                            onClick={() => scrollTo(link.id)}
-                            className="text-sm font-medium text-zinc-600 hover:text-zinc-900 hover:underline decoration-amber-400 decoration-2 underline-offset-4 transition-all"
+                            key={link.label}
+                            onClick={() => scrollTo(link.href)}
+                            className="text-xs font-bold uppercase tracking-widest hover:text-zinc-500 transition-colors"
                         >
                             {link.label}
                         </button>
                     ))}
-                </div>
-
-                {/* Desktop Actions */}
-                <div className="hidden lg:flex items-center gap-6">
-                    <Link to="/" className="text-sm font-medium text-zinc-500 hover:text-zinc-900">
+                    <div className="h-4 w-px bg-zinc-300 mx-2"></div>
+                    <Link to="/" className="text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-black transition-colors">
                         Back to Hub
                     </Link>
-                    <button
-                        onClick={() => scrollTo('pricing')}
-                        className="bg-zinc-900 hover:bg-zinc-800 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all flex items-center gap-2"
-                    >
-                        Start Learning <ArrowRight size={14} className="text-zinc-400" />
-                    </button>
                 </div>
 
-                {/* Mobile Toggle */}
-                <button
-                    className="lg:hidden text-zinc-900"
-                    onClick={() => setIsMobileOpen(true)}
-                >
+                {/* Mobile Menu Toggle */}
+                <button className="lg:hidden" onClick={() => setIsMobileOpen(true)}>
                     <Menu size={24} />
                 </button>
             </div>
 
             {/* Mobile Drawer */}
-            <div className={`fixed inset-0 z-[60] bg-zinc-900/50 backdrop-blur-sm lg:hidden transition-opacity duration-300 ${isMobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} onClick={() => setIsMobileOpen(false)}>
-                <div className={`absolute top-0 right-0 h-full w-80 bg-white shadow-xl transform transition-transform duration-300 ${isMobileOpen ? 'translate-x-0' : 'translate-x-full'}`} onClick={e => e.stopPropagation()}>
-                    <div className="p-6 flex justify-between items-center border-b border-zinc-100">
-                        <span className="font-bold text-lg text-zinc-900">Menu</span>
-                        <button onClick={() => setIsMobileOpen(false)} className="text-zinc-500 hover:text-zinc-900">
-                            <X size={24} />
-                        </button>
-                    </div>
-                    <div className="p-6 flex flex-col gap-4">
+            {isMobileOpen && (
+                <div className="fixed inset-0 z-50 bg-white p-6 flex flex-col items-center justify-center animate-in slide-in-from-top-10 duration-300">
+                    <button onClick={() => setIsMobileOpen(false)} className="absolute top-6 right-6">
+                        <X size={32} />
+                    </button>
+                    <div className="flex flex-col gap-8 text-center">
                         {navLinks.map((link) => (
                             <button
-                                key={link.id}
-                                onClick={() => scrollTo(link.id)}
-                                className="text-left py-2 text-zinc-800 font-medium hover:text-zinc-900 border-b border-zinc-50"
+                                key={link.label}
+                                onClick={() => scrollTo(link.href)}
+                                className="text-2xl font-black uppercase tracking-widest"
                             >
                                 {link.label}
                             </button>
                         ))}
-                        <div className="mt-4 pt-4 border-t border-zinc-100 flex flex-col gap-4">
-                            <Link to="/" className="text-sm text-zinc-500">Back to Hub</Link>
-                            <button
-                                onClick={() => scrollTo('pricing')}
-                                className="w-full bg-zinc-900 text-white py-3 rounded-lg font-bold text-center"
-                            >
-                                Start Learning
-                            </button>
-                        </div>
                     </div>
                 </div>
-            </div>
+            )}
         </nav>
     );
 };
