@@ -22,7 +22,7 @@ const UI10About = () => {
             {/* Image Banner */}
             <div className="w-full h-[500px] relative bg-stone-900 mb-24 overflow-hidden">
                 <img
-                    src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
+                    src="https://picsum.photos/seed/aboutbanner/1400/500"
                     alt="Luxury Interior"
                     className="w-full h-full object-cover opacity-80"
                 />

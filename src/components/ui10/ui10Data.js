@@ -10,7 +10,7 @@ export const properties = [
         beds: 4,
         baths: 5,
         sqft: 6500,
-        image: "https://images.unsplash.com/photo-1600607687920-4e2a12cffe3e?q=80&w=2070&auto=format&fit=crop",
+        image: "https://picsum.photos/seed/property1/800/600",
         featured: true,
         tag: "Signature",
         description: "Experience the pinnacle of luxury living in this triplex penthouse offering panoramic views of the Arabian Gulf. Features a private infinity pool, dedicated elevator, and interiors by world-renowned designers.",
@@ -27,7 +27,7 @@ export const properties = [
         beds: 6,
         baths: 7,
         sqft: 8200,
-        image: "https://images.unsplash.com/photo-1600596542815-e328701102b9?q=80&w=2070&auto=format&fit=crop",
+        image: "https://picsum.photos/seed/property2/800/600",
         featured: true,
         tag: "New Listing",
         description: "A masterclass in modern architecture, this estate blends indoor and outdoor living seamlessly. Surrounded by lush gardens, it offers total privacy and resort-style amenities.",
@@ -44,7 +44,7 @@ export const properties = [
         beds: 3,
         baths: 3,
         sqft: 2800,
-        image: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=2070&auto=format&fit=crop",
+        image: "https://picsum.photos/seed/property3/800/600",
         featured: true,
         tag: "Historic",
         description: "An impeccably restored Grade II listed apartment in one of London's most prestigious squares. High ceilings, original stucco detailing, and access to private gardens.",
@@ -61,7 +61,7 @@ export const properties = [
         beds: 5,
         baths: 6,
         sqft: 5500,
-        image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=2070&auto=format&fit=crop",
+        image: "https://picsum.photos/seed/property4/800/600",
         featured: false,
         tag: "Ocean View",
         description: "A cantilevered masterpiece suspended above the Pacific Ocean. Floor-to-ceiling glass walls disappear to create a true open-air living experience.",
@@ -78,7 +78,7 @@ export const properties = [
         beds: 3,
         baths: 4,
         sqft: 3400,
-        image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
+        image: "https://picsum.photos/seed/property5/800/600",
         featured: false,
         tag: "Loft",
         description: "Authentic industrial loft with cast-iron columns and exposed brick, reimagined for ultra-modern luxury. Features a private rooftop terrace with Empire State Building views.",
@@ -95,7 +95,7 @@ export const properties = [
         beds: 7,
         baths: 8,
         sqft: 9000,
-        image: "https://images.unsplash.com/photo-1513584685908-95c9e1158530?q=80&w=2070&auto=format&fit=crop",
+        image: "https://picsum.photos/seed/property6/800/600",
         featured: true,
         tag: "Winter Retreat",
         description: "The ultimate ski-in/ski-out chalet. Traditional craftsmanship meets contemporary luxury, featuring a private spa, indoor pool, and expansive entertainment areas.",
@@ -110,7 +110,7 @@ export const agents = [
         name: "Alexandra Vautier",
         role: "Senior Partner",
         experience: "15 Years",
-        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
+        image: "https://picsum.photos/seed/agent1/400/400",
         specialty: "Penthouse & Luxury Urban",
         bio: "Specializing in ultra-luxury properties across New York and Dubai, Alexandra has closed over $500M in sales.",
         languages: ["English", "French", "Arabic"]
@@ -120,7 +120,7 @@ export const agents = [
         name: "Michael Chen",
         role: "Estate Director",
         experience: "12 Years",
-        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop",
+        image: "https://picsum.photos/seed/agent2/400/400",
         specialty: "Coastal & Modern Architecture",
         bio: "With a background in architecture, Michael helps clients find homes that are true works of art.",
         languages: ["English", "Mandarin", "Spanish"]
@@ -130,7 +130,7 @@ export const agents = [
         name: "Sarah Kensington",
         role: "Private Office Lead",
         experience: "20 Years",
-        image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800&auto=format&fit=crop",
+        image: "https://picsum.photos/seed/agent3/400/400",
         specialty: "Historic & European Estates",
         bio: "Sarah manages our most exclusive off-market listings and serves a private network of UHNW individuals.",
         languages: ["English", "German", "Italian"]
@@ -138,10 +138,10 @@ export const agents = [
 ];
 
 export const neighborhoods = [
-    { id: 1, name: "Dubai Marina", image: "https://images.unsplash.com/photo-1512453979798-5ea904ac66de?q=80&w=1200&auto=format&fit=crop", count: 42 },
-    { id: 2, name: "South Mumbai", image: "https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?q=80&w=1200&auto=format&fit=crop", count: 18 },
-    { id: 3, name: "Beverly Hills", image: "https://images.unsplash.com/photo-1519608487953-e999c86e7455?q=80&w=1200&auto=format&fit=crop", count: 25 },
-    { id: 4, name: "Mayfair, Lon", image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1200&auto=format&fit=crop", count: 14 }
+    { id: 1, name: "Dubai Marina", image: "https://picsum.photos/seed/neighborhood1/600/400", count: 42 },
+    { id: 2, name: "South Mumbai", image: "https://picsum.photos/seed/neighborhood2/600/400", count: 18 },
+    { id: 3, name: "Beverly Hills", image: "https://picsum.photos/seed/neighborhood3/600/400", count: 25 },
+    { id: 4, name: "Mayfair, Lon", image: "https://picsum.photos/seed/neighborhood4/600/400", count: 14 }
 ];
 
 export const testimonials = [
