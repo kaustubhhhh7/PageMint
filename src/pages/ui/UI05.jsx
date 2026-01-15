@@ -54,7 +54,7 @@ const UI05 = () => {
             {/* Floating Scroll to Top */}
             <button
                 onClick={scrollToTop}
-                className={`fixed bottom-8 right-8 z-40 p-3 rounded-full bg-slate-900 text-white shadow-2xl transition-all duration-500 hover:scale-110 active:scale-90 ${showTopBtn ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}
+                className={`fixed bottom-8 left-8 z-40 p-3 rounded-full bg-slate-900 text-white shadow-2xl transition-all duration-500 hover:scale-110 active:scale-90 ${showTopBtn ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}
             >
                 <ArrowUp size={24} />
             </button>

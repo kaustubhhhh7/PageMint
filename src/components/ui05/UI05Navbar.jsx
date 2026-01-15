@@ -55,10 +55,7 @@ const UI05Navbar = () => {
                 <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
                     {/* Logo */}
                     <div className="flex items-center gap-4">
-                        <Link to="/" className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 transition-all text-sm font-medium mr-4 group">
-                            <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                            <span className="hidden lg:inline">Back to Hub</span>
-                        </Link>
+
                         <span
                             className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 cursor-pointer"
                             onClick={() => scrollToSection('overview')}
@@ -89,6 +86,13 @@ const UI05Navbar = () => {
                         >
                             Buy Now <ShoppingBag size={16} />
                         </button>
+
+                        <Link to="/" className="hidden lg:flex items-center gap-2 px-4 py-2.5 rounded-full bg-white border border-slate-200 shadow-md hover:shadow-lg transition-all text-slate-700 text-sm font-bold group ml-2">
+                            <div className="w-6 h-6 rounded-full bg-indigo-50 flex items-center justify-center group-hover:bg-indigo-100 transition-colors">
+                                <ArrowLeft size={14} className="text-indigo-600 group-hover:-translate-x-0.5 transition-transform" />
+                            </div>
+                            Back to Hub
+                        </Link>
 
                         <button
                             className="md:hidden p-2 text-slate-800"
