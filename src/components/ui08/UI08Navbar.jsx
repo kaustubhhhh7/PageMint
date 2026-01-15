@@ -1,101 +1,103 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, Menu, X, ArrowRight } from 'lucide-react';
-import UI08ScrollProgressPills from './UI08ScrollProgressPills';
 
 const UI08Navbar = () => {
-    const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileOpen, setIsMobileOpen] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     const scrollTo = (id) => {
         setIsMobileOpen(false);
         const el = document.getElementById(id);
         if (el) {
-            const yOffset = -120; // Account for banner + navbar + pills
-            const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-            window.scrollTo({ top: y, behavior: 'smooth' });
+            el.scrollIntoView({ behavior: 'smooth' });
         }
     };
 
+    const navLinks = [
+        { id: 'overview', label: 'Overview' },
+        { id: 'outline', label: 'Outline' },
+        { id: 'preview', label: 'Preview' },
+        { id: 'mentors', label: 'Mentors' },
+        { id: 'projects', label: 'Projects' },
+        { id: 'pricing', label: 'Pricing' },
+        { id: 'faq', label: 'FAQ' },
+    ];
+
     return (
-        <nav className={`sticky top-0 w-full z-50 transition-all duration-300 border-b border-indigo-100 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg py-2' : 'bg-white py-4'}`}>
-            <div className="max-w-7xl mx-auto px-6">
+        <nav className="sticky top-0 w-full z-50 bg-white border-b border-zinc-200">
+            <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+                {/* Logo */}
+                <div
+                    className="flex items-center gap-2 cursor-pointer"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                >
+                    <BookOpen size={20} className="text-zinc-900" />
+                    <span className="text-lg font-bold text-zinc-900 tracking-tight">MonoLearn</span>
+                </div>
 
-                {/* Top Row: Logo & Actions */}
-                <div className="flex items-center justify-between mb-3">
-                    {/* Logo */}
-                    <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                        <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-500/30 group-hover:rotate-6 transition-transform">
-                            <BookOpen size={20} fill="currentColor" className="text-white" />
-                        </div>
-                        <div>
-                            <span className="block text-lg font-black text-slate-900 leading-none tracking-tight">SkillSprint</span>
-                            <span className="block text-xs font-bold text-rose-500 uppercase tracking-widest">Academy</span>
-                        </div>
-                    </div>
-
-                    {/* Desktop Actions */}
-                    <div className="hidden lg:flex items-center gap-4">
-                        <Link to="/" className="text-sm font-bold text-slate-400 hover:text-indigo-600 transition-colors">
-                            Back to Hub
-                        </Link>
+                {/* Desktop Menu */}
+                <div className="hidden lg:flex items-center gap-8">
+                    {navLinks.map((link) => (
                         <button
-                            onClick={() => scrollTo('pricing')}
-                            className="bg-slate-900 hover:bg-slate-800 text-white px-6 py-2.5 rounded-full font-bold shadow-xl active:scale-95 transition-all flex items-center gap-2 group"
+                            key={link.id}
+                            onClick={() => scrollTo(link.id)}
+                            className="text-sm font-medium text-zinc-600 hover:text-zinc-900 hover:underline decoration-amber-400 decoration-2 underline-offset-4 transition-all"
                         >
-                            Start Learning <ArrowRight size={16} className="text-rose-400 group-hover:translate-x-1 transition-transform" />
+                            {link.label}
                         </button>
-                    </div>
+                    ))}
+                </div>
 
-                    {/* Mobile Toggle */}
-                    <button className="lg:hidden text-slate-600" onClick={() => setIsMobileOpen(true)}>
-                        <Menu size={28} />
+                {/* Desktop Actions */}
+                <div className="hidden lg:flex items-center gap-6">
+                    <Link to="/" className="text-sm font-medium text-zinc-500 hover:text-zinc-900">
+                        Back to Hub
+                    </Link>
+                    <button
+                        onClick={() => scrollTo('pricing')}
+                        className="bg-zinc-900 hover:bg-zinc-800 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all flex items-center gap-2"
+                    >
+                        Start Learning <ArrowRight size={14} className="text-zinc-400" />
                     </button>
                 </div>
 
-                {/* Bottom Row: Pills (Desktop Only) */}
-                <div className="hidden lg:block pb-1">
-                    <UI08ScrollProgressPills />
-                </div>
+                {/* Mobile Toggle */}
+                <button
+                    className="lg:hidden text-zinc-900"
+                    onClick={() => setIsMobileOpen(true)}
+                >
+                    <Menu size={24} />
+                </button>
             </div>
 
             {/* Mobile Drawer */}
-            <div className={`fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm lg:hidden transition-opacity duration-300 ${isMobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} onClick={() => setIsMobileOpen(false)}>
-                <div className={`absolute top-0 right-0 h-full w-80 bg-white shadow-2xl transform transition-transform duration-300 ${isMobileOpen ? 'translate-x-0' : 'translate-x-full'}`} onClick={e => e.stopPropagation()}>
-                    <div className="p-6 flex justify-between items-center border-b border-indigo-50">
-                        <span className="font-black text-xl text-indigo-900">Menu</span>
-                        <button onClick={() => setIsMobileOpen(false)} className="p-2 bg-indigo-50 rounded-full hover:bg-indigo-100 text-indigo-500">
-                            <X size={20} />
+            <div className={`fixed inset-0 z-[60] bg-zinc-900/50 backdrop-blur-sm lg:hidden transition-opacity duration-300 ${isMobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} onClick={() => setIsMobileOpen(false)}>
+                <div className={`absolute top-0 right-0 h-full w-80 bg-white shadow-xl transform transition-transform duration-300 ${isMobileOpen ? 'translate-x-0' : 'translate-x-full'}`} onClick={e => e.stopPropagation()}>
+                    <div className="p-6 flex justify-between items-center border-b border-zinc-100">
+                        <span className="font-bold text-lg text-zinc-900">Menu</span>
+                        <button onClick={() => setIsMobileOpen(false)} className="text-zinc-500 hover:text-zinc-900">
+                            <X size={24} />
                         </button>
                     </div>
-                    <div className="p-6 space-y-2">
-                        {['overview', 'curriculum', 'mentors', 'projects'].map((id) => (
+                    <div className="p-6 flex flex-col gap-4">
+                        {navLinks.map((link) => (
                             <button
-                                key={id}
-                                onClick={() => scrollTo(id)}
-                                className="w-full text-left px-4 py-3 rounded-lg font-bold text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 transition-colors capitalize"
+                                key={link.id}
+                                onClick={() => scrollTo(link.id)}
+                                className="text-left py-2 text-zinc-800 font-medium hover:text-zinc-900 border-b border-zinc-50"
                             >
-                                {id}
+                                {link.label}
                             </button>
                         ))}
-                        <div className="h-px bg-slate-100 my-4" />
-                        <button
-                            onClick={() => scrollTo('pricing')}
-                            className="w-full bg-rose-500 text-white py-3 rounded-xl font-bold shadow-lg shadow-rose-500/20"
-                        >
-                            Enroll Now
-                        </button>
-                    </div>
-                    <div className="absolute bottom-6 left-0 w-full text-center">
-                        <Link to="/" className="text-sm font-bold text-slate-400 hover:text-indigo-600">Back to Hub</Link>
+                        <div className="mt-4 pt-4 border-t border-zinc-100 flex flex-col gap-4">
+                            <Link to="/" className="text-sm text-zinc-500">Back to Hub</Link>
+                            <button
+                                onClick={() => scrollTo('pricing')}
+                                className="w-full bg-zinc-900 text-white py-3 rounded-lg font-bold text-center"
+                            >
+                                Start Learning
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

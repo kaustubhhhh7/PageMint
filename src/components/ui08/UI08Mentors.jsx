@@ -1,101 +1,121 @@
-import React from 'react';
-import { Linkedin, Twitter } from 'lucide-react';
+import React, { useState } from 'react';
+import { X, Calendar, Linkedin, Twitter } from 'lucide-react';
 
 const UI08Mentors = () => {
+    const [selectedMentor, setSelectedMentor] = useState(null);
+
     const mentors = [
         {
-            name: "Alex Rivera",
-            role: "Senior Frontend Engineer",
-            company: "ex-Google",
-            skills: ["React Architecture", "Performance", "A11y"],
-            image: "bg-blue-100", // placeholder
-            highlight: "Top Skill: System Design",
-            initials: "AR"
+            id: 1,
+            name: "Sarah Jenkins",
+            role: "Senior Frontend Eng @ Vercel",
+            specialty: "React Internals",
+            bio: "Building the web for over 10 years. Currently working on Next.js core. I love teaching component patterns and performance optimization.",
+            avatar: "SJ"
         },
         {
-            name: "Sarah Chen",
-            role: "Lead Backend Developer",
-            company: "Netflix",
-            skills: ["Node.js", "Microservices", "AWS"],
-            image: "bg-orange-100",
-            highlight: "Mentor of the Month",
-            initials: "SC",
-            isStar: true
+            id: 2,
+            name: "David Chen",
+            role: "Staff Engineer @ Netflix",
+            specialty: "System Design",
+            bio: "Scaling Node.js services to millions of concurrent users. I help students bridge the gap between building apps and engineering systems.",
+            avatar: "DC"
         },
         {
-            name: "David Kim",
-            role: "Full Stack Team Lead",
-            company: "Airbnb",
-            skills: ["GraphQL", "Typescript", "Testing"],
-            image: "bg-green-100",
-            highlight: "Top Skill: Mentorship",
-            initials: "DK"
-        },
-        {
-            name: "Emily Davis",
-            role: "Product Designer",
-            company: "Spotify",
-            skills: ["UI/UX", "Design Systems", "Figma"],
-            image: "bg-purple-100",
-            highlight: "Top Skill: User Research",
-            initials: "ED"
+            id: 3,
+            name: "Elena Rodriguez",
+            role: "Product Designer @ Figma",
+            specialty: "UI/UX & Accessibility",
+            bio: "Design systems nerd. I ensure every line of code you write translates to a delightful accessible user experience.",
+            avatar: "ER"
         }
     ];
 
     return (
-        <section id="mentors" className="py-24 bg-white relative">
-            <div className="max-w-7xl mx-auto px-6">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl font-black text-slate-900 mb-4">Learn from industry veterans.</h2>
-                    <p className="text-slate-500">Weekly live Q&A sessions and 1:1 code reviews.</p>
+        <section id="mentors" className="py-24 bg-white border-b border-zinc-100">
+            <div className="max-w-6xl mx-auto px-6">
+
+                <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div>
+                        <h2 className="text-3xl font-black text-zinc-900 mb-2">Expert Mentorship.</h2>
+                        <p className="text-zinc-500">Learn directly from engineers shipping production code.</p>
+                    </div>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-50 border border-amber-200 rounded text-xs font-bold text-amber-700 uppercase tracking-wide">
+                        <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                        </span>
+                        Weekdays 9AM - 5PM EST
+                    </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {mentors.map((mentor, i) => (
-                        <div key={i} className="group relative bg-white rounded-2xl border border-slate-100 hover:border-blue-200 transition-all hover:shadow-xl hover:shadow-blue-500/5 overflow-hidden">
-                            {/* Card Header/Image Placeholder */}
-                            <div className={`h-32 ${mentor.image} w-full relative`}>
-                                <div className="absolute -bottom-10 left-6">
-                                    <div className="w-20 h-20 rounded-2xl bg-slate-900 border-4 border-white shadow-md flex items-center justify-center text-white font-bold text-xl">
-                                        {mentor.initials}
-                                    </div>
+                <div className="grid md:grid-cols-3 gap-8">
+                    {mentors.map((mentor) => (
+                        <div
+                            key={mentor.id}
+                            onClick={() => setSelectedMentor(mentor)}
+                            className="group cursor-pointer p-6 rounded-xl border border-zinc-100 hover:border-zinc-300 hover:shadow-lg hover:shadow-zinc-200/50 transition-all bg-zinc-50/50"
+                        >
+                            <div className="flex items-center gap-4 mb-4">
+                                <div className="w-12 h-12 rounded-full bg-zinc-900 text-white flex items-center justify-center font-bold text-lg">
+                                    {mentor.avatar}
                                 </div>
-                                {mentor.isStar && (
-                                    <div className="absolute top-4 right-4 bg-orange-500 text-white text-[10px] uppercase font-bold px-2 py-1 rounded shadow-sm">
-                                        Star Mentor
-                                    </div>
-                                )}
-                            </div>
-
-                            <div className="pt-12 p-6">
-                                <h3 className="font-bold text-lg text-slate-900">{mentor.name}</h3>
-                                <div className="text-sm font-medium text-slate-500 mb-1">{mentor.role}</div>
-                                <div className="text-xs font-bold text-blue-600 mb-4">{mentor.company}</div>
-
-                                <div className="flex flex-wrap gap-2 mb-6">
-                                    {mentor.skills.map((skill, si) => (
-                                        <span key={si} className="text-[10px] font-bold bg-slate-50 text-slate-500 px-2 py-1 rounded border border-slate-100">
-                                            {skill}
-                                        </span>
-                                    ))}
+                                <div>
+                                    <h3 className="font-bold text-zinc-900 group-hover:text-amber-600 transition-colors">{mentor.name}</h3>
+                                    <p className="text-xs text-zinc-500">{mentor.role}</p>
                                 </div>
                             </div>
-
-                            {/* Hover Overlay */}
-                            <div className="absolute inset-0 bg-blue-600/95 flex flex-col items-center justify-center text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <h4 className="text-white font-bold text-lg mb-2">{mentor.highlight}</h4>
-                                <p className="text-blue-100 text-sm mb-6">"Passionate about writing clean code and helping juniors scale."</p>
-                                <button className="bg-white text-blue-600 font-bold px-6 py-2 rounded-full hover:bg-orange-500 hover:text-white transition-colors shadow-lg">
-                                    Book 1:1 Session
-                                </button>
-                                <div className="flex gap-4 mt-8">
-                                    <Linkedin size={20} className="text-white hover:text-blue-200 cursor-pointer" />
-                                    <Twitter size={20} className="text-white hover:text-blue-200 cursor-pointer" />
+                            <div className="text-sm text-zinc-600 line-clamp-2 mb-4">
+                                {mentor.bio}
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <div className="text-[10px] uppercase font-bold px-2 py-1 bg-white border border-zinc-200 rounded text-zinc-500">
+                                    {mentor.specialty}
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
+
+                {/* Modal */}
+                {selectedMentor && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-zinc-900/40 backdrop-blur-sm animate-in fade-in duration-200" onClick={() => setSelectedMentor(null)}>
+                        <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative animate-in zoom-in-95 duration-200" onClick={e => e.stopPropagation()}>
+                            <button onClick={() => setSelectedMentor(null)} className="absolute top-4 right-4 text-zinc-400 hover:text-zinc-900">
+                                <X size={20} />
+                            </button>
+
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="w-16 h-16 rounded-full bg-zinc-900 text-white flex items-center justify-center font-bold text-2xl">
+                                    {selectedMentor.avatar}
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-bold text-zinc-900">{selectedMentor.name}</h3>
+                                    <p className="text-sm text-zinc-500 font-medium">{selectedMentor.role}</p>
+                                </div>
+                            </div>
+
+                            <p className="text-zinc-600 leading-relaxed mb-8">
+                                {selectedMentor.bio}
+                            </p>
+
+                            <div className="flex gap-3 mb-8">
+                                <button className="p-2 border border-zinc-200 rounded-lg hover:bg-zinc-50 text-zinc-600">
+                                    <Linkedin size={18} />
+                                </button>
+                                <button className="p-2 border border-zinc-200 rounded-lg hover:bg-zinc-50 text-zinc-600">
+                                    <Twitter size={18} />
+                                </button>
+                            </div>
+
+                            <button className="w-full bg-zinc-900 text-white py-3 rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-zinc-800 transition-colors">
+                                <Calendar size={16} />
+                                Book Office Hours
+                            </button>
+                        </div>
+                    </div>
+                )}
+
             </div>
         </section>
     );

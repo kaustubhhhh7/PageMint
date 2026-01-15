@@ -1,51 +1,47 @@
 import React from 'react';
-import UI08ScholarshipBanner from '../../components/ui08/UI08ScholarshipBanner';
 import UI08Navbar from '../../components/ui08/UI08Navbar';
 import UI08Hero from '../../components/ui08/UI08Hero';
-import UI08FloatingDock from '../../components/ui08/UI08FloatingDock';
-import UI08LearningPathMap from '../../components/ui08/UI08LearningPathMap';
-import UI08CohortTimeline from '../../components/ui08/UI08CohortTimeline';
-import UI08CommunityWall from '../../components/ui08/UI08CommunityWall';
-import UI08Curriculum from '../../components/ui08/UI08Curriculum';
-import UI08CertificateSection from '../../components/ui08/UI08CertificateSection';
+import UI08CourseOutline from '../../components/ui08/UI08CourseOutline';
+import UI08LessonPreview from '../../components/ui08/UI08LessonPreview';
 import UI08Mentors from '../../components/ui08/UI08Mentors';
 import UI08Outcomes from '../../components/ui08/UI08Outcomes';
-import UI08ProjectsShowcase from '../../components/ui08/UI08ProjectsShowcase';
+import UI08Projects from '../../components/ui08/UI08Projects';
 import UI08PricingEnroll from '../../components/ui08/UI08PricingEnroll';
-import UI08Testimonials from '../../components/ui08/UI08Testimonials';
 import UI08FAQ from '../../components/ui08/UI08FAQ';
 import UI08Footer from '../../components/ui08/UI08Footer';
 
 const UI08 = () => {
     return (
-        <div className="bg-white min-h-screen font-sans selection:bg-indigo-100 selection:text-indigo-900">
-            {/* Top Banner */}
-            <UI08ScholarshipBanner />
-
-            {/* Navbar */}
+        <div className="bg-white min-h-screen font-sans selection:bg-amber-100 selection:text-amber-900">
+            {/* 1. Minimal Navbar */}
             <UI08Navbar />
 
-            {/* Main Content */}
-            <main>
-                <UI08Hero />
-                <UI08LearningPathMap />
-                <UI08CohortTimeline />
-                <UI08CommunityWall />
-                <UI08Curriculum />
-                <UI08Mentors />
-                <UI08CertificateSection />
-                <UI08Outcomes />
-                <UI08ProjectsShowcase />
-                <UI08PricingEnroll />
-                <UI08Testimonials />
-                <UI08FAQ />
-            </main>
+            {/* 2. Editorial Hero */}
+            <UI08Hero />
 
-            {/* Footer */}
+            {/* 3. Course Outline (Accordion) */}
+            <UI08CourseOutline />
+
+            {/* 4. Lesson Preview (Editor Split Pane) */}
+            <UI08LessonPreview />
+
+            {/* 5. Mentors (Minimal Row) */}
+            <UI08Mentors />
+
+            {/* 6. Outcomes (Checklist Blocks) */}
+            <UI08Outcomes />
+
+            {/* 7. Projects (Card List) */}
+            <UI08Projects />
+
+            {/* 8. Pricing (Comparison Table) */}
+            <UI08PricingEnroll />
+
+            {/* 9. FAQ (Minimal) */}
+            <UI08FAQ />
+
+            {/* 10. Footer */}
             <UI08Footer />
-
-            {/* Floating Dock (Fixed UI) */}
-            <UI08FloatingDock />
         </div>
     );
 };

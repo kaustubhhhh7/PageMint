@@ -1,53 +1,51 @@
 import React from 'react';
-import { BookOpen, Mail } from 'lucide-react';
+import { BookOpen, Github, Twitter, Linkedin } from 'lucide-react';
 
 const UI08Footer = () => {
     return (
-        <footer className="bg-slate-900 text-slate-400 py-16">
-            <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
+        <footer className="bg-zinc-950 text-zinc-400 py-16 border-t border-zinc-800">
+            <div className="max-w-7xl mx-auto px-6">
 
-                <div className="col-span-1 md:col-span-1">
-                    <div className="flex items-center gap-2 mb-4 text-white">
-                        <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                            <BookOpen size={16} fill="currentColor" />
+                <div className="grid md:grid-cols-4 gap-12 mb-16">
+                    <div className="col-span-2">
+                        <div className="flex items-center gap-2 mb-6">
+                            <BookOpen size={20} className="text-zinc-100" />
+                            <span className="text-lg font-bold text-zinc-100 tracking-tight">MonoLearn</span>
                         </div>
-                        <span className="font-black text-lg">SkillSprint</span>
+                        <p className="max-w-sm text-sm leading-relaxed mb-6">
+                            A minimal, editor-first learning experience for developers who want to ship code, not just watch videos.
+                        </p>
+                        <div className="flex gap-4">
+                            <a href="#" className="hover:text-white transition-colors"><Twitter size={20} /></a>
+                            <a href="#" className="hover:text-white transition-colors"><Github size={20} /></a>
+                            <a href="#" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
+                        </div>
                     </div>
-                    <p className="text-sm leading-relaxed mb-6">
-                        Empowering the next generation of full-stack developers through immersive, project-based learning.
-                    </p>
-                    <div className="text-xs font-bold uppercase tracking-widest text-slate-600">© 2026 SkillSprint Inc.</div>
-                </div>
 
-                <div>
-                    <h4 className="font-bold text-white mb-6">Platform</h4>
-                    <ul className="space-y-3 text-sm">
-                        <li><a href="#curriculum" className="hover:text-blue-400 transition-colors">Curriculum</a></li>
-                        <li><a href="#mentors" className="hover:text-blue-400 transition-colors">Mentorship</a></li>
-                        <li><a href="#pricing" className="hover:text-blue-400 transition-colors">Pricing</a></li>
-                        <li><a href="#" className="hover:text-blue-400 transition-colors">Login</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 className="font-bold text-white mb-6">Support</h4>
-                    <ul className="space-y-3 text-sm">
-                        <li><a href="#" className="hover:text-blue-400 transition-colors">Help Center</a></li>
-                        <li><a href="#" className="hover:text-blue-400 transition-colors">Terms of Service</a></li>
-                        <li><a href="#" className="hover:text-blue-400 transition-colors">Privacy Policy</a></li>
-                        <li><a href="#" className="hover:text-blue-400 transition-colors">Contact Us</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 className="font-bold text-white mb-6">Stay Updated</h4>
-                    <p className="text-sm mb-4">Get the latest tutorials and course updates.</p>
-                    <div className="flex gap-2">
-                        <input type="email" placeholder="Enter your email" className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm w-full focus:outline-none focus:border-blue-500" />
-                        <button className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-3 flex items-center justify-center transition-colors">
-                            <Mail size={16} />
-                        </button>
+                    <div>
+                        <h4 className="text-white font-bold uppercase tracking-wider text-xs mb-6">Platform</h4>
+                        <ul className="space-y-4 text-sm">
+                            <li><a href="#" className="hover:text-white transition-colors">Course Outline</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Pricing</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Mentorship</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Login</a></li>
+                        </ul>
                     </div>
+
+                    <div>
+                        <h4 className="text-white font-bold uppercase tracking-wider text-xs mb-6">Resources</h4>
+                        <ul className="space-y-4 text-sm">
+                            <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Community</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-600">
+                    <p>© 2026 MonoLearn Inc. All rights reserved.</p>
+                    <p>Designed with discipline in San Francisco.</p>
                 </div>
 
             </div>
