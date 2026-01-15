@@ -13,12 +13,6 @@ const UI06Venue = () => {
 
     return (
         <section id="venue" className="py-24 bg-slate-50 relative overflow-hidden">
-            {/* Diagonal Divider Top */}
-            <div className="absolute top-0 left-0 w-full overflow-hidden leading-none rotate-180">
-                <svg className="relative block w-[calc(100%+1.3px)] h-[50px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" className="fill-slate-900"></path>
-                </svg>
-            </div>
 
             <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center mt-12">
                 <div className="space-y-8">
