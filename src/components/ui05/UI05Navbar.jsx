@@ -1,33 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingBag, ArrowLeft, Menu, X } from 'lucide-react';
+import useScrollProgress from './hooks/useScrollProgress';
 
 const UI05Navbar = () => {
-    const [scrollProgress, setScrollProgress] = useState(0);
+    const scrollProgress = useScrollProgress();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('overview');
 
     useEffect(() => {
         const handleScroll = () => {
-            const totalScroll = document.documentElement.scrollTop;
-            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scroll = `${totalScroll / windowHeight}`;
-            setScrollProgress(Number(scroll));
-
-            // Active section detection
             const sections = ['overview', 'highlights', 'story', 'specs', 'reviews', 'buy'];
             for (const section of sections) {
                 const element = document.getElementById(section);
                 if (element) {
                     const rect = element.getBoundingClientRect();
-                    if (rect.top >= 0 && rect.top < 300) {
+                    if (rect.top >= -100 && rect.top < 300) {
                         setActiveSection(section);
+                        break;
                     }
                 }
             }
         };
-
-        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -52,8 +48,8 @@ const UI05Navbar = () => {
             <nav className="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md bg-white/70 border-b border-white/20 shadow-sm">
                 {/* Scroll Progress Bar */}
                 <div
-                    className="absolute top-0 left-0 h-[3px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-100 ease-out"
-                    style={{ width: `${scrollProgress * 100}%` }}
+                    className="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-100 ease-out origin-left"
+                    style={{ transform: `scaleX(${scrollProgress})` }}
                 />
 
                 <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">

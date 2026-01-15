@@ -1,72 +1,68 @@
 import React, { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
 
-const AccordionItem = ({ question, answer, isOpen, onClick }) => {
+const FAQItem = ({ question, answer }) => {
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
-        <div className="border-b border-slate-100 last:border-0">
+        <div className="border-b border-slate-200">
             <button
-                onClick={onClick}
-                className="w-full flex items-center justify-between py-6 text-left focus:outline-none group"
+                onClick={() => setIsOpen(!isOpen)}
+                className="w-full flex items-center justify-between py-6 text-left group"
             >
-                <span className={`text-lg font-semibold transition-colors ${isOpen ? 'text-indigo-600' : 'text-slate-900 group-hover:text-indigo-600'}`}>
+                <span className={`text-lg md:text-xl font-semibold transition-colors ${isOpen ? 'text-indigo-600' : 'text-slate-900 group-hover:text-slate-700'}`}>
                     {question}
                 </span>
-                <span className={`p-2 rounded-full border border-slate-100 transition-all duration-300 ${isOpen ? 'bg-indigo-600 border-indigo-600 text-white rotate-180' : 'bg-white text-slate-400 group-hover:border-indigo-200'}`}>
-                    {isOpen ? <Minus size={16} /> : <Plus size={16} />}
+                <span className={`p-2 rounded-full transition-all duration-300 ${isOpen ? 'bg-indigo-100 text-indigo-600 rotate-180' : 'bg-slate-100 text-slate-500'}`}>
+                    {isOpen ? <Minus size={20} /> : <Plus size={20} />}
                 </span>
             </button>
             <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-48 opacity-100 mb-6' : 'max-h-0 opacity-0'}`}
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100 pb-6' : 'max-h-0 opacity-0'}`}
             >
-                <p className="text-slate-500 leading-relaxed max-w-2xl">{answer}</p>
+                <p className="text-slate-600 leading-relaxed text-lg max-w-3xl">
+                    {answer}
+                </p>
             </div>
         </div>
     );
 };
 
 const UI05FAQ = () => {
-    const [openIndex, setOpenIndex] = useState(0);
-
     const faqs = [
         {
-            q: "What is the warranty period?",
-            a: "AURA Pods come with a comprehensive 2-year manufacturer warranty covering all hardware defects and battery performance issues."
+            question: "Does the Active Noise Cancellation block voices?",
+            answer: "Yes, our advanced hybrid ANC algorithm specifically targets mid-frequency sounds like human voices and background chatter, reducing them by up to 32dB so you can focus."
         },
         {
-            q: "What is the return policy?",
-            a: "We offer a 30-day money-back guarantee. If you're not completely satisfied with the sound, fit, or feel, return them for a full refund. No questions asked."
+            question: "Are they water resistant?",
+            answer: "AURA Pods are rated IPX5 water and sweat resistant. They can handle heavy workouts and rain without issues, but should not be submerged in water."
         },
         {
-            q: "How long does shipping take?",
-            a: "Standard shipping takes 3-5 business days. Express shipping (1-2 days) is available at checkout. International orders typically arrive within 7-10 days."
+            question: "How long is the shipping time?",
+            answer: "We offer free express shipping on all orders. Typically, you can expect delivery within 3-5 business days depending on your location."
         },
         {
-            q: "Does ANC work during calls?",
-            a: "Yes! Our Hybrid ANC system works during calls to block out background noise for you, while our 6-mic beamforming array clears up your voice for the person on the other end."
+            question: "What is the return policy?",
+            answer: "We offer a 30-day money-back guarantee. If you're not completely satisfied with your AURA Pods, simply return them in their original condition for a full refund."
         },
         {
-            q: "Is it compatible with Android and iOS?",
-            a: "Absolutely. AURA Pods feature universal Bluetooth 5.3 compatibility. We also support Google Fast Pair for Android and high-quality AAC codecs for iOS devices."
+            question: "Can I use them with multiple devices?",
+            answer: "Yes! AURA Pods support multipoint connection, allowing you to pair with two devices simultaneously and seamlessly switch between them."
         }
     ];
 
     return (
-        <section id="faq" className="py-24 bg-white">
-            <div className="max-w-3xl mx-auto px-6">
+        <section id="faq" className="py-24 bg-slate-50">
+            <div className="max-w-4xl mx-auto px-6">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
-                    <p className="text-slate-500">Everything you need to know about the product and support.</p>
+                    <p className="text-slate-500 text-lg">Everything you need to know about the product and billing.</p>
                 </div>
 
-                <div className="bg-slate-50/50 rounded-3xl p-8 border border-slate-100">
+                <div className="bg-white rounded-[2rem] p-8 md:p-12 shadow-xl shadow-slate-200/50">
                     {faqs.map((faq, idx) => (
-                        <AccordionItem
-                            key={idx}
-                            question={faq.q}
-                            answer={faq.a}
-                            isOpen={openIndex === idx}
-                            onClick={() => setOpenIndex(openIndex === idx ? -1 : idx)}
-                        />
+                        <FAQItem key={idx} {...faq} />
                     ))}
                 </div>
             </div>

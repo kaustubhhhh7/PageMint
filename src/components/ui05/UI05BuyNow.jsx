@@ -1,144 +1,145 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Check, CreditCard, Truck } from 'lucide-react';
+import { ShoppingBag, Truck, ShieldCheck, RefreshCw, CheckCircle, Plus, Minus } from 'lucide-react';
 
 const UI05BuyNow = () => {
-    const [color, setColor] = useState('Graphite');
+    const [color, setColor] = useState('graphite');
+    const [bundle, setBundle] = useState('pods');
     const [quantity, setQuantity] = useState(1);
-    const [isAdded, setIsAdded] = useState(false);
+    const [addedToCart, setAddedToCart] = useState(false);
 
-    const price = 249;
+    const basePrice = 1999;
 
     const colors = [
-        { name: 'Graphite', hex: '#334155', text: 'text-slate-700' },
-        { name: 'Pearl', hex: '#F1F5F9', text: 'text-slate-500' },
-        { name: 'Mint', hex: '#6EE7B7', text: 'text-emerald-500' },
+        { id: 'graphite', name: 'Graphite', hex: '#1e293b' },
+        { id: 'pearl', name: 'Pearl', hex: '#f8fafc' },
+        { id: 'mint', name: 'Mint', hex: '#a7f3d0' }
     ];
 
+    const bundles = [
+        { id: 'pods', name: 'Standard', price: 0, items: 'AURA Pods' },
+        { id: 'case', name: '+ Protection', price: 499, items: 'Pods + Shield Case' },
+        { id: 'charger', name: 'Ultimate', price: 999, items: 'Pods + Case + 30W Charger' }
+    ];
+
+    const totalPrice = (basePrice + bundles.find(b => b.id === bundle).price) * quantity;
+
     const handleAddToCart = () => {
-        setIsAdded(true);
-        setTimeout(() => setIsAdded(false), 3000);
+        setAddedToCart(true);
+        setTimeout(() => setAddedToCart(false), 3000);
     };
 
     return (
-        <section id="buy" className="py-24 bg-slate-900 text-white relative overflow-hidden">
-            {/* Background Gradients */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-[100px] pointer-events-none translate-x-1/2 -translate-y-1/2" />
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[100px] pointer-events-none -translate-x-1/2 translate-y-1/2" />
+        <section id="buy" className="py-24 bg-white relative">
+            <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
 
-            <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
+                {/* Left Visual Configurator */}
+                <div className="relative bg-slate-50 rounded-[3rem] aspect-square flex items-center justify-center p-12 overflow-hidden border border-slate-100">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-slate-50 to-slate-100" />
 
-                {/* Left: Product Viz (Simplified for this view) */}
-                <div className="hidden lg:flex flex-col items-center justify-center p-12 bg-white/5 rounded-[3rem] border border-white/10 backdrop-blur-md h-full min-h-[600px]">
-                    <div className={`w-80 h-80 rounded-full shadow-2xl transition-all duration-700 relative flex items-center justify-center
-                        ${color === 'Graphite' ? 'bg-gradient-to-br from-slate-700 to-slate-900 shadow-slate-900/50' :
-                            color === 'Mint' ? 'bg-gradient-to-br from-emerald-300 to-teal-500 shadow-emerald-500/30' :
-                                'bg-gradient-to-br from-slate-100 to-white shadow-white/20'
-                        }
-                     `}>
-                        {/* Abstract Bud Shape */}
-                        <div className="w-32 h-48 bg-white/10 backdrop-blur-md rounded-[2rem] border border-white/20 transform -rotate-12" />
-                        <div className="absolute bottom-10 font-bold tracking-[0.3em] opacity-30 mix-blend-overlay">AURA</div>
-                    </div>
-                    <div className="mt-12 text-center space-y-2">
-                        <h3 className="text-3xl font-bold">{color} Edition</h3>
-                        <p className="text-white/50">Limited Stock Available</p>
+                    {/* Dynamic Product Visual representation based on color */}
+                    <div className={`relative w-64 h-80 rounded-[3rem] shadow-2xl transition-all duration-500 ease-out transform ${color === 'graphite' ? 'bg-slate-800' : color === 'pearl' ? 'bg-white' : 'bg-emerald-100'} border-4 border-white flex flex-col items-center p-6`}>
+                        {/* Case Details */}
+                        <div className={`w-full h-1/2 rounded-[2rem] mb-4 shadow-inner ${color === 'graphite' ? 'bg-slate-700' : color === 'pearl' ? 'bg-slate-50' : 'bg-emerald-50'}`} />
+                        <div className={`w-3 h-3 rounded-full shadow-[0_0_15px_rgba(74,222,128,0.8)] bg-green-400 mt-auto`} />
                     </div>
                 </div>
 
-                {/* Right: Order Form */}
-                <div className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-2xl text-slate-900">
-                    <div className="flex justify-between items-start mb-8">
+                {/* Right Configurator Controls */}
+                <div className="space-y-10">
+                    <div>
+                        <div className="inline-block px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold uppercase tracking-wide mb-4">
+                            In Stock • Ready to Ship
+                        </div>
+                        <h2 className="text-5xl font-black text-slate-900 mb-2">AURA Pods</h2>
+                        <p className="text-2xl text-slate-500 font-medium">₹{totalPrice.toLocaleString()}</p>
+                    </div>
+
+                    <div className="space-y-6">
+                        {/* Color Selector */}
                         <div>
-                            <h2 className="text-4xl font-black mb-2">AURA Pods</h2>
-                            <div className="flex items-center gap-2 text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full w-fit">
-                                <Check size={14} /> In Stock & Ready to Ship
+                            <span className="text-sm font-bold text-slate-900 uppercase tracking-wide mb-3 block">Select Finish</span>
+                            <div className="flex gap-4">
+                                {colors.map(c => (
+                                    <button
+                                        key={c.id}
+                                        onClick={() => setColor(c.id)}
+                                        className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all ${color === c.id ? 'border-slate-900 scale-110' : 'border-transparent hover:scale-105'}`}
+                                    >
+                                        <div className="w-9 h-9 rounded-full shadow-sm border border-black/10" style={{ backgroundColor: c.hex }} />
+                                    </button>
+                                ))}
+                            </div>
+                            <p className="mt-2 text-sm text-slate-500">Color: <span className="text-slate-900 font-medium">{colors.find(c => c.id === color).name}</span></p>
+                        </div>
+
+                        {/* Bundle Selector */}
+                        <div>
+                            <span className="text-sm font-bold text-slate-900 uppercase tracking-wide mb-3 block">Choose Bundle</span>
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                {bundles.map(b => (
+                                    <button
+                                        key={b.id}
+                                        onClick={() => setBundle(b.id)}
+                                        className={`p-4 rounded-2xl border-2 text-left transition-all ${bundle === b.id ? 'border-indigo-600 bg-indigo-50/50' : 'border-slate-200 hover:border-slate-300'}`}
+                                    >
+                                        <div className="font-bold text-slate-900 text-sm">{b.name}</div>
+                                        <div className="text-xs text-slate-500 mt-1">{b.price > 0 ? `+ ₹${b.price}` : 'Base'}</div>
+                                    </button>
+                                ))}
                             </div>
                         </div>
-                        <div className="text-right">
-                            <div className="text-4xl font-bold text-slate-900">${price * quantity}</div>
-                            <div className="text-slate-400 line-through text-lg">${299 * quantity}</div>
-                        </div>
-                    </div>
 
-                    {/* Color Selector */}
-                    <div className="mb-8">
-                        <label className="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4 block">Select Color</label>
-                        <div className="flex gap-4">
-                            {colors.map((c) => (
+                        {/* Quantity */}
+                        <div>
+                            <span className="text-sm font-bold text-slate-900 uppercase tracking-wide mb-3 block">Quantity</span>
+                            <div className="inline-flex items-center border-2 border-slate-200 rounded-full p-1">
                                 <button
-                                    key={c.name}
-                                    onClick={() => setColor(c.name)}
-                                    className={`relative w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300 ${color === c.name ? 'ring-2 ring-indigo-600 ring-offset-2 scale-110' : 'hover:scale-105 ring-1 ring-slate-200'}`}
-                                    style={{ backgroundColor: c.hex }}
+                                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                                    className="w-10 h-10 flex items-center justify-center text-slate-500 hover:text-slate-900 rounded-full hover:bg-slate-100 transition-colors"
                                 >
-                                    {color === c.name && <Check size={24} className={c.name === 'Pearl' ? 'text-slate-800' : 'text-white'} />}
+                                    <Minus size={16} />
                                 </button>
-                            ))}
-                        </div>
-                        <p className="mt-3 text-sm font-medium text-slate-500">Selected: <span className="text-slate-900">{color}</span></p>
-                    </div>
-
-                    {/* Quantity */}
-                    <div className="mb-10">
-                        <label className="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4 block">Quantity</label>
-                        <div className="flex items-center gap-6 bg-slate-50 w-fit rounded-xl p-2 border border-slate-200">
-                            <button
-                                onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                                className="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-slate-600 hover:text-indigo-600 active:scale-90 transition-all"
-                            >
-                                <Minus size={18} />
-                            </button>
-                            <span className="text-xl font-bold w-6 text-center">{quantity}</span>
-                            <button
-                                onClick={() => setQuantity(quantity + 1)}
-                                className="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-slate-600 hover:text-indigo-600 active:scale-90 transition-all"
-                            >
-                                <Plus size={18} />
-                            </button>
+                                <span className="w-12 text-center font-bold text-slate-900">{quantity}</span>
+                                <button
+                                    onClick={() => setQuantity(Math.min(5, quantity + 1))}
+                                    className="w-10 h-10 flex items-center justify-center text-slate-500 hover:text-slate-900 rounded-full hover:bg-slate-100 transition-colors"
+                                >
+                                    <Plus size={16} />
+                                </button>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Actions */}
-                    <div className="space-y-4">
-                        <button
-                            onClick={handleAddToCart}
-                            className="w-full py-5 bg-slate-900 text-white rounded-2xl font-bold text-lg hover:bg-slate-800 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-slate-900/20 flex items-center justify-center gap-3 relative overflow-hidden"
-                        >
-                            {isAdded ? (
-                                <span className="animate-fade-in flex items-center gap-2">
-                                    <Check size={20} /> Added to Cart!
-                                </span>
-                            ) : (
-                                <>
-                                    Add to Cart <ShoppingBag size={20} />
-                                </>
-                            )}
-                        </button>
-                        <button className="w-full py-5 bg-indigo-50 text-indigo-600 rounded-2xl font-bold text-lg hover:bg-indigo-100 transition-all hover:scale-[1.02] active:scale-[0.98] border border-indigo-100">
-                            Express Checkout
-                        </button>
-                    </div>
+                    <div className="border-t border-slate-200 pt-8 flex flex-col gap-4">
+                        <div className="grid grid-cols-2 gap-4 text-sm text-slate-500 mb-4">
+                            <div className="flex items-center gap-2"><Truck size={16} /> Free Delivery</div>
+                            <div className="flex items-center gap-2"><ShieldCheck size={16} /> 1 Year Warranty</div>
+                            <div className="flex items-center gap-2"><RefreshCw size={16} /> 7 Day Replacement</div>
+                            <div className="flex items-center gap-2"><CheckCircle size={16} /> Secure Checkout</div>
+                        </div>
 
-                    <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-6 text-xs text-slate-400">
-                        <span className="flex items-center gap-1.5"><Truck size={14} /> Free 2-Day Shipping</span>
-                        <span className="flex items-center gap-1.5"><CreditCard size={14} /> Secure Payment</span>
-                        <span className="flex items-center gap-1.5"><Check size={14} /> 2-Year Warranty</span>
+                        <div className="flex flex-col sm:flex-row gap-4">
+                            <button
+                                onClick={handleAddToCart}
+                                className="flex-1 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-bold text-lg hover:shadow-lg hover:shadow-indigo-500/25 hover:scale-[1.02] active:scale-[0.98] transition-all"
+                            >
+                                Add to Cart
+                            </button>
+                            <button className="flex-1 py-4 bg-slate-900 text-white rounded-full font-bold text-lg hover:bg-slate-800 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                                Checkout Now
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            {/* Toast Notification (Simple Implementation) */}
-            <div className={`fixed top-24 right-6 bg-slate-900 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 transition-all duration-500 z-50 transform border border-white/10
-                ${isAdded ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0 pointer-events-none'}
-             `}>
-                <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center">
-                    <Check size={16} />
+            {/* Added to Cart Toast */}
+            {addedToCart && (
+                <div className="fixed bottom-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-6 py-3 rounded-full shadow-2xl z-50 flex items-center gap-3 animate-fade-in-up">
+                    <CheckCircle size={20} className="text-green-400" />
+                    <span className="font-medium">Added to cart successfully!</span>
                 </div>
-                <div>
-                    <h4 className="font-bold text-sm">Added to Cart</h4>
-                    <p className="text-xs text-white/70">{quantity}x AURA Pods ( {color} )</p>
-                </div>
-            </div>
+            )}
         </section>
     );
 };

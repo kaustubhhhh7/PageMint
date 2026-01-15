@@ -17,6 +17,7 @@ const HighlightCard = ({ number, title, desc, stat, icon: Icon, color, delay }) 
     };
 
     const handleMouseLeave = () => {
+        if (!cardRef.current) return;
         const visual = cardRef.current.querySelector('.visual-panel');
         if (visual) {
             visual.style.transform = `translate(0px, 0px)`;

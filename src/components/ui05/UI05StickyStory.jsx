@@ -42,7 +42,9 @@ const UI05StickyStory = () => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         const index = Number(entry.target.getAttribute('data-index'));
-                        setActiveStep(index);
+                        if (!isNaN(index)) {
+                            setActiveStep(index);
+                        }
                     }
                 });
             },
@@ -52,11 +54,17 @@ const UI05StickyStory = () => {
             }
         );
 
-        stepsRef.current.forEach((el) => {
-            if (el) observer.observe(el);
+        const elements = stepsRef.current.filter(el => el !== null);
+        elements.forEach((el) => {
+            observer.observe(el);
         });
 
-        return () => observer.disconnect();
+        return () => {
+            elements.forEach((el) => {
+                if (el) observer.unobserve(el);
+            });
+            observer.disconnect();
+        };
     }, []);
 
     return (
