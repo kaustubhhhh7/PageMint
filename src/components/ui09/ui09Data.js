@@ -1,12 +1,15 @@
 
-// Helper for consistent Unsplash URLs
+
+// Helper for consistent image URLs
 const getUnsplashUrl = (id) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&q=80&w=800`;
+const getPicsumUrl = (id, width = 800, height = 600) => `https://picsum.photos/id/${id}/${width}/${height}`;
+
 
 export const destinations = [
     {
         id: 1,
         name: "Bali",
-        image: getUnsplashUrl("1573763163467-3290e2b9c781"), // Bali Gate
+        image: getPicsumUrl(1015, 800, 600), // Bali Beach
         vibe: "Tropical Paradise",
         price: "45,000"
     },
@@ -27,14 +30,14 @@ export const destinations = [
     {
         id: 4,
         name: "Santorini",
-        image: getUnsplashUrl("1570077188670-e3a8d69ac5f5"), // Santorini Blue Dome
+        image: getPicsumUrl(1024, 800, 600), // Santorini
         vibe: "Aegean Gem",
         price: "110,000"
     },
     {
         id: 5,
         name: "Dubai",
-        image: getUnsplashUrl("1512453979798-5ea936a7fe48"), // Burj Khalifa
+        image: getPicsumUrl(1031, 800, 600), // Dubai
         vibe: "Modern Marvel",
         price: "55,000"
     },
@@ -74,7 +77,7 @@ export const tours = [
         duration: "5 Days",
         price: 95000,
         rating: 4.9,
-        image: getUnsplashUrl("1499856871940-5296287f9d0c"), // Paris Eiffel
+        image: getPicsumUrl(1059, 800, 600), // Paris
         desc: "A specially curated romantic itinerary featuring sunset cruises and private wine tastings.",
         itinerary: [
             { day: 1, title: "Seine Dinner Cruise", desc: "Welcome to Paris with a view." },
@@ -91,7 +94,7 @@ export const tours = [
         duration: "8 Days",
         price: 150000,
         rating: 5.0,
-        image: getUnsplashUrl("1534067783741-514fd69db430"), // Swiss Mountains
+        image: getUnsplashUrl("1506905925346-21bda4d32df4"), // Swiss Alps
         desc: "Snow, skiing, and chocolate trains. The perfect winter holiday for the whole family.",
         itinerary: [
             { day: 1, title: "Zurich Arrival", desc: "Train to Interlaken." },
@@ -108,7 +111,7 @@ export const tours = [
         duration: "6 Days",
         price: 28000,
         rating: 4.7,
-        image: getUnsplashUrl("1514282401047-d7c94569f6e2"), // Kerala Nature
+        image: getPicsumUrl(1036, 800, 600), // Kerala
         desc: "Houseboat stays in Alleppey coupled with the tea gardens of Munnar.",
         itinerary: [
             { day: 1, title: "Cochin to Munnar", desc: "Scenic drive through tea plantations." },
@@ -164,9 +167,9 @@ export const galleryImages = [
     { id: 1, src: getUnsplashUrl("1476514525535-07fb3b4ae5f1"), alt: "Swiss Lake", size: "large", caption: "Alpine Serenity" },
     { id: 2, src: getUnsplashUrl("1507525428034-b723cf961d3e"), alt: "Beach Sunset", size: "small", caption: "Golden Hour" },
     { id: 3, src: getUnsplashUrl("1528127269322-539801943592"), alt: "Desert Camel", size: "small", caption: "Sahara Tales" },
-    { id: 4, src: getUnsplashUrl("1504109580679-026d95856414"), alt: "Santorini View", size: "small", caption: "Greek Blues" },
-    { id: 5, src: getUnsplashUrl("1527631746610-dca17104281e"), alt: "Japan Street", size: "large", caption: "Tokyo Nights" },
-    { id: 6, src: getUnsplashUrl("1530789296388-b35f2024751f"), alt: "Bali Waterfall", size: "small", caption: "Jungle Trek" },
+    { id: 4, src: getUnsplashUrl("1533105079780-92b9be482077"), alt: "Santorini View", size: "small", caption: "Greek Blues" },
+    { id: 5, src: getUnsplashUrl("1542051841857-5f90071e7989"), alt: "Japan Street", size: "large", caption: "Tokyo Nights" },
+    { id: 6, src: getUnsplashUrl("1537996194471-e657df975ab4"), alt: "Bali Waterfall", size: "small", caption: "Jungle Trek" },
     { id: 7, src: getUnsplashUrl("1533105079780-92b9be482077"), alt: "Greek Food", size: "small", caption: "Culinary Delight" },
     { id: 8, src: getUnsplashUrl("1480796927426-f609979314bd"), alt: "New York Street", size: "small", caption: "Urban Jungle" },
     { id: 9, src: getUnsplashUrl("1501785888041-af3ef285b470"), alt: "Mountain Lake", size: "small", caption: "Reflections" },
