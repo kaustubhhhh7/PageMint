@@ -6,7 +6,7 @@ const UI10Testimonials = () => {
     return (
         <section className="py-24 bg-stone-100 relative overflow-hidden">
             {/* Background Texture similar to Hero */}
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
+            <div className="absolute inset-0 bg-stone-50/20"></div>
 
             <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
                 <div className="text-center mb-16">

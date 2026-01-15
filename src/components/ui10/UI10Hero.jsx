@@ -13,7 +13,7 @@ const UI10Hero = () => {
         <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-stone-100">
             {/* Dynamic Background Pattern */}
             <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
+                <div className="absolute inset-0 bg-stone-50/20"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-stone-50/50 via-transparent to-stone-100/80"></div>
 
                 {/* Animated Gradient Orbs */}
