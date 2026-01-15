@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Package, Smartphone, VolumeX, BatteryCharging } from 'lucide-react';
+import { Package, Smartphone, VolumeX, BatteryCharging, Bluetooth, Music, Zap, Box } from 'lucide-react';
 
 const UI05StickyStory = () => {
     const [activeStep, setActiveStep] = useState(0);
@@ -10,29 +10,33 @@ const UI05StickyStory = () => {
             id: 0,
             title: "Unbox the vibe.",
             desc: "A premium unboxing experience that sets the tone. Minimalist packaging, maximum anticipation.",
-            icon: Package,
-            gradient: "from-blue-500 to-cyan-500"
+            icon: Box,
+            gradient: "from-blue-500 to-cyan-500",
+            bg: "bg-blue-50"
         },
         {
             id: 1,
             title: "Tap. Pair. Play.",
             desc: "Instant connection with Google Fast Pair and Apple Seamless Switch. Just open the case, and you're ready.",
-            icon: Smartphone,
-            gradient: "from-purple-500 to-pink-500"
+            icon: Bluetooth,
+            gradient: "from-violet-500 to-fuchsia-500",
+            bg: "bg-fuchsia-50"
         },
         {
             id: 2,
             title: "Noise disappears.",
             desc: "Step into your own world. Our adaptive processor analyzes ambient sound 48,000 times per second.",
             icon: VolumeX,
-            gradient: "from-slate-800 to-slate-600"
+            gradient: "from-slate-700 to-slate-900",
+            bg: "bg-slate-100"
         },
         {
             id: 3,
             title: "Power that lasts.",
             desc: "From your morning commute to your evening run. 48 hours of total playtime with the MagSafe charging case.",
-            icon: BatteryCharging,
-            gradient: "from-green-500 to-emerald-500"
+            icon: Zap,
+            gradient: "from-emerald-400 to-teal-500",
+            bg: "bg-emerald-50"
         }
     ];
 
@@ -49,8 +53,8 @@ const UI05StickyStory = () => {
                 });
             },
             {
-                threshold: 0.6, // Trigger when 60% of element is visible
-                rootMargin: "-10% 0px -10% 0px"
+                threshold: 0.6,
+                rootMargin: "-20% 0px -20% 0px"
             }
         );
 
@@ -68,39 +72,38 @@ const UI05StickyStory = () => {
     }, []);
 
     return (
-        <section id="story" className="relative bg-slate-50 py-24">
+        <section id="story" className="relative bg-white py-24">
             <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
 
                 {/* Sticky Left Side */}
                 <div className="hidden lg:block h-[calc(100vh-100px)] sticky top-24">
-                    <div className="h-full flex flex-col justify-center relative">
-                        {/* Background Glow */}
-                        <div className={`absolute top-1/2 left-0 w-96 h-96 bg-gradient-to-br ${stories[activeStep].gradient} rounded-full blur-[100px] opacity-20 transition-all duration-700 -translate-y-1/2`} />
+                    <div className="h-full flex flex-col justify-center relative pl-8">
+                        {/* Dynamic Background Blob */}
+                        <div className={`absolute top-1/2 left-0 w-[500px] h-[500px] bg-gradient-to-br ${stories[activeStep].gradient} rounded-full blur-[120px] opacity-10 transition-all duration-1000 -translate-y-1/2 -ml-20`} />
 
-                        <div className="relative z-10">
-                            <div className="mb-6 inline-flex p-4 rounded-2xl bg-white shadow-lg shadow-indigo-100 transition-all duration-500 transform">
+                        <div className="relative z-10 space-y-8">
+                            <div className="inline-flex p-4 rounded-2xl bg-white border border-slate-100 shadow-xl shadow-slate-200/50 transition-all duration-500 transform hover:scale-105 hover:rotate-3">
                                 {React.createElement(stories[activeStep].icon, {
                                     size: 32,
                                     className: `text-slate-900 transition-all duration-300`
                                 })}
                             </div>
 
-                            <div className="h-32 overflow-hidden relative">
-                                <h2 key={activeStep} className="text-6xl font-black text-slate-900 animate-slide-up leading-tight">
+                            <div className="space-y-4">
+                                <h2 key={activeStep} className="text-6xl font-black text-slate-900 animate-slide-up leading-[1.1] tracking-tight">
                                     {stories[activeStep].title}
                                 </h2>
+                                <p key={`desc-${activeStep}`} className="text-xl text-slate-500 max-w-md animate-fade-in leading-relaxed font-light">
+                                    {stories[activeStep].desc}
+                                </p>
                             </div>
 
-                            <p key={`desc-${activeStep}`} className="text-xl text-slate-500 max-w-md mt-6 animate-fade-in leading-relaxed">
-                                {stories[activeStep].desc}
-                            </p>
-
-                            {/* Vertical Progress Dots */}
-                            <div className="flex gap-2 mt-12">
+                            {/* Progress Indicators */}
+                            <div className="flex gap-3 pt-8">
                                 {stories.map((s, idx) => (
                                     <div
                                         key={idx}
-                                        className={`h-2 rounded-full transition-all duration-500 ${activeStep === idx ? 'w-12 bg-slate-900' : 'w-2 bg-slate-300'}`}
+                                        className={`h-1.5 rounded-full transition-all duration-700 ease-out ${activeStep === idx ? 'w-16 bg-slate-900' : 'w-3 bg-slate-200'}`}
                                     />
                                 ))}
                             </div>
@@ -109,50 +112,116 @@ const UI05StickyStory = () => {
                 </div>
 
                 {/* Scrollable Right Side */}
-                <div className="space-y-32 py-10">
+                <div className="py-10">
                     {stories.map((story, idx) => (
                         <div
                             key={idx}
                             data-index={idx}
                             ref={el => stepsRef.current[idx] = el}
-                            className="min-h-[60vh] flex items-center justify-center p-8 transition-opacity duration-500"
+                            className="min-h-screen flex items-center justify-center p-4"
                         >
-                            {/* Visual Card for Step */}
-                            <div className="w-full max-w-md aspect-[4/5] bg-white rounded-[3rem] shadow-2xl overflow-hidden relative group border border-slate-100">
-                                <div className={`absolute inset-0 bg-gradient-to-br ${story.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+                            {/* Card Container */}
+                            <div className={`w-full max-w-md aspect-[3/4] ${story.bg} rounded-[3rem] shadow-2xl overflow-hidden relative group border-4 border-white ring-1 ring-slate-100/50 transition-all duration-500 hover:scale-[1.02]`}>
 
-                                {/* Placeholder Visuals using CSS */}
-                                <div className="absolute inset-x-8 inset-y-12 bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 flex items-center justify-center">
+                                {/* Inner Gradient Overlay */}
+                                <div className={`absolute inset-0 bg-gradient-to-br ${story.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-700`} />
+
+                                {/* Interactive Animations Container */}
+                                <div className="absolute inset-0 flex flex-col items-center justify-center">
+
+                                    {/* 1. Unbox Animation */}
                                     {idx === 0 && (
-                                        <div className="w-40 h-40 bg-slate-900 rounded-3xl shadow-xl transform rotate-12 group-hover:rotate-0 transition-transform duration-700" />
-                                    )}
-                                    {idx === 1 && (
-                                        <div className="flex gap-4">
-                                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-20"></span>
-                                            <div className="w-20 h-32 bg-slate-200 rounded-2xl" />
-                                            <div className="w-20 h-32 bg-slate-900 rounded-2xl" />
-                                        </div>
-                                    )}
-                                    {idx === 2 && (
-                                        <div className="relative w-full h-full">
-                                            <div className="absolute inset-0 flex items-center justify-center">
-                                                <div className="w-64 h-64 border border-slate-200 rounded-full animate-[spin_10s_linear_infinite]" />
-                                                <div className="w-48 h-48 border border-slate-300 rounded-full absolute animate-[spin_8s_linear_infinite_reverse]" />
-                                                <div className="w-32 h-32 border border-slate-400 rounded-full absolute" />
+                                        <div className="relative w-48 h-48 perspective-1000 group-hover:scale-110 transition-transform duration-700">
+                                            {/* Box Bottom */}
+                                            <div className="absolute inset-x-0 bottom-0 h-24 bg-white rounded-xl shadow-xl border border-slate-100 flex items-center justify-center z-10">
+                                                <div className="w-12 h-1 bg-slate-200 rounded-full" />
+                                            </div>
+                                            {/* Box Lid - Animates open */}
+                                            <div className="absolute inset-x-0 bottom-[95px] h-12 bg-slate-50 rounded-t-xl border border-slate-100 shadow-md origin-bottom transition-all duration-700 group-hover:-rotate-x-110 group-hover:translate-y-[-20px] z-20 flex items-center justify-center">
+                                                <span className="text-[10px] font-bold tracking-widest text-slate-300 uppercase">AURA</span>
+                                            </div>
+                                            {/* Product Floating Out */}
+                                            <div className="absolute inset-x-8 bottom-4 h-32 bg-slate-900 rounded-2xl shadow-lg transform transition-all duration-1000 group-hover:-translate-y-16 group-hover:rotate-6 flex items-center justify-center z-0">
+                                                <div className="w-3 h-3 rounded-full bg-green-400 shadow-[0_0_15px_rgba(74,222,128,0.8)] animate-pulse" />
                                             </div>
                                         </div>
                                     )}
-                                    {idx === 3 && (
-                                        <div className="relative w-24 h-40 border-4 border-slate-300 rounded-xl flex items-center justify-center">
-                                            <div className="w-full bg-green-500 absolute bottom-0 left-0 right-0 animate-[grow_2s_ease-out_infinite] opacity-50" style={{ height: '80%' }} />
-                                            <div className="z-10 font-bold text-slate-800">48h</div>
+
+                                    {/* 2. Pairing Animation */}
+                                    {idx === 1 && (
+                                        <div className="relative">
+                                            {/* Ripples */}
+                                            {[1, 2, 3].map((i) => (
+                                                <div
+                                                    key={i}
+                                                    className="absolute inset-0 border-2 border-violet-500/30 rounded-full animate-ripple"
+                                                    style={{ animationDelay: `${i * 0.5}s` }}
+                                                />
+                                            ))}
+                                            <div className="relative w-32 h-32 bg-white rounded-[2.5rem] shadow-2xl flex items-center justify-center z-10">
+                                                <Bluetooth size={48} className="text-violet-600 animate-pulse" />
+                                            </div>
+                                            {/* Success Check */}
+                                            <div className="absolute -top-4 -right-4 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg text-white scale-0 group-hover:scale-100 transition-transform duration-500 delay-300">
+                                                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </div>
                                         </div>
                                     )}
-                                    {/* Mobile Text (Visible only on mobile since sticky left is hidden) */}
-                                    <div className="lg:hidden absolute bottom-0 left-0 right-0 p-6 bg-white/90 backdrop-blur-sm">
-                                        <h3 className="text-xl font-bold mb-2 text-slate-900">{story.title}</h3>
-                                        <p className="text-sm text-slate-600">{story.desc}</p>
-                                    </div>
+
+                                    {/* 3. Noise Cancellation Animation */}
+                                    {idx === 2 && (
+                                        <div className="w-full px-12 flex flex-col items-center gap-8">
+                                            <div className="flex items-center justify-center gap-1.5 h-32 w-full">
+                                                {[...Array(12)].map((_, i) => (
+                                                    <div
+                                                        key={i}
+                                                        className="w-2 bg-slate-800 rounded-full animate-wave-compress"
+                                                        style={{
+                                                            animationDelay: `${i * 0.05}s`,
+                                                            height: i % 2 === 0 ? '60%' : '30%'
+                                                        }}
+                                                    />
+                                                ))}
+                                            </div>
+                                            <div className="px-6 py-2 bg-slate-900 text-white rounded-full shadow-xl flex items-center gap-3">
+                                                <VolumeX size={18} />
+                                                <span className="text-xs font-bold uppercase tracking-wider">ANC On</span>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* 4. Power/Battery Animation */}
+                                    {idx === 3 && (
+                                        <div className="relative">
+                                            {/* Ring */}
+                                            <svg className="w-48 h-48 -rotate-90">
+                                                <circle cx="96" cy="96" r="88" stroke="currentColor" strokeWidth="12" fill="none" className="text-slate-200" />
+                                                <circle
+                                                    cx="96" cy="96" r="88"
+                                                    stroke="currentColor"
+                                                    strokeWidth="12"
+                                                    fill="none"
+                                                    className="text-emerald-500"
+                                                    strokeDasharray="553"
+                                                    strokeDashoffset="553"
+                                                    style={{ animation: 'charge 2s ease-out forwards 0.5s' }}
+                                                    strokeLinecap="round"
+                                                />
+                                            </svg>
+                                            <div className="absolute inset-0 flex flex-col items-center justify-center">
+                                                <Zap size={32} className="text-emerald-500 mb-2 animate-bounce" />
+                                                <span className="text-5xl font-black text-slate-900 tracking-tighter">48<span className="text-2xl align-top">h</span></span>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                </div>
+
+                                {/* Mobile Text Label */}
+                                <div className="lg:hidden absolute bottom-8 left-0 right-0 text-center px-6">
+                                    <h3 className="text-2xl font-bold text-slate-900">{story.title}</h3>
                                 </div>
                             </div>
                         </div>
@@ -173,10 +242,24 @@ const UI05StickyStory = () => {
         }
         .animate-fade-in { animation: fade-in 0.8s ease-out forwards; }
 
-        @keyframes grow {
-            0% { height: 10%; }
-            100% { height: 80%; }
+        @keyframes ripple {
+            0% { transform: scale(0.8); opacity: 1; }
+            100% { transform: scale(2.5); opacity: 0; }
         }
+        .animate-ripple { animation: ripple 2s cubic-bezier(0, 0, 0.2, 1) infinite; }
+
+        @keyframes wave-compress {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(0.1); }
+        }
+        .animate-wave-compress { animation: wave-compress 1.5s ease-in-out infinite; }
+
+        @keyframes charge {
+            to { stroke-dashoffset: 0; }
+        }
+
+        .perspective-1000 { perspective: 1000px; }
+        .-rotate-x-110 { transform: rotateX(-110deg); }
       `}</style>
         </section>
     );

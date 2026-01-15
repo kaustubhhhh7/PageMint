@@ -79,17 +79,17 @@ const UI05Hero = () => {
                     </div>
 
                     {/* Floating Spec Chips */}
-                    <div className="absolute top-[20%] right-[10%] bg-white/80 backdrop-blur-md px-4 py-2 rounded-2xl shadow-xl flex items-center gap-3 animate-float-delayed border border-white/50">
+                    <div className="absolute top-[15%] -right-[5%] bg-white/80 backdrop-blur-md px-4 py-2 rounded-2xl shadow-xl flex items-center gap-3 animate-float-delayed border border-white/50 z-40">
                         <Battery size={20} className="text-green-500" />
                         <span className="font-semibold text-slate-700">48h Battery</span>
                     </div>
 
-                    <div className="absolute bottom-[20%] left-[5%] bg-white/80 backdrop-blur-md px-4 py-2 rounded-2xl shadow-xl flex items-center gap-3 animate-float-delayed-2 border border-white/50">
+                    <div className="absolute bottom-[15%] -left-[5%] bg-white/80 backdrop-blur-md px-4 py-2 rounded-2xl shadow-xl flex items-center gap-3 animate-float-delayed-2 border border-white/50 z-40">
                         <Radio size={20} className="text-indigo-500" />
                         <span className="font-semibold text-slate-700">ANC Active</span>
                     </div>
 
-                    <div className="absolute top-[50%] -right-[5%] bg-white/80 backdrop-blur-md px-4 py-2 rounded-2xl shadow-xl flex items-center gap-3 animate-float-delayed-3 border border-white/50">
+                    <div className="absolute top-[55%] -right-[10%] bg-white/80 backdrop-blur-md px-4 py-2 rounded-2xl shadow-xl flex items-center gap-3 animate-float-delayed-3 border border-white/50 z-40">
                         <Zap size={20} className="text-yellow-500" />
                         <span className="font-semibold text-slate-700">Ultra Low Latency</span>
                     </div>
