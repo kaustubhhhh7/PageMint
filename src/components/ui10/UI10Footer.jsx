@@ -67,7 +67,7 @@ const UI10Footer = () => {
                 </div>
 
                 <div className="border-t border-stone-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-stone-500 uppercase tracking-widest font-light">
-                    <p>© 2026 Aurelian Estates. All rights reserved.</p>
+                    <p>© 2026 CORE3. Designed by Kaustubh Ghadshi</p>
                     <div className="space-x-8 mt-4 md:mt-0">
                         <a href="#" className="hover:text-stone-300">Privacy Policy</a>
                         <a href="#" className="hover:text-stone-300">Terms of Service</a>

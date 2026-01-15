@@ -74,7 +74,7 @@ const UI09Footer = () => {
                 </div>
 
                 <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-                    <p>© 2026 VoyageVista Travel Co. All rights reserved.</p>
+                    <p>© 2026 CORE3. Designed by Kaustubh Ghadshi</p>
                     <div className="flex gap-6">
                         <a href="#" className="hover:text-white">Privacy Policy</a>
                         <a href="#" className="hover:text-white">Terms of Service</a>

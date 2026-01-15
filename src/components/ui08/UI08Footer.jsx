@@ -44,7 +44,7 @@ const UI08Footer = () => {
                 </div>
 
                 <div className="pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-600">
-                    <p>© 2026 MonoLearn Inc. All rights reserved.</p>
+                    <p>© 2026 CORE3. Designed by Kaustubh Ghadshi</p>
                     <p>Designed with discipline in San Francisco.</p>
                 </div>
 

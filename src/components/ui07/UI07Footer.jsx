@@ -21,7 +21,7 @@ const UI07Footer = () => {
                 </div>
 
                 <div className="text-sm text-slate-400">
-                    &copy; 2026 VaultPay Inc. All rights reserved.
+                    &copy; 2026 CORE3. Designed by Kaustubh Ghadshi
                 </div>
             </div>
         </footer>

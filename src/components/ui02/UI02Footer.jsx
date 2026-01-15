@@ -46,7 +46,7 @@ const UI02Footer = () => {
                 </div>
 
                 <div className="pt-8 border-t border-stone-800 text-center text-sm">
-                    <p>&copy; {new Date().getFullYear()} Cafe Noura. Crafted with love. Designed by Kaustubh Ghadshi.</p>
+                    <p>&copy; 2026 CORE3. Designed by Kaustubh Ghadshi</p>
                 </div>
             </Container>
         </footer>

@@ -10,7 +10,7 @@ const UI03Footer = () => {
                         Kaustubh<span className="text-indigo-500">.</span>
                     </span>
                     <p className="text-sm mt-1 text-slate-500">
-                        © {new Date().getFullYear()} Kaustubh. All rights reserved.
+                        © 2026 CORE3. Designed by Kaustubh Ghadshi
                     </p>
                 </div>
 
@@ -26,7 +26,7 @@ const UI03Footer = () => {
                     ))}
                 </div>
             </div>
-        </footer>
+        </footer >
     );
 };
 

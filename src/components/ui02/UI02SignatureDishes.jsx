@@ -4,8 +4,8 @@ import Container from '../common/Container';
 const UI02SignatureDishes = () => {
     const dishes = [
         { name: "Truffle Mushroom Risotto", price: "₹450", tag: "Bestseller", desc: "Creamy arborio rice with black truffle oil and parmesan.", image: "https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=800&q=80" },
-        { name: "Grilled Salmon Fillet", price: "₹680", tag: "Chef's Pick", desc: "Served with asparagus and lemon butter glaze.", image: "https://images.unsplash.com/photo-1467003909585-2f8a7270028d?auto=format&fit=crop&w=800&q=80" },
-        { name: "Avocado Toast Royale", price: "₹320", tag: "Breakfast", desc: "Sourdough, poached egg, chili flakes, and microgreens.", image: "https://images.unsplash.com/photo-1525351484163-7529414395d8?auto=format&fit=crop&w=800&q=80" },
+        { name: "Grilled Salmon Fillet", price: "₹680", tag: "Chef's Pick", desc: "Served with asparagus and lemon butter glaze.", image: "https://images.unsplash.com/photo-1519708227418-c8fd9a3a1f7e?auto=format&fit=crop&q=80&w=800" },
+        { name: "Avocado Toast Royale", price: "₹320", tag: "Breakfast", desc: "Sourdough, poached egg, chili flakes, and microgreens.", image: "https://images.unsplash.com/photo-1588137372308-15f75323a675?auto=format&fit=crop&q=80&w=800" },
         { name: "Spiced Lamb Chops", price: "₹850", tag: "Premium", desc: "Marinated in rosemary and garlic, served with mash.", image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&w=800&q=80" },
         { name: "Classic Tiramisu", price: "₹290", tag: "Dessert", desc: "Espresso-soaked ladyfingers with mascarpone cream.", image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=800&q=80" },
         { name: "Berry Hibiscus Iced Tea", price: "₹180", tag: "New", desc: "Refreshing blend of hibiscus, berries, and mint.", image: "https://images.unsplash.com/photo-1499638673689-79a0b5115d87?auto=format&fit=crop&w=800&q=80" },

@@ -48,7 +48,7 @@ const UI06Footer = () => {
             </div>
 
             <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold uppercase tracking-wider">
-                <div>&copy; 2026 NEXA Events Inc.</div>
+                <div>&copy; 2026 CORE3. Designed by Kaustubh Ghadshi</div>
                 <div className="flex gap-8">
                     <a href="#" className="hover:text-white">Privacy Policy</a>
                     <a href="#" className="hover:text-white">Terms of Service</a>

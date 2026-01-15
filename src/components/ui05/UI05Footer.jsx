@@ -48,7 +48,7 @@ const UI05Footer = () => {
             </div>
 
             <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between text-sm gap-4">
-                <p>© 2024 AURA Audio Inc. All rights reserved.</p>
+                <p>© 2026 CORE3. Designed by Kaustubh Ghadshi</p>
                 <div className="flex gap-8">
                     <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
                     <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
