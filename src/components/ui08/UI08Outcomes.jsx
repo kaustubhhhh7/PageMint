@@ -1,81 +1,85 @@
-import React from 'react';
-import { Briefcase, Code, Cloud, Terminal, GitBranch, Layout } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Briefcase, CheckCircle } from 'lucide-react';
 
 const UI08Outcomes = () => {
-    const outcomes = [
-        { icon: Code, title: "Full-Stack Mastery", desc: "Build complete web apps from scratch." },
-        { icon: Cloud, title: "Cloud Deployment", desc: "Ship to AWS, Vercel, and Netlify." },
-        { icon: Briefcase, title: "Job Ready Portfolio", desc: "4 production-grade projects." },
-        { icon: Terminal, title: "Clean Code", desc: "Write maintainable, scalable logic." },
-        { icon: GitBranch, title: "Team Collaboration", desc: "Master Git and Pull Requests." },
-        { icon: Layout, title: "Design Systems", desc: "Implement pixel-perfect UI libraries." }
-    ];
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) setIsVisible(true);
+        }, { threshold: 0.3 });
+
+        const el = document.getElementById('outcomes-chart');
+        if (el) observer.observe(el);
+        return () => observer.disconnect();
+    }, []);
 
     return (
-        <section id="outcomes" className="py-24 bg-slate-900 text-white relative overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#4b5563 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
-
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <section id="outcomes" className="py-24 bg-white">
+            <div className="max-w-7xl mx-auto px-6">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
 
                     <div>
-                        <div className="text-orange-500 font-bold uppercase tracking-widest text-xs mb-4">Your Future</div>
-                        <h2 className="text-3xl md:text-5xl font-black mb-6">Don't just code.<br />Engineer solutions.</h2>
-                        <p className="text-slate-400 text-lg mb-12 max-w-md">
-                            Our graduates don't just know syntax—they know how to build, deploy, and scale real products in a professional environment.
+                        <div className="text-indigo-500 font-bold uppercase tracking-widest text-xs mb-4">Career Impact</div>
+                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6">We don't just teach code.<br />We launch careers.</h2>
+                        <p className="text-slate-500 text-lg mb-8 max-w-md">
+                            Employers don't care about certificates. They care about what you can ship. Our hiring partners actively recruit from our weekly demo days.
                         </p>
 
-                        <div className="grid sm:grid-cols-2 gap-6">
-                            {outcomes.map((item, i) => (
-                                <div key={i} className="flex gap-4">
-                                    <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-blue-400 shrink-0">
-                                        <item.icon size={20} />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-lg">{item.title}</h4>
-                                        <p className="text-sm text-slate-400">{item.desc}</p>
-                                    </div>
-                                </div>
-                            ))}
+                        <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                            <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                                <Briefcase size={18} className="text-indigo-500" /> Career Services Included
+                            </h4>
+                            <ul className="space-y-3">
+                                {["Resume Optimization", "LinkedIn Profile Audit", "Mock Technical Interviews", "Salary Negotiation Support"].map((item, i) => (
+                                    <li key={i} className="flex items-center gap-3 text-sm font-medium text-slate-600">
+                                        <CheckCircle size={16} className="text-green-500" />
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
                     </div>
 
-                    {/* Right: Skills Matrix Visualization */}
-                    <div className="bg-slate-800 rounded-2xl p-8 border border-slate-700 shadow-2xl">
-                        <div className="mb-6 flex items-center justify-between">
-                            <h3 className="font-bold text-lg">Skills Matrix Growth</h3>
-                            <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded font-mono">Job Ready</span>
-                        </div>
+                    {/* Right: Scoreboard Visual */}
+                    <div id="outcomes-chart" className="bg-slate-900 rounded-3xl p-8 lg:p-12 text-white shadow-2xl relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl -mr-16 -mt-16" />
 
-                        <div className="space-y-6">
+                        <h3 className="text-xl font-bold mb-8 relative z-10">Candidate Readiness Score</h3>
+
+                        <div className="space-y-8 relative z-10">
                             {[
-                                { skill: "Frontend Engineering", val: 92, color: "bg-blue-500" },
-                                { skill: "Backend Logic", val: 85, color: "bg-orange-500" },
-                                { skill: "Database Design", val: 78, color: "bg-purple-500" },
-                                { skill: "System Architecture", val: 70, color: "bg-pink-500" },
-                                { skill: "DevOps & CI/CD", val: 65, color: "bg-teal-500" }
-                            ].map((s, i) => (
+                                { label: "Technical Proficiency", val: 92, color: "bg-indigo-500" },
+                                { label: "System Design", val: 85, color: "bg-rose-500" },
+                                { label: "Communication", val: 98, color: "bg-teal-400" },
+                                { label: "Project Quality", val: 94, color: "bg-purple-500" }
+                            ].map((item, i) => (
                                 <div key={i}>
-                                    <div className="flex justify-between text-sm font-bold mb-2">
-                                        <span className="text-slate-300">{s.skill}</span>
-                                        <span className="text-slate-500">{s.val}%</span>
+                                    <div className="flex justify-between text-sm font-bold mb-2 text-slate-300">
+                                        <span>{item.label}</span>
+                                        <span className={isVisible ? 'opacity-100 transition-opacity duration-1000 delay-[500ms]' : 'opacity-0'}>{item.val}/100</span>
                                     </div>
-                                    <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                    <div className="h-3 bg-slate-700 rounded-full overflow-hidden">
                                         <div
-                                            className={`h-full rounded-full ${s.color} transition-all duration-1000 ease-out`}
-                                            style={{ width: `${s.val}%` }}
+                                            className={`h-full rounded-full ${item.color} transition-all duration-1500 ease-out`}
+                                            style={{ width: isVisible ? `${item.val}%` : '0%' }}
                                         />
                                     </div>
                                 </div>
                             ))}
                         </div>
 
-                        <div className="mt-8 pt-6 border-t border-slate-700 text-center">
-                            <button className="text-sm font-bold text-white hover:text-blue-400 transition-colors">
-                                Download Comprehensive Syllabus
-                            </button>
+                        <div className="mt-12 p-4 bg-white/5 rounded-xl border border-white/10 flex items-center justify-between">
+                            <div>
+                                <div className="text-xs text-slate-400 uppercase tracking-wider font-bold">Hiring Partners</div>
+                                <div className="text-lg font-bold">450+ Companies</div>
+                            </div>
+                            <div className="flex -space-x-2 opacity-80">
+                                {[1, 2, 3].map(i => <div key={i} className="w-8 h-8 rounded-full bg-slate-600 border border-slate-500" />)}
+                                <div className="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-[10px] text-white font-bold">+99</div>
+                            </div>
                         </div>
+
                     </div>
 
                 </div>
