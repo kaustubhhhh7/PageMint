@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { Command, Search, X, RefreshCw, Monitor, AppWindow, ArrowRight } from 'lucide-react';
 
 const uis = [
+    { id: '00', name: 'Home', tags: ['Hub', 'Start'], path: '/' },
     { id: '01', name: 'SaaS Landing', tags: ['Responsive', 'Pricing'], path: '/ui/01' },
     { id: '02', name: 'Restaurant Experience', tags: ['Visual', 'Menu'], path: '/ui/02' },
     { id: '03', name: 'Personal Portfolio', tags: ['Minimal', 'Profile'], path: '/ui/03' },
@@ -100,7 +101,7 @@ const UiSwitcher = () => {
     };
 
     // Helper to check if UI is active
-    const isActive = (path) => location.pathname.startsWith(path);
+    const isActive = (path) => path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
 
     console.log("Rendering UiSwitcher", { isOpen });
 
@@ -152,7 +153,16 @@ const UiSwitcher = () => {
                                     </span>
                                     <h2 className="text-sm font-bold text-slate-700 uppercase tracking-wider">Switch UI</h2>
                                 </div>
-                                <span className="text-xs text-slate-400 font-medium bg-white px-2 py-1 rounded border border-slate-100">ESC to close</span>
+                                <div className="flex items-center gap-2">
+                                    <span className="hidden sm:inline-block text-xs text-slate-400 font-medium bg-white px-2 py-1 rounded border border-slate-100">ESC to close</span>
+                                    <button
+                                        onClick={() => setIsOpen(false)}
+                                        className="p-1 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-lg transition-colors"
+                                        aria-label="Close"
+                                    >
+                                        <X size={18} />
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
@@ -166,14 +176,14 @@ const UiSwitcher = () => {
                                             key={ui.id}
                                             onClick={() => handleSelect(ui.path)}
                                             className={`flex items-center justify-between w-full p-3 rounded-xl text-left border transition-all duration-200 group ${active
-                                                    ? 'bg-teal-50 border-teal-200 shadow-sm ring-1 ring-teal-100'
-                                                    : 'bg-transparent border-transparent hover:bg-slate-50 hover:border-slate-100'
+                                                ? 'bg-teal-50 border-teal-200 shadow-sm ring-1 ring-teal-100'
+                                                : 'bg-transparent border-transparent hover:bg-slate-50 hover:border-slate-100'
                                                 }`}
                                         >
                                             <div className="flex items-center gap-4">
                                                 <div className={`flex items-center justify-center w-10 h-10 rounded-lg font-bold font-mono text-sm transition-colors ${active
-                                                        ? 'bg-teal-200 text-teal-800'
-                                                        : 'bg-slate-100 text-slate-500 group-hover:bg-teal-50 group-hover:text-teal-700'
+                                                    ? 'bg-teal-200 text-teal-800'
+                                                    : 'bg-slate-100 text-slate-500 group-hover:bg-teal-50 group-hover:text-teal-700'
                                                     }`}>
                                                     {ui.id}
                                                 </div>
@@ -185,8 +195,8 @@ const UiSwitcher = () => {
                                                     <div className="flex items-center gap-2 mt-0.5">
                                                         {ui.tags.map((tag, i) => (
                                                             <span key={i} className={`text-[10px] uppercase font-semibold px-1.5 py-0.5 rounded border transition-colors ${active
-                                                                    ? 'bg-white text-teal-600 border-teal-200'
-                                                                    : 'bg-slate-100 text-slate-400 border-slate-200 group-hover:border-teal-100 group-hover:text-teal-500'
+                                                                ? 'bg-white text-teal-600 border-teal-200'
+                                                                : 'bg-slate-100 text-slate-400 border-slate-200 group-hover:border-teal-100 group-hover:text-teal-500'
                                                                 }`}>
                                                                 {tag}
                                                             </span>

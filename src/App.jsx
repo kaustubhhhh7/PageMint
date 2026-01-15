@@ -15,13 +15,11 @@ import UI10 from './pages/ui/UI10';
 import ScrollToTop from './components/common/ScrollToTop';
 
 import UiSwitcher from './components/common/UiSwitcher';
-import UiIdentifier from './components/common/UiIdentifier';
 
 function App() {
   return (
     <Router>
       <UiSwitcher />
-      <UiIdentifier />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
