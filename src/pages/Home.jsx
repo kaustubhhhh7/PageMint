@@ -35,7 +35,7 @@ const Home = () => {
                               <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
                             </span>
                             <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-teal-700 to-blue-700">
-                                Crafted by KAUSTUBH <span className="text-teal-300 mx-1">•</span> Premium UI Interfaces
+                                Premium UI Interfaces
                             </span>
                         </div>
 
