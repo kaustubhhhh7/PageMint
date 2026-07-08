@@ -53,9 +53,9 @@ const Home = () => {
                         <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mb-4 sm:mb-10 px-4 sm:px-0">
                             <button 
                                 onClick={() => setShowExplore(true)} 
-                                className="group relative inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 bg-slate-700 text-white font-bold text-lg rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:bg-slate-600 hover:-translate-y-1 transition-all duration-300 overflow-hidden border border-slate-600"
+                                className="group relative inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 bg-slate-800 text-white font-bold text-lg rounded-full shadow-sm hover:shadow-md hover:bg-slate-700 hover:-translate-y-0.5 transition-all duration-300 overflow-hidden border border-slate-700"
                             >
-                                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer"></span>
+                                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-shimmer"></span>
                                 <span>Explore Interfaces</span>
                                 <svg className="w-5 h-5 text-teal-400 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
