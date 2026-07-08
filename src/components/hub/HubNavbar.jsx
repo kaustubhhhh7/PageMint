@@ -99,7 +99,7 @@ const HubNavbar = ({ isHidden }) => {
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="md:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200 absolute w-full shadow-lg">
+                <div className="md:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200 w-full shadow-lg">
                     <div className="px-4 pt-4 pb-6 space-y-2">
                         <div className="grid grid-cols-2 gap-3">
                             {navLinks.map((link) => (
