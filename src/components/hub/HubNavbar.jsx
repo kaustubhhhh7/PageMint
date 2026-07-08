@@ -131,7 +131,7 @@ const HubNavbar = ({ isHidden }) => {
             {!isHidden && (
                 <button
                     onClick={() => setIsVisible(!isVisible)}
-                    className="absolute top-full left-1/2 -translate-x-1/2 bg-white/70 backdrop-blur-md border border-t-0 border-slate-200 px-6 py-1 rounded-b-xl shadow-md hover:bg-white text-slate-500 hover:text-teal-600 transition-colors focus:outline-none flex items-center justify-center cursor-pointer"
+                    className="absolute top-full left-1/2 -translate-x-1/2 bg-white border border-t-0 border-slate-200 px-6 py-1 rounded-b-xl shadow-md hover:bg-slate-50 text-slate-500 hover:text-teal-600 transition-colors focus:outline-none flex items-center justify-center cursor-pointer"
                     title={isVisible ? "Hide Navbar" : "Show Navbar"}
                 >
                     {isVisible ? (
