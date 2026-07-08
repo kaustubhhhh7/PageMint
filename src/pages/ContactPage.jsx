@@ -3,11 +3,11 @@ import { Send, Sparkles, Mail, MapPin } from 'lucide-react';
 import Container from '../components/common/Container';
 
 const ContactPage = () => {
-    const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
+    const [formData, setFormData] = useState({ name: '', source: 'Friend', message: '' });
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const text = `*New Lead from PageMint Hub*%0A%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Message:* ${formData.message}`;
+        const text = `*New Lead from PageMint Hub*%0A%0A*Name:* ${formData.name}%0A*Source:* ${formData.source}%0A*Message:* ${formData.message}`;
         const whatsappUrl = `https://wa.me/918451851439?text=${text}`;
         window.open(whatsappUrl, '_blank');
     };
@@ -53,7 +53,7 @@ const ContactPage = () => {
                                     <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
                                         <Mail size={16} className="text-teal-400" />
                                     </div>
-                                    hello@kaustubh.com
+                                    kaustubh7205@gmail.com
                                 </div>
                                 <div className="flex items-center gap-4 text-sm font-medium text-slate-300">
                                     <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
@@ -70,37 +70,41 @@ const ContactPage = () => {
                         <form onSubmit={handleSubmit} className="w-full">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                                 <div>
-                                    <label className="block text-[11px] font-bold text-slate-400 mb-2 uppercase tracking-widest">Full Name</label>
+                                    <label className="block text-[11px] font-bold text-slate-700 mb-2 uppercase tracking-widest">Full Name</label>
                                     <input 
                                         required 
                                         type="text" 
                                         value={formData.name} 
                                         onChange={e => setFormData({...formData, name: e.target.value})} 
-                                        className="w-full bg-slate-50/50 px-4 py-3 rounded-xl border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all text-sm font-medium" 
+                                        className="w-full bg-slate-50/50 px-4 py-3 rounded-xl border border-slate-200 text-slate-900 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all text-sm font-medium" 
                                         placeholder="John Doe" 
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-[11px] font-bold text-slate-400 mb-2 uppercase tracking-widest">WhatsApp No.</label>
-                                    <input 
+                                    <label className="block text-[11px] font-bold text-slate-700 mb-2 uppercase tracking-widest">Where did you hear about us?</label>
+                                    <select 
                                         required 
-                                        type="tel" 
-                                        value={formData.phone} 
-                                        onChange={e => setFormData({...formData, phone: e.target.value})} 
-                                        className="w-full bg-slate-50/50 px-4 py-3 rounded-xl border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all text-sm font-medium" 
-                                        placeholder="+91 00000 00000" 
-                                    />
+                                        value={formData.source} 
+                                        onChange={e => setFormData({...formData, source: e.target.value})} 
+                                        className="w-full bg-slate-50/50 px-4 py-3 rounded-xl border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all text-sm font-medium"
+                                    >
+                                        <option value="Friend">Friend</option>
+                                        <option value="Colleague">Colleague</option>
+                                        <option value="College">College</option>
+                                        <option value="Social Media">Social Media</option>
+                                        <option value="Other">Other</option>
+                                    </select>
                                 </div>
                             </div>
                             
                             <div className="mb-8">
-                                <label className="block text-[11px] font-bold text-slate-400 mb-2 uppercase tracking-widest">Message</label>
+                                <label className="block text-[11px] font-bold text-slate-700 mb-2 uppercase tracking-widest">Message</label>
                                 <textarea 
                                     required 
                                     rows="3" 
                                     value={formData.message} 
                                     onChange={e => setFormData({...formData, message: e.target.value})} 
-                                    className="w-full bg-slate-50/50 px-4 py-3 rounded-xl border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all text-sm font-medium resize-none" 
+                                    className="w-full bg-slate-50/50 px-4 py-3 rounded-xl border border-slate-200 text-slate-900 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all text-sm font-medium resize-none" 
                                     placeholder="Tell us about your project..."
                                 ></textarea>
                             </div>
@@ -109,7 +113,7 @@ const ContactPage = () => {
                                 type="submit" 
                                 className="w-full flex items-center justify-center gap-3 py-4 bg-slate-900 text-white font-semibold text-sm rounded-xl shadow-lg shadow-slate-200 hover:shadow-xl hover:bg-slate-800 hover:-translate-y-0.5 transition-all duration-300 group"
                             >
-                                <span>Send to WhatsApp</span>
+                                <span>Send</span>
                                 <Send size={16} className="text-teal-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                             </button>
                         </form>
