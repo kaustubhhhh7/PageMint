@@ -9,7 +9,7 @@ const Home = () => {
     const [showExplore, setShowExplore] = useState(false);
 
     return (
-        <div className="min-h-screen overflow-x-hidden flex flex-col bg-stone-50 font-sans selection:bg-teal-100 selection:text-teal-700 pt-20">
+        <div className="h-[100dvh] overflow-hidden flex flex-col bg-stone-50 font-sans selection:bg-teal-100 selection:text-teal-700 pt-20">
 
             {/* Hero Section */}
             <main className="flex-1 flex flex-col justify-center relative overflow-hidden">
@@ -39,18 +39,18 @@ const Home = () => {
                             </span>
                         </div>
 
-                        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 md:text-6xl lg:text-7xl mb-4 sm:mb-6 leading-tight">
-                            <span className="block mb-2">PageMint</span>
+                        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 md:text-6xl lg:text-7xl mb-2 sm:mb-6 leading-tight">
+                            <span className="block mb-1 sm:mb-2">PageMint</span>
                             <span className="block text-teal-700 bg-clip-text text-transparent bg-gradient-to-r from-teal-700 to-teal-500">
                                 UI Showcase Hub
                             </span>
                         </h1>
 
-                        <p className="mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl text-slate-500 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed font-light px-4 sm:px-0">
+                        <p className="mt-3 sm:mt-6 text-base sm:text-lg lg:text-xl text-slate-500 max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed font-light px-4 sm:px-0">
                             A curated collection of <span className="font-semibold text-slate-900">10 distinct landing page experiences</span>.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mb-8 sm:mb-10 px-4 sm:px-0">
+                        <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mb-4 sm:mb-10 px-4 sm:px-0">
                             <button 
                                 onClick={() => setShowExplore(true)} 
                                 className="group relative inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-teal-400 to-emerald-400 text-white font-bold text-lg rounded-full shadow-lg shadow-teal-200/50 hover:shadow-xl hover:shadow-teal-200 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
