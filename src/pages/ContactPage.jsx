@@ -76,8 +76,8 @@ const ContactPage = () => {
                                         type="text" 
                                         value={formData.name} 
                                         onChange={e => setFormData({...formData, name: e.target.value})} 
-                                        className="w-full bg-slate-50/50 px-4 py-3 rounded-xl border border-slate-200 text-slate-900 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all text-sm font-medium" 
-                                        placeholder="John Doe" 
+                                        className="w-full bg-slate-50/50 px-4 py-3 rounded-xl border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all text-sm font-medium" 
+                                        placeholder="example 'kaustubh'" 
                                     />
                                 </div>
                                 <div>
@@ -104,7 +104,7 @@ const ContactPage = () => {
                                     rows="3" 
                                     value={formData.message} 
                                     onChange={e => setFormData({...formData, message: e.target.value})} 
-                                    className="w-full bg-slate-50/50 px-4 py-3 rounded-xl border border-slate-200 text-slate-900 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all text-sm font-medium resize-none" 
+                                    className="w-full bg-slate-50/50 px-4 py-3 rounded-xl border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all text-sm font-medium resize-none" 
                                     placeholder="Tell us about your project..."
                                 ></textarea>
                             </div>
