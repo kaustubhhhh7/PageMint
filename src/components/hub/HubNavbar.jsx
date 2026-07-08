@@ -29,7 +29,7 @@ const HubNavbar = ({ isHidden }) => {
     }, [navHidden]);
 
     return (
-        <nav id="hub-navbar" className={`fixed top-0 left-0 w-full z-[90] bg-white/70 backdrop-blur-md border-b border-slate-200 transition-transform duration-500 ${navHidden ? '-translate-y-full' : 'translate-y-0'}`}>
+        <nav id="hub-navbar" className={`fixed top-0 left-0 w-full z-[90] bg-white/70 backdrop-blur-md border-b border-slate-200 shadow-sm transition-transform duration-500 ${navHidden ? '-translate-y-full' : 'translate-y-0'}`}>
             <Container>
                 <div className="flex justify-between items-center h-20">
                     <div className="flex items-center gap-3">
